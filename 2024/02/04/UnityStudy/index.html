@@ -26,7 +26,7 @@
 <meta property="og:description" content="Unity 使用学习1.基本结构1.1.游戏物体 cube：正方体   sphere：球体   cylinder：圆柱   capsule：圆柱头   plane：平面  1.2.资源文件 模型文件Model（*.fbx） 图片文件Texture（*.jpg&#x2F;png&#x2F;psd&#x2F;tif） 音频文件AudioClip（*.mp3&#x2F;wav&#x2F;aiff） 脚本">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-04T14:18:29.000Z">
-<meta property="article:modified_time" content="2024-02-05T03:40:11.234Z">
+<meta property="article:modified_time" content="2024-02-05T08:28:19.609Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -703,8 +703,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-02-05 11:40:11</span>
-            <span class="mobile">2024-02-05 11:40:11</span>
+            <span class="desktop">2024-02-05 16:28:19</span>
+            <span class="mobile">2024-02-05 16:28:19</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -726,12 +726,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>340 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>596 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 Mins</span>
         </span>
     
     
@@ -778,6 +778,7 @@
 <h4 id="1-4-2-移动方式"><a href="#1-4-2-移动方式" class="headerlink" title="1.4.2 移动方式"></a>1.4.2 移动方式</h4><ol>
 <li>手工移动</li>
 <li>Align with View，与3D视图对其<br>-&gt;在3D视图里面摆好角度<br>-&gt;选中camera，执行Gameobject<br>-&gt;Align with View（ctrl+shift+F）</li>
+<li>可以使视角跟随物体运动：<br>-&gt;Edit<br>-&gt;Lock View to Seleted</li>
 </ol>
 <h3 id="1-5-脚本"><a href="#1-5-脚本" class="headerlink" title="1.5.脚本"></a>1.5.脚本</h3><h4 id="1-5-1-脚本创建和挂载"><a href="#1-5-1-脚本创建和挂载" class="headerlink" title="1.5.1 脚本创建和挂载"></a>1.5.1 脚本创建和挂载</h4><ul>
 <li>脚本创建和编写</li>
@@ -785,9 +786,19 @@
 </ul>
 <h4 id="1-5-2-脚本控制物体实例"><a href="#1-5-2-脚本控制物体实例" class="headerlink" title="1.5.2 脚本控制物体实例"></a>1.5.2 脚本控制物体实例</h4><div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform.Position,物体世界坐标  </span><br><span class="line">transform.LocalPosition,物体本地坐标</span><br></pre></td></tr></table></figure></div>
 <h3 id="1-6-帧更新"><a href="#1-6-帧更新" class="headerlink" title="1.6.帧更新"></a>1.6.帧更新</h3><ul>
-<li>Update（）函数为帧更新函数,常用帧率观察：<br>Time.time，游戏时间<br>Time.deltaTime，距离上次更新时间  <div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span>  </span><br><span class="line">    &#123;  </span><br><span class="line">      Debug.log(<span class="string">&quot;每秒至少60帧&quot;</span>);  </span><br><span class="line">	&#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">- 可以设置unity的帧率：  </span><br><span class="line">```c<span class="meta">#  </span></span><br><span class="line">Application.targetFrameRate = <span class="number">60</span>; <span class="comment">//将帧率调整为尽量60帧每秒</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>Update（）函数为帧更新函数,常用帧率观察：<br>Time.time，游戏时间<br>Time.deltaTime，距离上次更新时间  </p>
+<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">      Debug.log(<span class="string">&quot;每秒至少60帧&quot;</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>可以设置unity的帧率：  </p>
+<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application.targetFrameRate = <span class="number">60</span>; <span class="comment">//将帧率调整为尽量60帧每秒</span></span><br></pre></td></tr></table></figure></div></li>
 </ul>
-<p>##附：unity以及rider快捷键<br>rider：ctrl+K，ctrl+C</p>
+<h3 id="1-7-物体的运动"><a href="#1-7-物体的运动" class="headerlink" title="1.7.物体的运动"></a>1.7.物体的运动</h3><ul>
+<li>物体运动实例<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">float</span> speed = <span class="number">2f</span>; <span class="comment">//设置速度</span></span><br><span class="line">        Vector3 pos = <span class="keyword">this</span>.transform.position; <span class="comment">//获取当前位置</span></span><br><span class="line">        pos.z += speed * Time.deltaTime; <span class="comment">//从速度与帧同步的联系，更改目标</span></span><br><span class="line">        <span class="keyword">this</span>.transform.position = pos; <span class="comment">//将物体移动</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+也可以使用transform.Translate(dx, dy, dz, Space.World&#x2F;Space.Self)作为物体移动：<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> speed = <span class="number">2f</span>;</span><br><span class="line"><span class="built_in">float</span> distance = speed * Time.deltaTime;</span><br><span class="line"><span class="keyword">this</span>.transform.Translate(distance, <span class="number">0</span>, distance); <span class="comment">//Transform.Translate(dx, dy, dz)方法可以直接在不同方向上做增量</span></span><br></pre></td></tr></table></figure></div>
+改变运动的方向<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameObject flag = GameObject.Find(<span class="string">&quot;flag&quot;</span>); <span class="comment">//Gameobject.Find(&quot;name_or_path&quot;)找到目标物体位置</span></span><br><span class="line"><span class="keyword">this</span>.transform.LookAt(flag.transform); <span class="comment">//transform.LookAt(targetGameobject.Transform)将火车头转向目标位置</span></span><br><span class="line"><span class="keyword">this</span>.transform.Translate(<span class="number">0</span>, <span class="number">0</span>, distance, Space.Self); <span class="comment">//Transform.Translate(dx, dy, dz)方法可以直接在不同方向上做增量</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="附：unity以及rider快捷键"><a href="#附：unity以及rider快捷键" class="headerlink" title="附：unity以及rider快捷键"></a>附：unity以及rider快捷键</h2><h3 id="rider："><a href="#rider：" class="headerlink" title="rider："></a>rider：</h3><p>快速注释：ctrl+K，ctrl+C<br>选中当前灭光标所在单词：ctrl+W<br>多光标：shift+alt+鼠标&#x2F;上下键</p>
+<h3 id="unity："><a href="#unity：" class="headerlink" title="unity："></a>unity：</h3><p>可以使视角跟随物体运动：-&gt;Edit-&gt;Lock View to Seleted</p>
 
         </div>
 
@@ -802,7 +813,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-02-05 11:40:11
+                    :</strong> 2024-02-05 16:28:19
             </li>
         
         <li>
@@ -910,7 +921,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">UnityStudy</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">Unity 使用学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">1.基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="nav-text">1.1.游戏物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-text">1.2.资源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B5%84%E6%BA%90%E5%8C%85"><span class="nav-text">1.3.资源包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E6%91%84%E5%83%8F%E6%9C%BA"><span class="nav-text">1.4.摄像机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E8%84%9A%E6%9C%AC"><span class="nav-text">1.5.脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E5%B8%A7%E6%9B%B4%E6%96%B0"><span class="nav-text">1.6.帧更新</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">Unity 使用学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">1.基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="nav-text">1.1.游戏物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-text">1.2.资源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B5%84%E6%BA%90%E5%8C%85"><span class="nav-text">1.3.资源包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E6%91%84%E5%83%8F%E6%9C%BA"><span class="nav-text">1.4.摄像机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E8%84%9A%E6%9C%AC"><span class="nav-text">1.5.脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E5%B8%A7%E6%9B%B4%E6%96%B0"><span class="nav-text">1.6.帧更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E7%89%A9%E4%BD%93%E7%9A%84%E8%BF%90%E5%8A%A8"><span class="nav-text">1.7.物体的运动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%EF%BC%9Aunity%E4%BB%A5%E5%8F%8Arider%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">附：unity以及rider快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rider%EF%BC%9A"><span class="nav-text">rider：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unity%EF%BC%9A"><span class="nav-text">unity：</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
