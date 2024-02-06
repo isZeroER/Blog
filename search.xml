@@ -33,27 +33,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UnityStudy</title>
     <url>/Blog/2024/02/04/UnityStudy/</url>
     <content><![CDATA[<h1 id="Unity-使用学习"><a href="#Unity-使用学习" class="headerlink" title="Unity 使用学习"></a>Unity 使用学习</h1><ul>
@@ -74,6 +53,7 @@
 <li>材质文件Meterial（*.mat）</li>
 <li>场景文件Scene（*.unity）</li>
 <li>描述文件Meta（*.meta）</li>
+<li>预制体文件Prefab（*.prefab）</li>
 </ul>
 <h3 id="1-3-资源包"><a href="#1-3-资源包" class="headerlink" title="1.3.资源包"></a>1.3.资源包</h3><ul>
 <li>选中资源文件或者目录</li>
@@ -136,10 +116,45 @@
 </ol>
 <h3 id="2-9-脚本资源使用"><a href="#2-9-脚本资源使用" class="headerlink" title="2.9.脚本资源使用"></a>2.9.脚本资源使用</h3><h4 id="2-9-1单个资源使用"><a href="#2-9-1单个资源使用" class="headerlink" title="2.9.1单个资源使用"></a>2.9.1单个资源使用</h4><ul>
 <li>在脚本中，资源对应变量：<br>音频文件：AudioClip<br>纹理贴图：Texture<br>材质：Material</li>
-<li>以音频文件的使用为例：<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> AudioClip chgeAudio; <span class="comment">//定义音频文件</span></span><br><span class="line"><span class="keyword">private</span> AudioSource audioIndex; <span class="comment">//定义音频组件</span></span><br><span class="line"></span><br><span class="line">audioIndex = <span class="keyword">this</span>.transform.GetComponent&lt;AudioSource&gt;(); <span class="comment">//获取组件</span></span><br><span class="line">audioIndex.PlayOneShot(chgeAudio); <span class="comment">//使用组件播放音频文件</span></span><br></pre></td></tr></table></figure></div></li>
+<li>以音频文件的使用为例：<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> AudioClip chgeAudio; <span class="comment">//定义音频文件</span></span><br><span class="line"><span class="keyword">private</span> AudioSource audioIndex; <span class="comment">//定义音频组件</span></span><br><span class="line">audioIndex = <span class="keyword">this</span>.transform.GetComponent&lt;AudioSource&gt;(); <span class="comment">//获取组件</span></span><br><span class="line">audioIndex.PlayOneShot(chgeAudio); <span class="comment">//使用组件播放音频文件</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="2-10-定时调用"><a href="#2-10-定时调用" class="headerlink" title="2.10.定时调用"></a>2.10.定时调用</h3><ul>
+<li>定时调用Invoke*，即一般所谓的定时器<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.Invoke(<span class="string">&quot;Func&quot;</span>, delay); <span class="comment">//定时delay秒后进行Func函数调用</span></span><br><span class="line"><span class="keyword">this</span>.InvokeRepeating(<span class="string">&quot;Func&quot;</span>, delay, interval); <span class="comment">//每隔interval秒调用一次</span></span><br><span class="line"><span class="keyword">this</span>.IsInvoking(<span class="string">&quot;Func&quot;</span>); <span class="comment">//是否正在调度中，返回bool</span></span><br><span class="line"><span class="keyword">this</span>.CancelInvoke(<span class="string">&quot;Func&quot;</span>); <span class="comment">//取消调用，从调度队列中移除</span></span><br><span class="line"><span class="keyword">this</span>.CancelInvoke(); <span class="comment">//取消当前脚本所有调度</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="2-11-向量使用"><a href="#2-11-向量使用" class="headerlink" title="2.11.向量使用"></a>2.11.向量使用</h3><p>简单使用  </p>
+<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">Vector3 v = <span class="keyword">new</span> Vector3(x, y, z); <span class="comment">//向量创建</span></span><br><span class="line"><span class="built_in">float</span> v = v.magnitude; <span class="comment">//获取向量模</span></span><br><span class="line">Vector3 v1 = v.normalized; <span class="comment">//标准化向量（模长为1）</span></span><br><span class="line">Vector.Distance(a, b); <span class="comment">//直接计算两个点之间举例</span></span><br></pre></td></tr></table></figure></div>
+<p>常用几个向量：<br>Vector3.zero:(0, 0, 0)<br>Vector3.up:(0, 1, 0)<br>Vector3.right:(1, 0, 0)<br>Vector3.forward:(0, 0, 1)<br>向量乘法、点积和叉积：  </p>
+<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">b = a * <span class="number">2</span>;</span><br><span class="line">c = Vector3.Dot(a, b); <span class="comment">//点积</span></span><br><span class="line">c = Vector3.Cross(a, b); <span class="comment">//叉积</span></span><br><span class="line">```  </span><br><span class="line">可以使用向量作为参数：</span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line"><span class="keyword">public</span> Vector3 speed; <span class="comment">//在inspector中将向量速度输入</span></span><br><span class="line"><span class="keyword">this</span>.Transform.Translate(speed * Time.deltaTime, Space.Self); <span class="comment">//直接将向量参数输入</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="2-12-预制体使用"><a href="#2-12-预制体使用" class="headerlink" title="2.12.预制体使用"></a>2.12.预制体使用</h3><ul>
+<li>预制体的生成与使用</li>
+<li>预制体的三种编辑方式<br>1.单独编辑：双击预制体<br>2.原位编辑：选择实例Instance，Inspector里面选择open<br>3.覆盖修改：选中Instance，编辑后选中Overri|Apply，应用编辑；Override|Revert，取消编辑</li>
+<li>脚本创建预制体实例  <div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">Object.Instantiate(prefab, parent); <span class="comment">//prebfab是预制体，parent是可以设置预制体的生成父节点。返回值为一个GameObject</span></span><br></pre></td></tr></table></figure></div></li>
+<li>创建实例后的初始化<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">Instance.transform.position = (x, y, z); <span class="comment">//可以使用空节点作为定位，获取空节点位置</span></span><br><span class="line">Instance.transform.eulerAngles = (x, y, z); <span class="comment">//实例的角度</span></span><br></pre></td></tr></table></figure></div></li>
+<li>实例的销毁  <div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">Object.Destroy(Instance, delay); <span class="comment">//delay秒后销毁实例对象。Destroy会在Update之后执行</span></span><br></pre></td></tr></table></figure></div></li>
 </ul>
 <h2 id="附：unity以及rider快捷键"><a href="#附：unity以及rider快捷键" class="headerlink" title="附：unity以及rider快捷键"></a>附：unity以及rider快捷键</h2><h3 id="rider："><a href="#rider：" class="headerlink" title="rider："></a>rider：</h3><p>快速注释：ctrl+K，ctrl+C<br>选中当前灭光标所在单词：ctrl+W<br>多光标：shift+alt+鼠标&#x2F;上下键</p>
 <h3 id="unity："><a href="#unity：" class="headerlink" title="unity："></a>unity：</h3><p>可以使视角跟随物体运动：-&gt;Edit-&gt;Lock View to Seleted</p>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
       <tags>
         <tag>study</tag>
