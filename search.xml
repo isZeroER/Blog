@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>.fbx文件使用</title>
     <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
@@ -106,7 +127,7 @@
 <li>键盘输入<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">Input.GetKeyDown(keycode); <span class="comment">//键盘按下</span></span><br><span class="line">Input.GetKeyUp(keycode); <span class="comment">//键盘松开</span></span><br><span class="line">Input.GetKey(keycode); <span class="comment">//键盘按住</span></span><br><span class="line">Keycode.A; <span class="comment">//键盘A</span></span><br></pre></td></tr></table></figure></div></li>
 </ul>
 <h3 id="2-7-组件调用"><a href="#2-7-组件调用" class="headerlink" title="2.7.组件调用"></a>2.7.组件调用</h3><ul>
-<li>以音乐播放器为例<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">AudioSource audio = <span class="keyword">this</span>.GetComponent&lt;AudioSource&gt;(); <span class="comment">//获取AudioSource组件</span></span><br><span class="line">audio.Play(); <span class="comment">//播放</span></span><br><span class="line">```  </span><br><span class="line">其中&lt;&gt;表示泛型，即获取&lt;AudioSource&gt;类型的组件  </span><br><span class="line">- 也可以直接将所需要组件以<span class="keyword">public</span>写出，拖拽组件所在节点，便会自动寻找到节点中的该组件</span><br><span class="line">- 引用其他节点中的脚本组件同理可得，然后对组件中进行函数调用、属性修改等等</span><br><span class="line">- 还可以使用消息调用方法： </span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line"><span class="keyword">public</span> Gameobject <span class="built_in">object</span>;</span><br><span class="line"><span class="built_in">object</span>.SendMessage(<span class="string">&quot;Method&quot;</span>, index);</span><br><span class="line">```  </span><br><span class="line">SendMessage的内部执行（反射机制，本质上是同步调用）：  </span><br><span class="line"><span class="number">1.</span>找到target节点下所有组件  </span><br><span class="line"><span class="number">2.</span>寻找Method函数  </span><br><span class="line">-&gt; 如果存在,调用它  </span><br><span class="line">-&gt; 如果不存在，继续遍历组件查找  </span><br><span class="line">-&gt; 最终如果无法匹配，则报错  </span><br><span class="line"></span><br><span class="line"><span class="meta">### 2.8.物体获取</span></span><br><span class="line"><span class="meta">#### 2.8.1.直接获取物体</span></span><br><span class="line">- 通过Find方法（名字和路径）获取：  </span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line">Gameobject <span class="built_in">object</span> = Gameobject.Find(<span class="string">&quot;name_or_path&quot;</span>); <span class="comment">//指定name或者path获取</span></span><br><span class="line">```  </span><br><span class="line">这种方法两个弊端：   </span><br><span class="line"><span class="number">1.</span>不安全：如果修改节点名称，那么查找不到  </span><br><span class="line"><span class="number">2.</span>需要遍历查找  </span><br><span class="line">- 通过inspector拖拽获取  </span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line"><span class="keyword">public</span> Gameobject <span class="built_in">object</span>; <span class="comment">//定义一个public变量，在inspector可以获取</span></span><br></pre></td></tr></table></figure></div></li>
+<li>以音乐播放器为例  <div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">AudioSource audio = <span class="keyword">this</span>.GetComponent&lt;AudioSource&gt;(); <span class="comment">//获取AudioSource组件</span></span><br><span class="line">audio.Play(); <span class="comment">//播放</span></span><br><span class="line">```  </span><br><span class="line">其中&lt;&gt;表示泛型，即获取&lt;AudioSource&gt;类型的组件  </span><br><span class="line">- 也可以直接将所需要组件以<span class="keyword">public</span>写出，拖拽组件所在节点，便会自动寻找到节点中的该组件</span><br><span class="line">- 引用其他节点中的脚本组件同理可得，然后对组件中进行函数调用、属性修改等等</span><br><span class="line">- 还可以使用消息调用方法： </span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line"><span class="keyword">public</span> Gameobject <span class="built_in">object</span>;</span><br><span class="line"><span class="built_in">object</span>.SendMessage(<span class="string">&quot;Method&quot;</span>, index);</span><br><span class="line">```  </span><br><span class="line">SendMessage的内部执行（反射机制，本质上是同步调用）：  </span><br><span class="line"><span class="number">1.</span>找到target节点下所有组件  </span><br><span class="line"><span class="number">2.</span>寻找Method函数  </span><br><span class="line">-&gt; 如果存在,调用它  </span><br><span class="line">-&gt; 如果不存在，继续遍历组件查找  </span><br><span class="line">-&gt; 最终如果无法匹配，则报错  </span><br><span class="line"></span><br><span class="line"><span class="meta">### 2.8.物体获取</span></span><br><span class="line"><span class="meta">#### 2.8.1.直接获取物体</span></span><br><span class="line">- 通过Find方法（名字和路径）获取：   </span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line">Gameobject <span class="built_in">object</span> = Gameobject.Find(<span class="string">&quot;name_or_path&quot;</span>); <span class="comment">//指定name或者path获取</span></span><br><span class="line">```  </span><br><span class="line">这种方法两个弊端：   </span><br><span class="line"><span class="number">1.</span>不安全：如果修改节点名称，那么查找不到  </span><br><span class="line"><span class="number">2.</span>需要遍历查找  </span><br><span class="line">- 通过inspector拖拽获取  </span><br><span class="line">```c<span class="meta">#</span></span><br><span class="line"><span class="keyword">public</span> Gameobject <span class="built_in">object</span>; <span class="comment">//定义一个public变量，在inspector可以获取</span></span><br></pre></td></tr></table></figure></div></li>
 </ul>
 <h4 id="2-8-2-父子物体获取"><a href="#2-8-2-父子物体获取" class="headerlink" title="2.8.2.父子物体获取"></a>2.8.2.父子物体获取</h4><p><strong>获取需要使用Transform作为媒介</strong>  </p>
 <ol>
@@ -134,27 +155,6 @@
 </ul>
 <h2 id="3-物理与特效"><a href="#3-物理与特效" class="headerlink" title="3.物理与特效"></a>3.物理与特效</h2><h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><h2 id="附：unity以及rider快捷键"><a href="#附：unity以及rider快捷键" class="headerlink" title="附：unity以及rider快捷键"></a>附：unity以及rider快捷键</h2><h3 id="rider："><a href="#rider：" class="headerlink" title="rider："></a>rider：</h3><p>快速注释：ctrl+K，ctrl+C<br>选中当前灭光标所在单词：ctrl+W<br>多光标：shift+alt+鼠标&#x2F;上下键</p>
 <h3 id="unity："><a href="#unity：" class="headerlink" title="unity："></a>unity：</h3><p>可以使视角跟随物体运动：-&gt;Edit-&gt;Lock View to Seleted</p>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
       <tags>
         <tag>study</tag>
