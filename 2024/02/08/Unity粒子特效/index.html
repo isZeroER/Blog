@@ -26,7 +26,7 @@
 <meta property="og:description" content="Unity Particle System1.1.粒子系统 添加一个ParticleSystem 预览与运行 模块与参数1个主模块（基础参数）和22个子模块（扩展参数）默认启用3个子模块：   Emission，发射的频率 Shape，粒子发生器的形状 Render，粒子的显示  1.2.粒子本质 粒子是一个个小纸片，而粒子系统就是一个不短创建并且发射出去的粒子发生器 可以使用Render中的re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-08T06:18:34.000Z">
-<meta property="article:modified_time" content="2024-02-08T08:44:47.229Z">
+<meta property="article:modified_time" content="2024-02-08T13:15:29.731Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
     
     <script id="hexo-configurations">
     window.config = {"hostname":"iszeroer.github.io","root":"/Blog/","language":"en","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#bd80e0","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://pic.imgdb.cn/item/65bcd0ed871b83018a8b6b33.jpg","dark":"https://pic.imgdb.cn/item/65bc6f37871b83018a50637e.webp"},"title":"Zero","subtitle":{"text":["To Record","To Share","To Promove"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":200,"backing_speed":80,"starting_delay":700,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/isZeroER","instagram":null,"zhihu":null,"twitter":null,"email":"1803208661@qq.com"},"qrs":{"weixin":"https://h5.qzone.qq.com/page/photo?init=photo.v7/common/viewer2/index&picKey=NR8AVjZiQ2dBeE9EQXpNakE0TmpZeC5xLjhaYngyQlNZIQcAcGhvdG9uag!!&ownerUin=1803208661&appid=4&topicId=V118Fg9G2c1XPy_NR8AVjZiQ2dBeE9EQXpNakE0TmpZeC5xLjhaYngyQlNZIQcAcGhvdG9uag!!_0_0&pre=http%3A%2F%2Fa1.qpic.cn%2Fpsc%3F%2FV118Fg9G2c1XPy%2FruAMsa53pVQWN7FLK88i5nQ7Lfd2trIyB8S5ZDXE0KK0wSS3Oz1QaoFrWwoe.f16MopF5sADXM6jst3pFOPNsZwIG9eO2WfuZCOiowg6o*k!%2Fm%26ek%3D1%26kp%3D1%26pt%3D0%26bo%3DMgSsBTIErAUHFzY!%26t%3D5%26tl%3D3%26vuin%3D1803208661%26tm%3D1706864400%26dis_t%3D1706864692%26dis_k%3D7ed9f8de4f1e65dcdd9bab0135653536%26sce%3D60-3-3%26rf%3D0-0&useqzfl=1&useinterface=1&noCloseBtn=0&inqq=1","alipay":"https://h5.qzone.qq.com/page/photo?init=photo.v7/common/viewer2/index&picKey=NR8AVjZiQ2dBeE9EQXpNakE0TmpZeGZiQzhaUWNJNURBIQcAcGhvdG9uag!!&ownerUin=1803208661&appid=4&topicId=V118Fg9G2c1XPy_NR8AVjZiQ2dBeE9EQXpNakE0TmpZeGZiQzhaUWNJNURBIQcAcGhvdG9uag!!_841609338_4&pre=http%3A%2F%2Fa1.qpic.cn%2Fpsc%3F%2FV118Fg9G2c1XPy%2FruAMsa53pVQWN7FLK88i5ipbDVGEO*6YDoj8qcV*Ko.pQV7oAuo2rosKYK7FrD5Q34002BVKzRvaER.tfhPKl4UbtIzLupxR*TWV7qagcdU!%2Fm%26ek%3D1%26kp%3D1%26pt%3D0%26bo%3D5AOJBOQDiQQBFzA!%26t%3D5%26tl%3D3%26vuin%3D1803208661%26tm%3D1706864400%26dis_t%3D1706864837%26dis_k%3De35f607b08c76dd16d850035b9892a7d%26sce%3D60-3-3%26rf%3D0-0&useqzfl=1&useinterface=1&noCloseBtn=0&inqq=1"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Github":{"path":"https://github.com/","icon":"fa-g"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Albums":{"path":"/masonry","icon":"fa-solid fa-image"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/EvanNotFound/hexo-theme-redefine","Blog":"https://ohevan.com","Tags":"/tags/","Friends":"/friends"}},"Links":{"icon":"fa-regular fa-link","submenus":{"Link1":"/link1","Link2":"/link2","Link3":"/link3"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":"未经允许，不准转载","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/2/1 18:00:00"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#bd80e0","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://pic.imgdb.cn/item/65bcd0ed871b83018a8b6b33.jpg","dark":"https://pic.imgdb.cn/item/65bc6f37871b83018a50637e.webp"},"title":"Zero","subtitle":{"text":["To Record","To Share","To Promove"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":200,"backing_speed":80,"starting_delay":700,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/isZeroER","instagram":null,"zhihu":null,"twitter":null,"email":"1803208661@qq.com"},"qrs":{"weixin":"https://h5.qzone.qq.com/page/photo?init=photo.v7/common/viewer2/index&picKey=NR8AVjZiQ2dBeE9EQXpNakE0TmpZeC5xLjhaYngyQlNZIQcAcGhvdG9uag!!&ownerUin=1803208661&appid=4&topicId=V118Fg9G2c1XPy_NR8AVjZiQ2dBeE9EQXpNakE0TmpZeC5xLjhaYngyQlNZIQcAcGhvdG9uag!!_0_0&pre=http%3A%2F%2Fa1.qpic.cn%2Fpsc%3F%2FV118Fg9G2c1XPy%2FruAMsa53pVQWN7FLK88i5nQ7Lfd2trIyB8S5ZDXE0KK0wSS3Oz1QaoFrWwoe.f16MopF5sADXM6jst3pFOPNsZwIG9eO2WfuZCOiowg6o*k!%2Fm%26ek%3D1%26kp%3D1%26pt%3D0%26bo%3DMgSsBTIErAUHFzY!%26t%3D5%26tl%3D3%26vuin%3D1803208661%26tm%3D1706864400%26dis_t%3D1706864692%26dis_k%3D7ed9f8de4f1e65dcdd9bab0135653536%26sce%3D60-3-3%26rf%3D0-0&useqzfl=1&useinterface=1&noCloseBtn=0&inqq=1","alipay":"https://h5.qzone.qq.com/page/photo?init=photo.v7/common/viewer2/index&picKey=NR8AVjZiQ2dBeE9EQXpNakE0TmpZeGZiQzhaUWNJNURBIQcAcGhvdG9uag!!&ownerUin=1803208661&appid=4&topicId=V118Fg9G2c1XPy_NR8AVjZiQ2dBeE9EQXpNakE0TmpZeGZiQzhaUWNJNURBIQcAcGhvdG9uag!!_841609338_4&pre=http%3A%2F%2Fa1.qpic.cn%2Fpsc%3F%2FV118Fg9G2c1XPy%2FruAMsa53pVQWN7FLK88i5ipbDVGEO*6YDoj8qcV*Ko.pQV7oAuo2rosKYK7FrD5Q34002BVKzRvaER.tfhPKl4UbtIzLupxR*TWV7qagcdU!%2Fm%26ek%3D1%26kp%3D1%26pt%3D0%26bo%3D5AOJBOQDiQQBFzA!%26t%3D5%26tl%3D3%26vuin%3D1803208661%26tm%3D1706864400%26dis_t%3D1706864837%26dis_k%3De35f607b08c76dd16d850035b9892a7d%26sce%3D60-3-3%26rf%3D0-0&useqzfl=1&useinterface=1&noCloseBtn=0&inqq=1"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Ethereal","artist":"Little End","url":"https://tool.liumingye.cn/music/?page=searchPage#/search/M/song/little%20end","cover":"https://i.biliimg.com/bfs/im/6939ce132f48d7f5be5d8f6558fcf6009dabbbaf.png@400w_400h_1c.webp"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Github":{"path":"https://github.com/","icon":"fa-g"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Albums":{"path":"/masonry","icon":"fa-solid fa-imge"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/EvanNotFound/hexo-theme-redefine","Blog":"https://ohevan.com","Tags":"/tags/","Friends":"/friends"}},"Links":{"icon":"fa-regular fa-link","submenus":{"Link1":"/link1","Link2":"/link2","Link3":"/link3"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":"未经允许，不准转载","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/2/1 18:00:00"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":true};
   </script>
@@ -353,7 +353,7 @@
                                 <a class=""
                                    href="/Blog/masonry"
                                         >
-                                    <i class="fa-solid fa-image fa-fw"></i>
+                                    <i class="fa-solid fa-imge fa-fw"></i>
                                     ALBUMS
                                     
                                 </a>
@@ -541,7 +541,7 @@
                                 ALBUMS
                             </span>
                             
-                                <i class="fa-solid fa-image fa-sm fa-fw"></i>
+                                <i class="fa-solid fa-imge fa-sm fa-fw"></i>
                             
                         </a>
                         
@@ -703,8 +703,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-02-08 16:44:47</span>
-            <span class="mobile">2024-02-08 16:44:47</span>
+            <span class="desktop">2024-02-08 21:15:29</span>
+            <span class="mobile">2024-02-08 21:15:29</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -742,7 +742,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>168 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>500 Words</span>
         </span>
     
     
@@ -783,6 +783,28 @@
 <h3 id="1-3-贴图"><a href="#1-3-贴图" class="headerlink" title="1.3.贴图"></a>1.3.贴图</h3><ul>
 <li>对于贴图material，使用着色器：<br>Shader：Praticles|Standered Unit<br>Render Mode:Additive<br>Color Mode:Multiply<br>Albedo:指定贴图</li>
 </ul>
+<h3 id="1-4-周期和时长"><a href="#1-4-周期和时长" class="headerlink" title="1.4.周期和时长"></a>1.4.周期和时长</h3><ul>
+<li>Duration：周期，粒子系统的工作时长</li>
+<li>Looping：循环，粒子系统工作一次&#x2F;循环工作</li>
+<li>Prewarm：预热，粒子系统是否先预热一个周期</li>
+<li>Strat Lifetime：粒子的生命时长，默认五秒</li>
+</ul>
+<h3 id="1-5-模拟空间"><a href="#1-5-模拟空间" class="headerlink" title="1.5.模拟空间"></a>1.5.模拟空间</h3><ul>
+<li>Simulation Space模块<br>Local，本地空间，粒子会以粒子发生器为中心<br>World，世界空间，粒子使用世界坐标系</li>
+</ul>
+<h3 id="1-6-发射"><a href="#1-6-发射" class="headerlink" title="1.6.发射"></a>1.6.发射</h3><h4 id="1-6-1-发射方式"><a href="#1-6-1-发射方式" class="headerlink" title="1.6.1.发射方式"></a>1.6.1.发射方式</h4><ul>
+<li>Emission：匀速发射<br>Rate over Time:按时间发射（一般用于静止）<br>Rate over Distance：按距离发射（一般用于运动物体）<br>Max Particles：最大存在粒子数</li>
+<li>Brusts：爆发式发射<br>Time：爆炸发生时间<br>Count：爆出多少个粒子<br>Cycles&#x2F;Interval：爆炸次数&#x2F;间隔<br>Probability：爆炸的可能概率，0表示不会爆炸</li>
+</ul>
+<h4 id="1-6-2-发射器形状"><a href="#1-6-2-发射器形状" class="headerlink" title="1.6.2.发射器形状"></a>1.6.2.发射器形状</h4><ul>
+<li>Shape模块<br>Cone：锥形<br>Sphere：球形<br>Hemisphere：半球形<br>Box：盒形<br>Circle：圆形<br>Rectangle：长方形</li>
+</ul>
+<h3 id="1-7-渐变"><a href="#1-7-渐变" class="headerlink" title="1.7.渐变"></a>1.7.渐变</h3><h4 id="1-7-1-颜色渐变"><a href="#1-7-1-颜色渐变" class="headerlink" title="1.7.1.颜色渐变"></a>1.7.1.颜色渐变</h4><ul>
+<li>Color over Lifetime模块<br>上面是透明度，下面是颜色，可以在上面设置多个透明度，以达到淡入淡出的效果<br>颜色的最终值 &#x3D; 初始颜色 * Color over Time设置的颜色（RGB分别相乘）</li>
+</ul>
+<h4 id="1-7-2-大小渐变"><a href="#1-7-2-大小渐变" class="headerlink" title="1.7.2.大小渐变"></a>1.7.2.大小渐变</h4><ul>
+<li>Size over Lifetime模块<br>曲线变化：横坐标lifetime，纵坐标size</li>
+</ul>
 
         </div>
 
@@ -797,7 +819,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-02-08 16:44:47
+                    :</strong> 2024-02-08 21:15:29
             </li>
         
         <li>
@@ -905,7 +927,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Unity Particle System</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-Particle-System"><span class="nav-text">Unity Particle System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E7%B2%92%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="nav-text">1.1.粒子系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E7%B2%92%E5%AD%90%E6%9C%AC%E8%B4%A8"><span class="nav-text">1.2.粒子本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B4%B4%E5%9B%BE"><span class="nav-text">1.3.贴图</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-Particle-System"><span class="nav-text">Unity Particle System</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E7%B2%92%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="nav-text">1.1.粒子系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E7%B2%92%E5%AD%90%E6%9C%AC%E8%B4%A8"><span class="nav-text">1.2.粒子本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B4%B4%E5%9B%BE"><span class="nav-text">1.3.贴图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E5%91%A8%E6%9C%9F%E5%92%8C%E6%97%B6%E9%95%BF"><span class="nav-text">1.4.周期和时长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E6%A8%A1%E6%8B%9F%E7%A9%BA%E9%97%B4"><span class="nav-text">1.5.模拟空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E5%8F%91%E5%B0%84"><span class="nav-text">1.6.发射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E6%B8%90%E5%8F%98"><span class="nav-text">1.7.渐变</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
@@ -1174,5 +1196,14 @@
 </div>
 
 
+    <div id="aplayer"></div>
+
+<script src="/Blog/js/libs/APlayer.min.js"></script>
+
+
+<script src="/Blog/js/plugins/aplayer.js"></script>
+
+
 </body>
 </html>
+<script type="text/javascript" src="/js/love.js"></script>
