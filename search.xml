@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
-</ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
-</ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
-</ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
-</ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ Study</title>
     <url>/Blog/2024/02/14/C++%20Study/</url>
     <content><![CDATA[<h1 id="1-C-基础"><a href="#1-C-基础" class="headerlink" title="1.C++基础"></a>1.C++基础</h1><h2 id="1-1-C-运行原理"><a href="#1-1-C-运行原理" class="headerlink" title="1.1.C++运行原理"></a>1.1.C++运行原理</h2><ul>
@@ -138,6 +106,38 @@
 <h3 id="1-7-6-隐式转换和explicit"><a href="#1-7-6-隐式转换和explicit" class="headerlink" title="1.7.6.隐式转换和explicit"></a>1.7.6.隐式转换和explicit</h3><h4 id="1-7-6-1-隐式构造函数以及转换"><a href="#1-7-6-1-隐式构造函数以及转换" class="headerlink" title="1.7.6.1.隐式构造函数以及转换"></a>1.7.6.1.隐式构造函数以及转换</h4><ul>
 <li>构造函数相同，只是在创建实例的时候有一些不同<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Example</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> m_age;</span><br><span class="line">	std::string m_name;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//两个不同构造函数</span></span><br><span class="line">	<span class="built_in">Example</span>(<span class="type">const</span> std::string&amp; name)</span><br><span class="line">	:m_name = name</span><br><span class="line">	&#123;&#125;</span><br><span class="line">	<span class="built_in">Example</span>(<span class="type">int</span> age):<span class="built_in">m_number</span>(num)</span><br><span class="line">	:m_age = age</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Example <span class="title">a</span><span class="params">(<span class="string">&quot;ztl&quot;</span>)</span></span>;</span><br><span class="line">	Example a = <span class="string">&quot;ztl&quot;</span>; <span class="comment">//直接赋值，编译器自动转换为Example（&quot;ztl&quot;）</span></span><br><span class="line">	<span class="function">Example <span class="title">b</span><span class="params">(<span class="number">21</span>)</span></span>;</span><br><span class="line">	Example b = <span class="number">21</span>; <span class="comment">//直接赋值，编译器自动转换21为Example（21）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 <li>将explicit写在构造函数之前，那么就不能隐式转换</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
 </ul>
 ]]></content>
       <tags>
@@ -296,35 +296,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>config</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>实现Unity中UI的拖拽</title>
-    <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
-    <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
-<li>需要将屏幕坐标转换为世界坐标<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UIElements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControal</span> : <span class="title">MonoBehaviour</span>,<span class="title">IBeginDragHandler</span>,<span class="title">IDragHandler</span>,<span class="title">IEndDragHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isDragging = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector3 offset;</span><br><span class="line">    <span class="keyword">private</span> Vector2 position;</span><br><span class="line">    <span class="keyword">private</span> RectTransform rectTransform;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        rectTransform = GetComponent&lt;RectTransform&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeginDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;开始拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 pos;</span><br><span class="line">        RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position, eventData.enterEventCamera, <span class="keyword">out</span> pos);</span><br><span class="line">        rectTransform.position = pos;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;结束拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Unity Particle System</title>
     <url>/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<h1 id="Unity-Particle-System"><a href="#Unity-Particle-System" class="headerlink" title="Unity Particle System"></a>Unity Particle System</h1><h3 id="1-1-粒子系统"><a href="#1-1-粒子系统" class="headerlink" title="1.1.粒子系统"></a>1.1.粒子系统</h3><ul>
@@ -373,5 +344,59 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       <tags>
         <tag>study</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>config</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实现Unity中UI的拖拽</title>
+    <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
+    <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
+<li>需要将屏幕坐标转换为世界坐标<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UIElements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControal</span> : <span class="title">MonoBehaviour</span>,<span class="title">IBeginDragHandler</span>,<span class="title">IDragHandler</span>,<span class="title">IEndDragHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isDragging = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector3 offset;</span><br><span class="line">    <span class="keyword">private</span> Vector2 position;</span><br><span class="line">    <span class="keyword">private</span> RectTransform rectTransform;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        rectTransform = GetComponent&lt;RectTransform&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeginDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;开始拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 pos;</span><br><span class="line">        RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position, eventData.enterEventCamera, <span class="keyword">out</span> pos);</span><br><span class="line">        rectTransform.position = pos;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;结束拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>排序算法</title>
+    <url>/Blog/2024/03/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="1-插入排序"><a href="#1-插入排序" class="headerlink" title="1.插入排序"></a>1.插入排序</h2><p>将无序序列中的值与有序序列中每一个值进行比较并且插入</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">insertionSort(arr)</span><br><span class="line"> n = arr.length</span><br><span class="line"> </span><br><span class="line"> // 从第二个元素开始遍历数组</span><br><span class="line"> for i from 1 to n-1 do</span><br><span class="line">   // 将当前元素插入已排序部分的合适位置</span><br><span class="line">   key = arr[i]</span><br><span class="line">   j = i - 1</span><br><span class="line">   </span><br><span class="line">   // 将比当前元素大的元素向后移动</span><br><span class="line">   while j &gt;= 0 and arr[j] &gt; key do</span><br><span class="line">     arr[j + 1] = arr[j]</span><br><span class="line">     j = j - 1</span><br><span class="line">   </span><br><span class="line">   // 将当前元素插入到正确位置</span><br><span class="line">   arr[j + 1] = key</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h2 id="2-希尔排序"><a href="#2-希尔排序" class="headerlink" title="2.希尔排序"></a>2.希尔排序</h2><p>通过缩小增量进行排序，达到排序结果</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">function shellSort(arr)</span><br><span class="line">    n = arr.length</span><br><span class="line">    gap = n / 2</span><br><span class="line">    while gap &gt; 0</span><br><span class="line">        for i = gap to n - 1</span><br><span class="line">            temp = arr[i]</span><br><span class="line">            j = i</span><br><span class="line">            while j &gt;= gap and arr[j - gap] &gt; temp</span><br><span class="line">                arr[j] = arr[j - gap]</span><br><span class="line">                j = j - gap</span><br><span class="line">            arr[j] = temp</span><br><span class="line">        gap = gap / 2</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h2 id="3-冒泡排序"><a href="#3-冒泡排序" class="headerlink" title="3.冒泡排序"></a>3.冒泡排序</h2><p>从第一个开始两两比较，进行两两排序，每排完一个循环，总有一个大值从后往前归到正确位置，所以叫冒泡法</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure bubbleSort(arr)</span><br><span class="line">    n = length(arr)</span><br><span class="line">    for i from 0 to n-1</span><br><span class="line">        for j from 0 to n-i-1</span><br><span class="line">            if arr[j] &gt; arr[j+1]</span><br><span class="line">                swap(arr[j], arr[j+1])</span><br></pre></td></tr></table></figure></div>
+<h2 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h2><ol>
+<li>在待排序表L[1…n]中任取⼀个元素pivot作为枢轴（或基准）  </li>
+<li>通过⼀趟排序将待排序表划分为独⽴的两部分L[1…k-1]和L[k+1…n]，使得L[1…k-1]中的所有元素⼩于pivot，L[k+1…n]中的所有元素⼤于等于 pivot，则pivot放在了其最终位置L(k)上，这个过程称为⼀次“划分”。  </li>
+<li>然后分别递归地对两个⼦表重复上述过程，直每部分内只有⼀个元素或空为⽌，即所有元素放在了其最终位置上。<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">function quickSort(arr, low, high)</span><br><span class="line"> if low &lt; high</span><br><span class="line">     pi = partition(arr, low, high)</span><br><span class="line">     quickSort(arr, low, pi - 1) // Before pi</span><br><span class="line">     quickSort(arr, pi + 1, high) // After pi</span><br><span class="line"></span><br><span class="line">function partition(arr, low, high)</span><br><span class="line"> pivot = arr[high]</span><br><span class="line"> i = low - 1 //保证 i 指向的是小于等于基准值的元素的最后一个位置</span><br><span class="line"> for j from low to high - 1</span><br><span class="line">     if arr[j] &lt;= pivot</span><br><span class="line">         i = i + 1</span><br><span class="line">         swap(arr[i], arr[j])</span><br><span class="line"> swap(arr[i + 1], arr[high])</span><br><span class="line"> return i + 1</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h2 id="5-选择排序（逻辑最简单，最稳定）"><a href="#5-选择排序（逻辑最简单，最稳定）" class="headerlink" title="5.选择排序（逻辑最简单，最稳定）"></a>5.选择排序（逻辑最简单，最稳定）</h2><p>每一次将无序序列中最小的数追加到有序序列的里面</p>
+<h2 id="6-堆排序"><a href="#6-堆排序" class="headerlink" title="6.堆排序"></a>6.堆排序</h2><p>大根堆：根节点是最大的<br>小根堆：根节点是最小的<br>建立堆，然后使用堆排序调整堆。简而言之就是每次把未排序中最大数，放到有序序列的最小处</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">heapSort(arr)</span><br><span class="line">    n = arr.length</span><br><span class="line">    </span><br><span class="line">    // 构建最大堆</span><br><span class="line">    for i from n/2 - 1 down to 0 do</span><br><span class="line">        heapify(arr, n, i)</span><br><span class="line">    </span><br><span class="line">    // 从堆顶开始逐步将最大值移到数组末尾，并进行调整</span><br><span class="line">    for i from n - 1 down to 1 do</span><br><span class="line">        swap(arr[0], arr[i]) // 将堆顶元素（最大值）与当前未排序部分的末尾元素交换</span><br><span class="line">        heapify(arr, i, 0)   // 对剩余元素重新进行堆调整，保持最大堆性质</span><br><span class="line"></span><br><span class="line">// 调整堆，保持最大堆性质</span><br><span class="line">heapify(arr, n, i)</span><br><span class="line">    largest = i   // 初始化父节点索引为最大值索引</span><br><span class="line">    left = 2 * i + 1   // 左子节点索引</span><br><span class="line">    right = 2 * i + 2  // 右子节点索引</span><br><span class="line">    </span><br><span class="line">    // 检查左子节点是否大于父节点</span><br><span class="line">    if left &lt; n and arr[left] &gt; arr[largest] then</span><br><span class="line">        largest = left</span><br><span class="line">    </span><br><span class="line">    // 检查右子节点是否大于父节点或左子节点</span><br><span class="line">    if right &lt; n and arr[right] &gt; arr[largest] then</span><br><span class="line">        largest = right</span><br><span class="line">    </span><br><span class="line">    // 如果最大值不是父节点，则进行交换，并递归调整受影响的子树</span><br><span class="line">    if largest != i then</span><br><span class="line">        swap(arr[i], arr[largest])</span><br><span class="line">        heapify(arr, n, largest)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h2 id="7-归并排序"><a href="#7-归并排序" class="headerlink" title="7.归并排序"></a>7.归并排序</h2><ul>
+<li>先将序列分成两个序列，分别进行排序，随后将两个序列进行合并<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">mergeSort(arr)</span><br><span class="line">  n = arr.length</span><br><span class="line">  // 如果数组只有一个元素，直接返回</span><br><span class="line">  if n &lt; 2 then</span><br><span class="line">    return</span><br><span class="line">  </span><br><span class="line">  // 计算中间索引</span><br><span class="line">  mid = n / 2</span><br><span class="line">  </span><br><span class="line">  // 创建左右子数组</span><br><span class="line">  left = arr[0...mid-1]</span><br><span class="line">  right = arr[mid...n-1]</span><br><span class="line">  </span><br><span class="line">  // 递归地对左右子数组进行排序</span><br><span class="line">  mergeSort(left)</span><br><span class="line">  mergeSort(right)</span><br><span class="line">  </span><br><span class="line">  // 合并左右两个有序子数组</span><br><span class="line">  merge(arr, left, right)</span><br><span class="line"></span><br><span class="line">merge(arr, left, right)</span><br><span class="line">  nL = left.length</span><br><span class="line">  nR = right.length</span><br><span class="line">  i = 0, j = 0, k = 0</span><br><span class="line">  </span><br><span class="line">  // 合并左右两个有序子数组</span><br><span class="line">  while i &lt; nL and j &lt; nR do</span><br><span class="line">    if left[i] &lt;= right[j] then</span><br><span class="line">      arr[k] = left[i]</span><br><span class="line">      i = i + 1</span><br><span class="line">    else</span><br><span class="line">      arr[k] = right[j]</span><br><span class="line">      j = j + 1</span><br><span class="line">    k = k + 1</span><br><span class="line">  </span><br><span class="line">  // 处理剩余元素</span><br><span class="line">  while i &lt; nL do</span><br><span class="line">    arr[k] = left[i]</span><br><span class="line">    i = i + 1</span><br><span class="line">    k = k + 1</span><br><span class="line">  </span><br><span class="line">  while j &lt; nR do</span><br><span class="line">    arr[k] = right[j]</span><br><span class="line">    j = j + 1</span><br><span class="line">    k = k + 1</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="8-基数排序"><a href="#8-基数排序" class="headerlink" title="8.基数排序"></a>8.基数排序</h2><ul>
+<li>非比较序列，并不直接进行数的大小比较，而是对每一位进行比较<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 获取数组中最大元素的位数</span><br><span class="line">function getMax(arr):</span><br><span class="line">    max = arr[0]</span><br><span class="line">    for i from 1 to arr.length - 1 do</span><br><span class="line">        if arr[i] &gt; max then</span><br><span class="line">            max = arr[i]</span><br><span class="line">    return max</span><br><span class="line"></span><br><span class="line">// 对数组按照指定位数进行计数排序</span><br><span class="line">function countingSort(arr, exp):</span><br><span class="line">    n = arr.length</span><br><span class="line">    output = new Array(n)</span><br><span class="line">    count = new Array(10)</span><br><span class="line">    for i from 0 to 9 do</span><br><span class="line">        count[i] = 0</span><br><span class="line"></span><br><span class="line">    // 统计每个桶中元素的个数</span><br><span class="line">    for i from 0 to n - 1 do</span><br><span class="line">        index = (arr[i] / exp) % 10</span><br><span class="line">        count[index]++</span><br><span class="line"></span><br><span class="line">    // 将计数数组转换为位置索引数组</span><br><span class="line">    for i from 1 to 9 do</span><br><span class="line">        count[i] += count[i - 1]</span><br><span class="line"></span><br><span class="line">    // 将元素按照当前位的值放置到输出数组中</span><br><span class="line">    for i from n - 1 down to 0 do</span><br><span class="line">        index = (arr[i] / exp) % 10</span><br><span class="line">        output[count[index] - 1] = arr[i]</span><br><span class="line">        count[index]--</span><br><span class="line"></span><br><span class="line">    // 将输出数组复制回原数组</span><br><span class="line">    for i from 0 to n - 1 do</span><br><span class="line">        arr[i] = output[i]</span><br><span class="line"></span><br><span class="line">// 基数排序函数</span><br><span class="line">function radixSort(arr):</span><br><span class="line">    max = getMax(arr)</span><br><span class="line">    exp = 1</span><br><span class="line">    while max / exp &gt; 0 do</span><br><span class="line">        countingSort(arr, exp)</span><br><span class="line">        exp *= 10</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+]]></content>
   </entry>
 </search>
