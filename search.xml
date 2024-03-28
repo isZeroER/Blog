@@ -143,6 +143,7 @@
 <h3 id="1-7-7-运算符及其重载"><a href="#1-7-7-运算符及其重载" class="headerlink" title="1.7.7.运算符及其重载"></a>1.7.7.运算符及其重载</h3><h4 id="1-7-7-1-运算符"><a href="#1-7-7-1-运算符" class="headerlink" title="1.7.7.1.运算符"></a>1.7.7.1.运算符</h4><p>+，-，*，&#x2F;，new，delete，逗号，括号等也是运算符，运算符实际上就是函数</p>
 <h4 id="1-7-7-2-重载"><a href="#1-7-7-2-重载" class="headerlink" title="1.7.7.2.重载"></a>1.7.7.2.重载</h4><ul>
 <li>重载就是赋予新的定义和作用<br>以+为例<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Vector</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> x, y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Vector</span>(<span class="type">double</span> x = <span class="number">0</span>, <span class="type">double</span> y = <span class="number">0</span>) : <span class="built_in">x</span>(x), <span class="built_in">y</span>(y) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重载加法运算符</span></span><br><span class="line">    Vector <span class="keyword">operator</span>+(<span class="type">const</span> Vector&amp; v) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Vector</span>(x + v.x, y + v.y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出向量的坐标</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;(&quot;</span> &lt;&lt; x &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; y &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Vector <span class="title">v1</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="function">Vector <span class="title">v2</span><span class="params">(<span class="number">3</span>, <span class="number">4</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    Vector result = v1 + v2; <span class="comment">// 调用重载的加法运算符</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Resultant vector: &quot;</span>;</span><br><span class="line">    result.<span class="built_in">display</span>(); <span class="comment">// 输出结果向量的坐标</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+<li>除了类属关系运算符”.”、成员指针运算符”.*”、作用域运算符”::”、sizeof运算符和三目运算符”?:”以外，C++中的所有运算符都可以重载但是&#x3D;、()、[]、-&gt;这四个不能重载为类的友元函数。</li>
 </ul>
 <h3 id="1-7-8-关于this"><a href="#1-7-8-关于this" class="headerlink" title="1.7.8.关于this"></a>1.7.8.关于this</h3><ul>
 <li>this是一个指向当前对象的指针，它是每个非静态成员函数的隐含参数</li>
@@ -371,17 +372,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Unity实现小地图创建</title>
-    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Unity相关</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity Particle System</title>
     <url>/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<h1 id="Unity-Particle-System"><a href="#Unity-Particle-System" class="headerlink" title="Unity Particle System"></a>Unity Particle System</h1><h3 id="1-1-粒子系统"><a href="#1-1-粒子系统" class="headerlink" title="1.1.粒子系统"></a>1.1.粒子系统</h3><ul>
@@ -426,6 +416,17 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 ]]></content>
       <categories>
         <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity实现小地图创建</title>
+    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity相关</category>
       </categories>
       <tags>
         <tag>study</tag>
