@@ -138,7 +138,7 @@
 <li>作为函数的返回值，返回的时候同样创建一个副本<br>如果将拷贝函数 &#x3D; delete;，那么类禁止拷贝</li>
 </ol>
 <h3 id="1-8-3-箭头操作符"><a href="#1-8-3-箭头操作符" class="headerlink" title="1.8.3.箭头操作符"></a>1.8.3.箭头操作符</h3><ul>
-<li>通常用于访问类或结构体对象的成员，特别是在对象是指针类型时<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Entity</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Function</span>()</span><br><span class="line">	&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Entity* e = <span class="keyword">new</span> <span class="built_in">Entity</span>();</span><br><span class="line">	(*e).<span class="built_in">printfa</span>(); <span class="comment">//需要逆向引用才可以使用.进行调用函数</span></span><br><span class="line">	e-&gt;<span class="built_in">printfa</span>(); <span class="comment">//箭头可以直接对指针的成员进行访问</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>通常用于访问类或结构体对象的成员，特别是在对象是指针类型时<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Entity</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">printfa</span>()</span><br><span class="line">	&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Entity* e = <span class="keyword">new</span> <span class="built_in">Entity</span>();</span><br><span class="line">	(*e).<span class="built_in">printfa</span>(); <span class="comment">//需要逆向引用才可以使用.进行调用函数</span></span><br><span class="line">	e-&gt;<span class="built_in">printfa</span>(); <span class="comment">//箭头可以直接对指针的成员进行访问</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 <li>还可以获取类中或者结构体中数据的偏移量</li>
 </ul>
 <h1 id="2-C-标准库"><a href="#2-C-标准库" class="headerlink" title="2.C++标准库"></a>2.C++标准库</h1><h2 id="2-1-C-标准库"><a href="#2-1-C-标准库" class="headerlink" title="2.1.C++标准库"></a>2.1.C++标准库</h2><h3 id="2-1-1-C-动态数组Vector"><a href="#2-1-1-C-动态数组Vector" class="headerlink" title="2.1.1.C++动态数组Vector"></a>2.1.1.C++动态数组Vector</h3><ul>
@@ -188,11 +188,43 @@
 <h3 id="2-2-7-namespace-名称空间、命名空间"><a href="#2-2-7-namespace-名称空间、命名空间" class="headerlink" title="2.2.7.namespace(名称空间、命名空间)"></a>2.2.7.namespace(名称空间、命名空间)</h3><ul>
 <li>为了避免同样的函数，引入命名空间<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> apple&#123;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> apple;</span><br><span class="line">	<span class="built_in">function</span>(); <span class="comment">//可以直接调用</span></span><br><span class="line">	<span class="keyword">namespace</span> a = apple;</span><br><span class="line">	a::<span class="built_in">function</span>(); <span class="comment">//通过作用域使用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 </ul>
-<h3 id="2-2-8-线程（-include-）"><a href="#2-2-8-线程（-include-）" class="headerlink" title="2.2.8.线程（#include ）"></a>2.2.8.线程（#include <thread>）</h3><div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>&gt;</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">bool</span> is_waiting = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> std::literals::chrono_literals; <span class="comment">//让线程暂停的命名空间</span></span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt;<span class="string">&quot;this thread is&quot;</span> &lt;&lt; std::this_thread::<span class="built_in">get_id</span>() &lt;&lt; std::endl; <span class="comment">//获取当前线程的id</span></span><br><span class="line">	<span class="keyword">while</span> (!is_waiting)</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;Waiting...\n&quot;</span>;</span><br><span class="line">		std::this_thread::<span class="built_in">sleep_for</span>(<span class="number">1</span>s); <span class="comment">//每次停顿一秒</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;this thread is&quot;</span> &lt;&lt; std::this_thread::<span class="built_in">get_id</span>() &lt;&lt; std::endl; <span class="comment">//获取当前线程的id</span></span><br><span class="line">	<span class="function">std::thread <span class="title">worker</span><span class="params">(Print)</span></span>;</span><br><span class="line"></span><br><span class="line">	std::cin.<span class="built_in">get</span>();</span><br><span class="line">	is_waiting = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	worker.<span class="built_in">join</span>();</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Finished.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">	std::cin.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h3 id="2-2-9-计时（-include-）"><a href="#2-2-9-计时（-include-）" class="headerlink" title="2.2.9.计时（#include ）"></a>2.2.9.计时（#include <chrono>）</h3><ul>
+<h3 id="2-2-8-线程（-include-）"><a href="#2-2-8-线程（-include-）" class="headerlink" title="2.2.8.线程（#include &lt;thread&gt;）"></a>2.2.8.线程（#include &lt;thread&gt;）</h3><div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>&gt;</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">bool</span> is_waiting = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> std::literals::chrono_literals; <span class="comment">//让线程暂停的命名空间</span></span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt;<span class="string">&quot;this thread is&quot;</span> &lt;&lt; std::this_thread::<span class="built_in">get_id</span>() &lt;&lt; std::endl; <span class="comment">//获取当前线程的id</span></span><br><span class="line">	<span class="keyword">while</span> (!is_waiting)</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;Waiting...\n&quot;</span>;</span><br><span class="line">		std::this_thread::<span class="built_in">sleep_for</span>(<span class="number">1</span>s); <span class="comment">//每次停顿一秒</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;this thread is&quot;</span> &lt;&lt; std::this_thread::<span class="built_in">get_id</span>() &lt;&lt; std::endl; <span class="comment">//获取当前线程的id</span></span><br><span class="line">	<span class="function">std::thread <span class="title">worker</span><span class="params">(Print)</span></span>;</span><br><span class="line"></span><br><span class="line">	std::cin.<span class="built_in">get</span>();</span><br><span class="line">	is_waiting = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	worker.<span class="built_in">join</span>();</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Finished.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">	std::cin.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="2-2-9-计时（-include-）"><a href="#2-2-9-计时（-include-）" class="headerlink" title="2.2.9.计时（#include &lt;chrono&gt;）"></a>2.2.9.计时（#include &lt;chrono&gt;）</h3><ul>
 <li>可以对函数线程等等进行的时间进行计算<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">using</span> <span class="keyword">namespace</span> std::literals::chrono_literals; <span class="comment">//引用这个命名空间，以便使用其中的函数</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">auto</span> start = std::chrono::high_resolution_clock::<span class="built_in">now</span>(); <span class="comment">//获取当前时间</span></span><br><span class="line">	std::this_thread::<span class="built_in">sleep_for</span>(<span class="number">1</span>s);</span><br><span class="line">	<span class="keyword">auto</span> end = std::chrono::high_resolution_clock::<span class="built_in">now</span>(); <span class="comment">//获取结束时间</span></span><br><span class="line"></span><br><span class="line">	std::chrono::duration&lt;<span class="type">float</span>&gt; duration = end - start; <span class="comment">//计算出两者时间间隔</span></span><br><span class="line">	std::cout &lt;&lt; duration.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;s&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 <li>可以使用对象作用时间作为计时器原理</li>
 <li>题外话：\n比std::endl;更优化</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
 </ul>
 ]]></content>
       <tags>
@@ -396,38 +428,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       <categories>
         <category>Unity</category>
       </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
-</ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
-</ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
-</ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
-</ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
-</ul>
-]]></content>
       <tags>
         <tag>study</tag>
       </tags>
