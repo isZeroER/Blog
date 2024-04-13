@@ -13,20 +13,20 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://iszeroer.github.io/Blog/masonry/"/>
+    <link rel="canonical" href="https://iszeroer.github.io/Blog/2024/02/13/games101/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="masonry">
-<meta property="og:url" content="https://iszeroer.github.io/Blog/masonry/index.html">
+        <meta name="description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Games101">
+<meta property="og:url" content="https://iszeroer.github.io/Blog/2024/02/13/Games101/index.html">
 <meta property="og:site_name" content="Zero">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-02T12:26:36.000Z">
-<meta property="article:modified_time" content="2024-02-25T16:56:49.520Z">
+<meta property="article:published_time" content="2024-02-13T03:01:39.000Z">
+<meta property="article:modified_time" content="2024-04-13T09:58:51.146Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -40,7 +40,7 @@
     
     <title>
         
-            masonry -
+            Games101 -
         
         Zero | Action
     </title>
@@ -359,7 +359,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/Blog/masonry"
                                         >
                                     <i class="fa-solid fa-imge fa-fw"></i>
@@ -543,7 +543,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/Blog/masonry"
                         >
                             <span>
@@ -678,105 +678,256 @@
             <div class="main-content">
 
                 
-                    <div class="page-template-container">
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">Games101</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://pic.imgdb.cn/item/65bc6f36871b83018a506123.webp">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zero</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-02-13 11:01:39</span>
+        <span class="mobile">2024-02-13 11:01:39</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-04-13 17:58:51</span>
+            <span class="mobile">2024-04-13 17:58:51</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
     
     
+
     
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>703 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
         
 
-<h1 class="page-title-header">masonry</h1>
-  
-<div class="loading-placeholder">
-    <div class="flex-grid generic-card">
-        <div class="card loading"></div>
-        <div class="card loading"></div>
-        <div class="card loading"></div>
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
+<li>就是将MVP转化的结果，画到二维数组上面</li>
+</ul>
+<h3 id="2-1-屏幕（pixel）"><a href="#2-1-屏幕（pixel）" class="headerlink" title="2.1.屏幕（pixel）"></a>2.1.屏幕（pixel）</h3><ul>
+<li>颜色表示：RGB</li>
+<li>屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。</li>
+</ul>
+<h3 id="2-2-画到屏幕上"><a href="#2-2-画到屏幕上" class="headerlink" title="2.2.画到屏幕上"></a>2.2.画到屏幕上</h3><ul>
+<li>[-1, 1]^3的立方体转化到[0, h]高度以及[0, w]宽度上面：<br>1.将立方体拉伸到h，w<br>2.将立方体移到中心<br>变换矩阵：</li>
+</ul>
+<h3 id="2-3-三角形作为Mesh"><a href="#2-3-三角形作为Mesh" class="headerlink" title="2.3.三角形作为Mesh"></a>2.3.三角形作为Mesh</h3><ul>
+<li>为何选择三角形<br>1.最为基本的图形<br>2.任何图像都可以拆成三角形<br>3.三个顶点的属性定义之后，可以对三角形内部进行插值计算</li>
+<li>采样（Sample）：从不同的位置取值,将函数离散化；重复频域</li>
+<li>给定一个三角形，要对其采样，需要对每个屏幕空间中每个像素的中心进行一个判断，看是否在三角形内部<br>这里涉及到了叉积，三角形ABC，以及一个未知点Q，如果<strong>AB</strong> 和 <strong>AQ</strong>的叉积，与<strong>BC</strong> 和 <strong>BQ</strong>的叉积，以及<strong>CA</strong> 和 <strong>CQ</strong>的叉积方向一致（右手螺旋定则），说明点Q在三角形内部；否则Q点在三角形外部</li>
+<li>如果点落在三角形上，有些定则是：计上不计下，计左不计右</li>
+<li>三角形包围盒（BoundingBox）：不需要将所有像素进行判断，只需要将三个顶点，MAX&#x2F;MIN(A.x&#x2F;y,B.x&#x2F;y,C.x&#x2F;y)分别求出来</li>
+<li>现实生活中LCD<br>BayerPattern：红绿蓝组成图案，绿色偏多（人眼对于绿色更为敏感）</li>
+</ul>
+<h3 id="2-4-走样（Aliasing，Jaggies）"><a href="#2-4-走样（Aliasing，Jaggies）" class="headerlink" title="2.4.走样（Aliasing，Jaggies）"></a>2.4.走样（Aliasing，Jaggies）</h3><ul>
+<li>因为采样率有限，所以导致走样</li>
+<li>Artifacts：图形学中的瑕疵  </li>
+<li>由于走样产生的瑕疵：锯齿（Jaggies）、摩尔纹（Moire）、滚轮（Wagon Wheel Effect）</li>
+<li>走样原理：信号改变太快，但是采样太慢了</li>
+<li>频域（Frequency Domain）<br>频谱中高频意味着图像的边界，低频意味着图像的平坦区域，大块背景；两条亮白色线意味着时域图的边界发生剧烈频域变化</li>
+<li>反走样（Anti Aliasing）：<br>1.滤波（模糊，卷积）：模糊处理，也就是低通滤波，然后进行采样。不能反过来，因为先采样已经走样了，然后对走样的信号进行模糊处理<br>2.多重采样抗锯齿（MSAA）：将每一个像素细分，计算更精确一些的图像属性，并没有实际增大分辨率。但是增大计算量，消耗性能</li>
+<li>其他反走样：<br>FXAA（Fast Approximate AA）：图像后处理，与采样无关，速度很快<br>TAA（Temporal AA）：采用上一帧的像素值</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Games101</li>
+        <li><strong>Author:</strong> Zero</li>
+        <li><strong>Created at
+                :</strong> 2024-02-13 11:01:39</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-04-13 17:58:51
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://iszeroer.github.io/Blog/2024/02/13/Games101/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/Blog/2024/02/14/C++%20Study/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">C++ Study</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Unity Particle System</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
     </div>
-</div>
+    
 
-<div id="masonry-container">
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6d4d9f345e8d03ad88fc.jpg" alt="亲亲咧嘴笑">
-            <div class="image-title">亲亲咧嘴笑</div>
-            <div class="image-description">heiheihei</div>
-        </div>
-      </div>
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6f799f345e8d03b2a496.jpg" alt="正装">
-            <div class="image-title">正装</div>
-            <div class="image-description">殷峰婚礼</div>
-        </div>
-      </div>
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6f4b9f345e8d03b23910.jpg" alt="两小无猜">
-            <div class="image-title">两小无猜</div>
-            <div class="image-description">两个眼睛</div>
-        </div>
-      </div>
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6f419f345e8d03b221e8.jpg" alt="逛街">
-            <div class="image-title">逛街</div>
-            <div class="image-description">墨镜男和优雅女</div>
-        </div>
-      </div>
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6f3d9f345e8d03b21850.jpg" alt="夜晚美色">
-            <div class="image-title">夜晚美色</div>
-            <div class="image-description">走向中心湖</div>
-        </div>
-      </div>
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6f369f345e8d03b208a4.jpg" alt="亲亲之夜">
-            <div class="image-title">亲亲之夜</div>
-            <div class="image-description">亲亲之前</div>
-        </div>
-      </div>
-    
-      <div class="masonry-item">
-        <div class="image-container">
-            <img src="https://pic.imgdb.cn/item/65db6d0a9f345e8d03acea5f.jpg" alt="夜景">
-            <div class="image-title">夜景</div>
-            <div class="image-description">冷艳女主</div>
-        </div>
-      </div>
-    
-</div>
-
-
-    
-    <div class="page-template-content markdown-body">
         
             
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="1fd10544d79b7ce0f2fdff594f7b54c907c417ac119a8f5d412fe3edcf0a275b">4630436162ade97ba2718b7d0c4b3b63aa2ab1619d9cdbb4bb5fd57226dc61d2</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'e3424327562eddbe78f0',
+                    clientSecret: '51d38eea5f706ea8a8ccb68e5181bf690fcc43e1',
+                    repo: 'Gitalk',
+                    owner: 'isZeroER',
+                    admin: ['isZeroER'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://github.com/login/oauth/access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
 </div>
-<script data-swup-reload-script src="/Blog/lib/hbe.js"></script><link href="/Blog/css/hbe.style.css" rel="stylesheet" type="text/css">
+
+            </div>
         
     </div>
-    <div class="page-template-comments">
-        
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Games101</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li></ol></li></ol></li></ol>
+
     </div>
 </div>
+        </div>
+    
+</div>
+
 
 
                 
@@ -861,6 +1012,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
