@@ -26,7 +26,7 @@
 <meta property="og:description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-13T03:01:39.000Z">
-<meta property="article:modified_time" content="2024-04-13T09:58:51.146Z">
+<meta property="article:modified_time" content="2024-04-14T16:32:42.450Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -712,8 +712,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-13 17:58:51</span>
-            <span class="mobile">2024-04-13 17:58:51</span>
+            <span class="desktop">2024-04-15 00:32:42</span>
+            <span class="mobile">2024-04-15 00:32:42</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>703 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.1k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>4 Mins</span>
         </span>
     
     
@@ -772,8 +772,17 @@
 <li>由于走样产生的瑕疵：锯齿（Jaggies）、摩尔纹（Moire）、滚轮（Wagon Wheel Effect）</li>
 <li>走样原理：信号改变太快，但是采样太慢了</li>
 <li>频域（Frequency Domain）<br>频谱中高频意味着图像的边界，低频意味着图像的平坦区域，大块背景；两条亮白色线意味着时域图的边界发生剧烈频域变化</li>
-<li>反走样（Anti Aliasing）：<br>1.滤波（模糊，卷积）：模糊处理，也就是低通滤波，然后进行采样。不能反过来，因为先采样已经走样了，然后对走样的信号进行模糊处理<br>2.多重采样抗锯齿（MSAA）：将每一个像素细分，计算更精确一些的图像属性，并没有实际增大分辨率。但是增大计算量，消耗性能</li>
+<li>反走样（Anti Aliasing）：<br>1.滤波（模糊，卷积）：模糊处理，也就是低通滤波，然后进行采样。不能反过来，因为先采样已经走样了，然后对走样的信号进行模糊处理<br>2.多重采样抗锯齿（MSAA）：将每一个像素取不同采样点，计算更精确一些的图像属性，并没有实际增大分辨率。但是增大计算量，消耗性能</li>
 <li>其他反走样：<br>FXAA（Fast Approximate AA）：图像后处理，与采样无关，速度很快<br>TAA（Temporal AA）：采用上一帧的像素值</li>
+</ul>
+<h3 id="2-5-深度缓存（Z-buffering）"><a href="#2-5-深度缓存（Z-buffering）" class="headerlink" title="2.5.深度缓存（Z-buffering）"></a>2.5.深度缓存（Z-buffering）</h3><ul>
+<li>画家算法：先绘制背景，然后逐一绘制前景中的物体，后画的会覆盖前画的物体。局限：多个物体相互遮挡，导致不能判断深度，复杂度为O(nlogn)</li>
+<li>z-buffer算法：通过对每一个像素进行值替换，与顺序无关，只与深度有关。（深度缓存发生在每一个像素里面）复杂度为O(n)<br>需要额外创建buffer：<br>frame-buffer：实际要展示的存储值<br>depth-buffer:每一个像素对应的深度值<br>算法原理：先是所有像素设置为无限大，对于一个像素中，看它的深度大于还是小于当前像素的深度，小于替换，大于就不变。</li>
+</ul>
+<h2 id="3-着色（Shading）"><a href="#3-着色（Shading）" class="headerlink" title="3.着色（Shading）"></a>3.着色（Shading）</h2><ul>
+<li>着色：对不同物体应用不同材质的过程（不同材质对于光的反应不同）</li>
+<li>布林冯模型(Blinn-Phong Reflectance Model)：<br>高光(Specular highlights):光源直射光<br>漫反射(Diffuse reflection):与物体表面法线有关，根据光线与物体表面法线夹角有关，cos &#x3D; <strong>l</strong> * <strong>n</strong>,其中<strong>l</strong>为光线方向，<strong>n</strong>为物体法线方向。因此得到<br>Ld &#x3D; Kd(I&#x2F;r^2)*MAX(0, <strong>l</strong> * <strong>n</strong>)<br>其中Kd为材质的漫反射效率，反射出去的颜色为没有吸收的能量，如果表示为RGB值，则表示颜色。由于均匀反射出去，那么从任意一个方向观测都是一样结果，因此与观测方向无关<br>环境光(Ambient lighting):均匀间接光照结果</li>
+<li>shading is local,没有shadow，也就是忽略所有的其他物体存在，只考虑自己</li>
 </ul>
 
         </div>
@@ -789,7 +798,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-13 17:58:51
+                    :</strong> 2024-04-15 00:32:42
             </li>
         
         <li>
@@ -920,7 +929,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Games101</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88Z-buffering%EF%BC%89"><span class="nav-text">2.5.深度缓存（Z-buffering）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="nav-text">3.着色（Shading）</span></a></li></ol></li></ol>
 
     </div>
 </div>
