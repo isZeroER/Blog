@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Study</title>
     <url>/Blog/2024/02/14/C++%20Study/</url>
     <content><![CDATA[<h1 id="1-C-基础"><a href="#1-C-基础" class="headerlink" title="1.C++基础"></a>1.C++基础</h1><h2 id="1-1-C-运行原理"><a href="#1-1-C-运行原理" class="headerlink" title="1.1.C++运行原理"></a>1.1.C++运行原理</h2><ul>
@@ -279,36 +311,79 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
       </tags>
   </entry>
   <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+    <title>Games101</title>
+    <url>/Blog/2024/02/13/Games101/</url>
+    <content><![CDATA[<h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
+<li>就是将MVP转化的结果，画到二维数组上面</li>
 </ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+<h3 id="2-1-屏幕（pixel）"><a href="#2-1-屏幕（pixel）" class="headerlink" title="2.1.屏幕（pixel）"></a>2.1.屏幕（pixel）</h3><ul>
+<li>颜色表示：RGB</li>
+<li>屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。</li>
 </ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
+<h3 id="2-2-画到屏幕上"><a href="#2-2-画到屏幕上" class="headerlink" title="2.2.画到屏幕上"></a>2.2.画到屏幕上</h3><ul>
+<li>[-1, 1]^3的立方体转化到[0, h]高度以及[0, w]宽度上面：<br>1.将立方体拉伸到h，w<br>2.将立方体移到中心<br>变换矩阵：</li>
 </ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+<h3 id="2-3-三角形作为Mesh"><a href="#2-3-三角形作为Mesh" class="headerlink" title="2.3.三角形作为Mesh"></a>2.3.三角形作为Mesh</h3><ul>
+<li>为何选择三角形<br>1.最为基本的图形<br>2.任何图像都可以拆成三角形<br>3.三个顶点的属性定义之后，可以对三角形内部进行插值计算</li>
+<li>采样（Sample）：从不同的位置取值,将函数离散化；重复频域</li>
+<li>给定一个三角形，要对其采样，需要对每个屏幕空间中每个像素的中心进行一个判断，看是否在三角形内部<br>这里涉及到了叉积，三角形ABC，以及一个未知点Q，如果<strong>AB</strong> 和 <strong>AQ</strong>的叉积，与<strong>BC</strong> 和 <strong>BQ</strong>的叉积，以及<strong>CA</strong> 和 <strong>CQ</strong>的叉积方向一致（右手螺旋定则），说明点Q在三角形内部；否则Q点在三角形外部</li>
+<li>如果点落在三角形上，有些定则是：计上不计下，计左不计右</li>
+<li>三角形包围盒（BoundingBox）：不需要将所有像素进行判断，只需要将三个顶点，MAX&#x2F;MIN(A.x&#x2F;y,B.x&#x2F;y,C.x&#x2F;y)分别求出来</li>
+<li>现实生活中LCD<br>BayerPattern：红绿蓝组成图案，绿色偏多（人眼对于绿色更为敏感）</li>
 </ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
+<h3 id="2-4-走样（Aliasing，Jaggies）"><a href="#2-4-走样（Aliasing，Jaggies）" class="headerlink" title="2.4.走样（Aliasing，Jaggies）"></a>2.4.走样（Aliasing，Jaggies）</h3><ul>
+<li>因为采样率有限，所以导致走样</li>
+<li>Artifacts：图形学中的瑕疵  </li>
+<li>由于走样产生的瑕疵：锯齿（Jaggies）、摩尔纹（Moire）、滚轮（Wagon Wheel Effect）</li>
+<li>走样原理：信号改变太快，但是采样太慢了</li>
+<li>频域（Frequency Domain）<br>频谱中高频意味着图像的边界，低频意味着图像的平坦区域，大块背景；两条亮白色线意味着时域图的边界发生剧烈频域变化</li>
+<li>反走样（Anti Aliasing）：<br>1.滤波（模糊，卷积）：模糊处理，也就是低通滤波，然后进行采样。不能反过来，因为先采样已经走样了，然后对走样的信号进行模糊处理<br>2.多重采样抗锯齿（MSAA）：将每一个像素取不同采样点，计算更精确一些的图像属性，并没有实际增大分辨率。但是增大计算量，消耗性能</li>
+<li>其他反走样：<br>FXAA（Fast Approximate AA）：图像后处理，与采样无关，速度很快<br>TAA（Temporal AA）：采用上一帧的像素值</li>
+</ul>
+<h3 id="2-5-深度缓存（Z-buffering）"><a href="#2-5-深度缓存（Z-buffering）" class="headerlink" title="2.5.深度缓存（Z-buffering）"></a>2.5.深度缓存（Z-buffering）</h3><ul>
+<li>画家算法：先绘制背景，然后逐一绘制前景中的物体，后画的会覆盖前画的物体。局限：多个物体相互遮挡，导致不能判断深度，复杂度为O(nlogn)</li>
+<li>z-buffer算法：通过对每一个像素进行值替换，与顺序无关，只与深度有关。（深度缓存发生在每一个像素里面）复杂度为O(n)<br>需要额外创建buffer：<br>frame-buffer：实际要展示的存储值<br>depth-buffer:每一个像素对应的深度值<br>算法原理：先是所有像素设置为无限大，对于一个像素中，看它的深度大于还是小于当前像素的深度，小于替换，大于就不变。</li>
+</ul>
+<h2 id="3-着色（Shading）"><a href="#3-着色（Shading）" class="headerlink" title="3.着色（Shading）"></a>3.着色（Shading）</h2><ul>
+<li>着色：对不同物体应用不同材质的过程（不同材质对于光的反应不同）</li>
+</ul>
+<h3 id="3-1-布林冯模型-Blinn-Phong-Reflectance-Model-："><a href="#3-1-布林冯模型-Blinn-Phong-Reflectance-Model-：" class="headerlink" title="3.1.布林冯模型(Blinn-Phong Reflectance Model)："></a>3.1.布林冯模型(Blinn-Phong Reflectance Model)：</h3><ul>
+<li>高光(Specular highlights):光源直射光。<br>引入半程向量<strong>h</strong>，<strong>h</strong> &#x3D; bisector(<strong>v</strong>, <strong>l</strong>)，即(<strong>v</strong> + <strong>l</strong>)&#x2F;||(<strong>v</strong> + <strong>l</strong>)||。cosα &#x3D; <strong>n</strong> * <strong>h</strong>，其中α为半程向量和法线夹角。<br>Ls &#x3D; Ks(I&#x2F;r^2) * MAX(0, <strong>n</strong> * <strong>h</strong>)^p<br>Ks表示白色系数,p用于限制视线方向的高光范围，通常为100~200  </li>
+<li>漫反射(Diffuse reflection):与物体表面法线有关，根据光线与物体表面法线夹角有关，cosθ &#x3D; <strong>l</strong> * <strong>n</strong>,其中<strong>l</strong>为光线方向，<strong>n</strong>为物体法线方向。因此得到<br>Ld &#x3D; Kd(I&#x2F;r^2) * MAX(0, <strong>l</strong> * <strong>n</strong>)<br>其中Kd为材质的漫反射系数，反射出去的颜色为没有吸收的能量，如果表示为RGB值，则表示颜色。由于均匀反射出去，那么从任意一个方向观测都是一样结果，因此与观测方向无关  </li>
+<li>环境光(Ambient lighting):均匀间接光照结果<br>La &#x3D; Ka * Ia<br>Ka是环境光系数，Ia为环境光强度<br>与视觉发向、光照方向都无关，是一个常量<br>L &#x3D; Ls + Ld + La</li>
+<li>shading是局部的,没有shadow，也就是忽略所有的其他物体存在，只考虑自己</li>
+</ul>
+<h3 id="3-2-Shading频率"><a href="#3-2-Shading频率" class="headerlink" title="3.2.Shading频率"></a>3.2.Shading频率</h3><ul>
+<li>Shading 频率：一个平面进行一次BP模型<br>Flat shading：三角形着色，每一个三角形都是一个颜色，对于平滑表面不太适合<br>Gouraud shading：顶点着色<br>Phong shading：像素着色</li>
+<li>着色频率取决于物体本身平面频率如何</li>
+<li>顶点法线求法：对顶点四周平面进行加权或者不加权平均。</li>
+<li>通过重心坐标获得顶点之间的插值法线</li>
+</ul>
+<h3 id="3-3-渲染管线"><a href="#3-3-渲染管线" class="headerlink" title="3.3.渲染管线"></a>3.3.渲染管线</h3><ol>
+<li>输入场景（点）  shader，可以在硬件里面执行的，里面有控制顶点和像素如何着色的</li>
+<li>投影</li>
+<li>形成三角形</li>
+<li>光栅化</li>
+<li>着色</li>
+<li>输出<br>GPU：Graphics Process Unit，图形处理单元<br>着色器：顶点着色器、像素着色器<br>shadertoy.com</li>
+</ol>
+<h3 id="3-4-纹理映射（Texture-Mapping）"><a href="#3-4-纹理映射（Texture-Mapping）" class="headerlink" title="3.4.纹理映射（Texture Mapping）"></a>3.4.纹理映射（Texture Mapping）</h3><h4 id="3-4-1-纹理应用"><a href="#3-4-1-纹理应用" class="headerlink" title="3.4.1.纹理应用"></a>3.4.1.纹理应用</h4><ul>
+<li>物体表面实际上是2D的，也就是将一张图片贴在3D物体上，这张图就是纹理（Texture），贴的过程就叫做映射</li>
+<li>纹理上设定uv坐标系</li>
+<li>对一个采样点，利用重心坐标（从面积算出）算出uv（利用重心坐标和三个顶点得到uv）</li>
+<li>纹理定义的就是Diffuse reflect里面的Kd</li>
+</ul>
+<h4 id="3-4-2-纹理对应"><a href="#3-4-2-纹理对应" class="headerlink" title="3.4.2.纹理对应"></a>3.4.2.纹理对应</h4><ul>
+<li>纹理太小（需要Texture Maginification）：<br>四舍五入(Nearest)<br>线性插值(Bilinear Interpolation)：对周围四个uv值进行插值<br>二次立方(Bicubic)：对周围16个值进行插值</li>
+<li>纹理太大(导致出现纹理混叠):<br>范围查询(Mipmap):快速，但是只能适用于简单规则正方形。将一张纹理放小一半，如256 * 256到128 * 128…将存储量变小，仅仅是原本的三分之一。<br>且Mipmap会将第D&#x3D;log2L层寻找<br>如果在两层之间，如0和1之间的0.8层，则可以进行第三步插值，也就是三线性插值<br>各向异性过滤(Anisotropic Filtering):对于矩形查询优化，生成了其他单水平或垂直方向图，开销为原本三倍，也就是Ripmap<br>EWA Filtering：多次查询圆形</li>
+</ul>
+<h3 id="3-5-重心坐标-Barycentric-coodinates"><a href="#3-5-重心坐标-Barycentric-coodinates" class="headerlink" title="3.5.重心坐标(Barycentric coodinates)"></a>3.5.重心坐标(Barycentric coodinates)</h3><ul>
+<li>顶点着色的时候，需要对三角形内部进行插值(纹理uv坐标，颜色，法线方向)，也就需要利用重心坐标</li>
+<li>重心坐标定义在三角形内，设▲ABC，则同一个平面中任意一个点(x,y),都可以得到(x, y) &#x3D; αA + βB + γC，其中α + β + γ &#x3D; 1.如果三者都大于0，则点在三角形内。重心坐标就是(α， β， γ)<br>ABC内切圆心O，则α &#x3D; Sboc&#x2F;Sabc，β &#x3D; Saoc&#x2F;Sabc，γ &#x3D; Saob&#x2F;Sabc。三角形面积三等分的点对于重心坐标就是(1&#x2F;3, 1&#x2F;3, 1&#x2F;3)</li>
+<li>对于插值属性，同样是使用重心坐标</li>
+<li>重心坐标缺点：光栅化时，三角形形状在投影下是有缺陷的，不确定的，与原本三角形重心坐标不同。</li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
   </entry>
   <entry>
     <title>UnityStudy</title>
@@ -451,79 +526,36 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Games101</title>
-    <url>/Blog/2024/02/13/Games101/</url>
-    <content><![CDATA[<h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
-<li>就是将MVP转化的结果，画到二维数组上面</li>
-</ul>
-<h3 id="2-1-屏幕（pixel）"><a href="#2-1-屏幕（pixel）" class="headerlink" title="2.1.屏幕（pixel）"></a>2.1.屏幕（pixel）</h3><ul>
-<li>颜色表示：RGB</li>
-<li>屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。</li>
-</ul>
-<h3 id="2-2-画到屏幕上"><a href="#2-2-画到屏幕上" class="headerlink" title="2.2.画到屏幕上"></a>2.2.画到屏幕上</h3><ul>
-<li>[-1, 1]^3的立方体转化到[0, h]高度以及[0, w]宽度上面：<br>1.将立方体拉伸到h，w<br>2.将立方体移到中心<br>变换矩阵：</li>
-</ul>
-<h3 id="2-3-三角形作为Mesh"><a href="#2-3-三角形作为Mesh" class="headerlink" title="2.3.三角形作为Mesh"></a>2.3.三角形作为Mesh</h3><ul>
-<li>为何选择三角形<br>1.最为基本的图形<br>2.任何图像都可以拆成三角形<br>3.三个顶点的属性定义之后，可以对三角形内部进行插值计算</li>
-<li>采样（Sample）：从不同的位置取值,将函数离散化；重复频域</li>
-<li>给定一个三角形，要对其采样，需要对每个屏幕空间中每个像素的中心进行一个判断，看是否在三角形内部<br>这里涉及到了叉积，三角形ABC，以及一个未知点Q，如果<strong>AB</strong> 和 <strong>AQ</strong>的叉积，与<strong>BC</strong> 和 <strong>BQ</strong>的叉积，以及<strong>CA</strong> 和 <strong>CQ</strong>的叉积方向一致（右手螺旋定则），说明点Q在三角形内部；否则Q点在三角形外部</li>
-<li>如果点落在三角形上，有些定则是：计上不计下，计左不计右</li>
-<li>三角形包围盒（BoundingBox）：不需要将所有像素进行判断，只需要将三个顶点，MAX&#x2F;MIN(A.x&#x2F;y,B.x&#x2F;y,C.x&#x2F;y)分别求出来</li>
-<li>现实生活中LCD<br>BayerPattern：红绿蓝组成图案，绿色偏多（人眼对于绿色更为敏感）</li>
-</ul>
-<h3 id="2-4-走样（Aliasing，Jaggies）"><a href="#2-4-走样（Aliasing，Jaggies）" class="headerlink" title="2.4.走样（Aliasing，Jaggies）"></a>2.4.走样（Aliasing，Jaggies）</h3><ul>
-<li>因为采样率有限，所以导致走样</li>
-<li>Artifacts：图形学中的瑕疵  </li>
-<li>由于走样产生的瑕疵：锯齿（Jaggies）、摩尔纹（Moire）、滚轮（Wagon Wheel Effect）</li>
-<li>走样原理：信号改变太快，但是采样太慢了</li>
-<li>频域（Frequency Domain）<br>频谱中高频意味着图像的边界，低频意味着图像的平坦区域，大块背景；两条亮白色线意味着时域图的边界发生剧烈频域变化</li>
-<li>反走样（Anti Aliasing）：<br>1.滤波（模糊，卷积）：模糊处理，也就是低通滤波，然后进行采样。不能反过来，因为先采样已经走样了，然后对走样的信号进行模糊处理<br>2.多重采样抗锯齿（MSAA）：将每一个像素取不同采样点，计算更精确一些的图像属性，并没有实际增大分辨率。但是增大计算量，消耗性能</li>
-<li>其他反走样：<br>FXAA（Fast Approximate AA）：图像后处理，与采样无关，速度很快<br>TAA（Temporal AA）：采用上一帧的像素值</li>
-</ul>
-<h3 id="2-5-深度缓存（Z-buffering）"><a href="#2-5-深度缓存（Z-buffering）" class="headerlink" title="2.5.深度缓存（Z-buffering）"></a>2.5.深度缓存（Z-buffering）</h3><ul>
-<li>画家算法：先绘制背景，然后逐一绘制前景中的物体，后画的会覆盖前画的物体。局限：多个物体相互遮挡，导致不能判断深度，复杂度为O(nlogn)</li>
-<li>z-buffer算法：通过对每一个像素进行值替换，与顺序无关，只与深度有关。（深度缓存发生在每一个像素里面）复杂度为O(n)<br>需要额外创建buffer：<br>frame-buffer：实际要展示的存储值<br>depth-buffer:每一个像素对应的深度值<br>算法原理：先是所有像素设置为无限大，对于一个像素中，看它的深度大于还是小于当前像素的深度，小于替换，大于就不变。</li>
-</ul>
-<h2 id="3-着色（Shading）"><a href="#3-着色（Shading）" class="headerlink" title="3.着色（Shading）"></a>3.着色（Shading）</h2><ul>
-<li>着色：对不同物体应用不同材质的过程（不同材质对于光的反应不同）</li>
-</ul>
-<h3 id="3-1-布林冯模型-Blinn-Phong-Reflectance-Model-："><a href="#3-1-布林冯模型-Blinn-Phong-Reflectance-Model-：" class="headerlink" title="3.1.布林冯模型(Blinn-Phong Reflectance Model)："></a>3.1.布林冯模型(Blinn-Phong Reflectance Model)：</h3><ul>
-<li>高光(Specular highlights):光源直射光。<br>引入半程向量<strong>h</strong>，<strong>h</strong> &#x3D; bisector(<strong>v</strong>, <strong>l</strong>)，即(<strong>v</strong> + <strong>l</strong>)&#x2F;||(<strong>v</strong> + <strong>l</strong>)||。cosα &#x3D; <strong>n</strong> * <strong>h</strong>，其中α为半程向量和法线夹角。<br>Ls &#x3D; Ks(I&#x2F;r^2) * MAX(0, <strong>n</strong> * <strong>h</strong>)^p<br>Ks表示白色系数,p用于限制视线方向的高光范围，通常为100~200  </li>
-<li>漫反射(Diffuse reflection):与物体表面法线有关，根据光线与物体表面法线夹角有关，cosθ &#x3D; <strong>l</strong> * <strong>n</strong>,其中<strong>l</strong>为光线方向，<strong>n</strong>为物体法线方向。因此得到<br>Ld &#x3D; Kd(I&#x2F;r^2) * MAX(0, <strong>l</strong> * <strong>n</strong>)<br>其中Kd为材质的漫反射系数，反射出去的颜色为没有吸收的能量，如果表示为RGB值，则表示颜色。由于均匀反射出去，那么从任意一个方向观测都是一样结果，因此与观测方向无关  </li>
-<li>环境光(Ambient lighting):均匀间接光照结果<br>La &#x3D; Ka * Ia<br>Ka是环境光系数，Ia为环境光强度<br>与视觉发向、光照方向都无关，是一个常量<br>L &#x3D; Ls + Ld + La</li>
-<li>shading是局部的,没有shadow，也就是忽略所有的其他物体存在，只考虑自己</li>
-</ul>
-<h3 id="3-2-Shading频率"><a href="#3-2-Shading频率" class="headerlink" title="3.2.Shading频率"></a>3.2.Shading频率</h3><ul>
-<li>Shading 频率：一个平面进行一次BP模型<br>Flat shading：三角形着色，每一个三角形都是一个颜色，对于平滑表面不太适合<br>Gouraud shading：顶点着色<br>Phong shading：像素着色</li>
-<li>着色频率取决于物体本身平面频率如何</li>
-<li>顶点法线求法：对顶点四周平面进行加权或者不加权平均。</li>
-<li>通过重心坐标获得顶点之间的插值法线</li>
-</ul>
-<h3 id="3-3-渲染管线"><a href="#3-3-渲染管线" class="headerlink" title="3.3.渲染管线"></a>3.3.渲染管线</h3><ol>
-<li>输入场景（点）  shader，可以在硬件里面执行的，里面有控制顶点和像素如何着色的</li>
-<li>投影</li>
-<li>形成三角形</li>
-<li>光栅化</li>
-<li>着色</li>
-<li>输出<br>GPU：Graphics Process Unit，图形处理单元<br>着色器：顶点着色器、像素着色器<br>shadertoy.com</li>
-</ol>
-<h3 id="3-4-纹理映射（Texture-Mapping）"><a href="#3-4-纹理映射（Texture-Mapping）" class="headerlink" title="3.4.纹理映射（Texture Mapping）"></a>3.4.纹理映射（Texture Mapping）</h3><h4 id="3-4-1-纹理应用"><a href="#3-4-1-纹理应用" class="headerlink" title="3.4.1.纹理应用"></a>3.4.1.纹理应用</h4><ul>
-<li>物体表面实际上是2D的，也就是将一张图片贴在3D物体上，这张图就是纹理（Texture），贴的过程就叫做映射</li>
-<li>纹理上设定uv坐标系</li>
-<li>对一个采样点，利用重心坐标（从面积算出）算出uv（利用重心坐标和三个顶点得到uv）</li>
-<li>纹理定义的就是Diffuse reflect里面的Kd</li>
-</ul>
-<h4 id="3-4-2-纹理对应"><a href="#3-4-2-纹理对应" class="headerlink" title="3.4.2.纹理对应"></a>3.4.2.纹理对应</h4><ul>
-<li>纹理太小（需要Texture Maginification）：<br>四舍五入(Nearest)<br>线性插值(Bilinear Interpolation)：对周围四个uv值进行插值<br>二次立方(Bicubic)：对周围16个值进行插值</li>
-<li>纹理太大(导致出现纹理混叠):<br>范围查询(Mipmap):快速，但是只能适用于简单规则正方形。将一张纹理放小一半，如256 * 256到128 * 128…将存储量变小，仅仅是原本的三分之一。<br>且Mipmap会将第D&#x3D;log2L层寻找<br>如果在两层之间，如0和1之间的0.8层，则可以进行第三步插值，也就是三线性插值<br>各向异性过滤(Anisotropic Filtering):对于矩形查询优化，生成了其他单水平或垂直方向图，开销为原本三倍，也就是Ripmap<br>EWA Filtering：多次查询圆形</li>
-</ul>
-<h3 id="3-5-重心坐标-Barycentric-coodinates"><a href="#3-5-重心坐标-Barycentric-coodinates" class="headerlink" title="3.5.重心坐标(Barycentric coodinates)"></a>3.5.重心坐标(Barycentric coodinates)</h3><ul>
-<li>顶点着色的时候，需要对三角形内部进行插值(纹理uv坐标，颜色，法线方向)，也就需要利用重心坐标</li>
-<li>重心坐标定义在三角形内，设▲ABC，则同一个平面中任意一个点(x,y),都可以得到(x, y) &#x3D; αA + βB + γC，其中α + β + γ &#x3D; 1.如果三者都大于0，则点在三角形内。重心坐标就是(α， β， γ)<br>ABC内切圆心O，则α &#x3D; Sboc&#x2F;Sabc，β &#x3D; Saoc&#x2F;Sabc，γ &#x3D; Saob&#x2F;Sabc。三角形面积三等分的点对于重心坐标就是(1&#x2F;3, 1&#x2F;3, 1&#x2F;3)</li>
-<li>对于插值属性，同样是使用重心坐标</li>
-<li>重心坐标缺点：光栅化时，三角形形状在投影下是有缺陷的，不确定的，与原本三角形重心坐标不同。</li>
-</ul>
+    <title>Unity实现小地图创建</title>
+    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity相关</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
+      <tags>
+        <tag>config</tag>
+      </tags>
   </entry>
   <entry>
     <title>Unity Particle System</title>
@@ -576,38 +608,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>config</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity实现小地图创建</title>
-    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Unity相关</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实现Unity中UI的拖拽</title>
     <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
     <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
@@ -630,8 +630,10 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 <li>然后分别递归地对两个⼦表重复上述过程，直每部分内只有⼀个元素或空为⽌，即所有元素放在了其最终位置上。<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">function quickSort(arr, low, high)</span><br><span class="line"> if low &lt; high</span><br><span class="line">     pi = partition(arr, low, high)</span><br><span class="line">     quickSort(arr, low, pi - 1) // Before pi</span><br><span class="line">     quickSort(arr, pi + 1, high) // After pi</span><br><span class="line"></span><br><span class="line">function partition(arr, low, high)</span><br><span class="line"> pivot = arr[high]</span><br><span class="line"> i = low - 1 //保证 i 指向的是小于等于基准值的元素的最后一个位置</span><br><span class="line"> for j from low to high - 1</span><br><span class="line">     if arr[j] &lt;= pivot</span><br><span class="line">         i = i + 1</span><br><span class="line">         swap(arr[i], arr[j])</span><br><span class="line"> swap(arr[i + 1], arr[high])</span><br><span class="line"> return i + 1</span><br></pre></td></tr></table></figure></div></li>
 </ol>
 <h2 id="5-选择排序（逻辑最简单，最稳定）"><a href="#5-选择排序（逻辑最简单，最稳定）" class="headerlink" title="5.选择排序（逻辑最简单，最稳定）"></a>5.选择排序（逻辑最简单，最稳定）</h2><p>每一次将无序序列中最小的数追加到有序序列的里面</p>
-<h2 id="6-堆排序"><a href="#6-堆排序" class="headerlink" title="6.堆排序"></a>6.堆排序</h2><p>大根堆：根节点是最大的<br>小根堆：根节点是最小的<br>建立堆，然后使用堆排序调整堆。简而言之就是每次把未排序中最大数，放到有序序列的最小处</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">heapSort(arr)</span><br><span class="line">    n = arr.length</span><br><span class="line">    </span><br><span class="line">    // 构建最大堆</span><br><span class="line">    for i from n/2 - 1 down to 0 do</span><br><span class="line">        heapify(arr, n, i)</span><br><span class="line">    </span><br><span class="line">    // 从堆顶开始逐步将最大值移到数组末尾，并进行调整</span><br><span class="line">    for i from n - 1 down to 1 do</span><br><span class="line">        swap(arr[0], arr[i]) // 将堆顶元素（最大值）与当前未排序部分的末尾元素交换</span><br><span class="line">        heapify(arr, i, 0)   // 对剩余元素重新进行堆调整，保持最大堆性质</span><br><span class="line"></span><br><span class="line">// 调整堆，保持最大堆性质</span><br><span class="line">heapify(arr, n, i)</span><br><span class="line">    largest = i   // 初始化父节点索引为最大值索引</span><br><span class="line">    left = 2 * i + 1   // 左子节点索引</span><br><span class="line">    right = 2 * i + 2  // 右子节点索引</span><br><span class="line">    </span><br><span class="line">    // 检查左子节点是否大于父节点</span><br><span class="line">    if left &lt; n and arr[left] &gt; arr[largest] then</span><br><span class="line">        largest = left</span><br><span class="line">    </span><br><span class="line">    // 检查右子节点是否大于父节点或左子节点</span><br><span class="line">    if right &lt; n and arr[right] &gt; arr[largest] then</span><br><span class="line">        largest = right</span><br><span class="line">    </span><br><span class="line">    // 如果最大值不是父节点，则进行交换，并递归调整受影响的子树</span><br><span class="line">    if largest != i then</span><br><span class="line">        swap(arr[i], arr[largest])</span><br><span class="line">        heapify(arr, n, largest)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h2 id="6-堆排序"><a href="#6-堆排序" class="headerlink" title="6.堆排序"></a>6.堆排序</h2><ul>
+<li>时间复杂度：O(n * logn)<br>1.构建最大堆O(n)<br>2.排序O(logn)<br>3.所以结果为相乘O(n * logn)</li>
+<li>原理<br>大根堆：根节点是最大的<br>小根堆：根节点是最小的<br>建立堆，然后使用堆排序调整堆。简而言之就是每次把未排序中最大数，放到有序序列的最小处<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">heapSort(arr)</span><br><span class="line">    n = arr.length</span><br><span class="line">    </span><br><span class="line">    // 构建最大堆，将最大的放到堆顶（此时左右子节点还是无序的）</span><br><span class="line">    for i from n/2 - 1 down to 0 do</span><br><span class="line">        heapify(arr, n, i)</span><br><span class="line">    </span><br><span class="line">    // 从堆顶开始逐步将最大值移到数组末尾，并进行调整（也就是每一次都把最大的数放到堆底）</span><br><span class="line">    for i from n - 1 down to 1 do</span><br><span class="line">        swap(arr[0], arr[i]) // 将堆顶元素（最大值）与当前未排序部分的末尾元素交换</span><br><span class="line">        heapify(arr, i, 0)   // 对剩余元素重新进行堆调整，保持最大堆性质</span><br><span class="line"></span><br><span class="line">// 调整堆，保持最大堆性质</span><br><span class="line">heapify(arr, n, i)</span><br><span class="line">    largest = i   // 初始化父节点索引为最大值索引</span><br><span class="line">    left = 2 * i + 1   // 左子节点索引</span><br><span class="line">    right = 2 * i + 2  // 右子节点索引</span><br><span class="line">    </span><br><span class="line">    // 检查左子节点是否大于父节点</span><br><span class="line">    if left &lt; n and arr[left] &gt; arr[largest] then</span><br><span class="line">        largest = left</span><br><span class="line">    </span><br><span class="line">    // 检查右子节点是否大于父节点或左子节点</span><br><span class="line">    if right &lt; n and arr[right] &gt; arr[largest] then</span><br><span class="line">        largest = right</span><br><span class="line">    </span><br><span class="line">    // 如果最大值不是父节点，则进行交换，并递归调整受影响的子树</span><br><span class="line">    if largest != i then</span><br><span class="line">        swap(arr[i], arr[largest])</span><br><span class="line">        heapify(arr, n, largest)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
 <h2 id="7-归并排序"><a href="#7-归并排序" class="headerlink" title="7.归并排序"></a>7.归并排序</h2><ul>
 <li>先将序列分成两个序列，分别进行排序，随后将两个序列进行合并<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">mergeSort(arr)</span><br><span class="line">  n = arr.length</span><br><span class="line">  // 如果数组只有一个元素，直接返回</span><br><span class="line">  if n &lt; 2 then</span><br><span class="line">    return</span><br><span class="line">  </span><br><span class="line">  // 计算中间索引</span><br><span class="line">  mid = n / 2</span><br><span class="line">  </span><br><span class="line">  // 创建左右子数组</span><br><span class="line">  left = arr[0...mid-1]</span><br><span class="line">  right = arr[mid...n-1]</span><br><span class="line">  </span><br><span class="line">  // 递归地对左右子数组进行排序</span><br><span class="line">  mergeSort(left)</span><br><span class="line">  mergeSort(right)</span><br><span class="line">  </span><br><span class="line">  // 合并左右两个有序子数组</span><br><span class="line">  merge(arr, left, right)</span><br><span class="line"></span><br><span class="line">merge(arr, left, right)</span><br><span class="line">  nL = left.length</span><br><span class="line">  nR = right.length</span><br><span class="line">  i = 0, j = 0, k = 0</span><br><span class="line">  </span><br><span class="line">  // 合并左右两个有序子数组</span><br><span class="line">  while i &lt; nL and j &lt; nR do</span><br><span class="line">    if left[i] &lt;= right[j] then</span><br><span class="line">      arr[k] = left[i]</span><br><span class="line">      i = i + 1</span><br><span class="line">    else</span><br><span class="line">      arr[k] = right[j]</span><br><span class="line">      j = j + 1</span><br><span class="line">    k = k + 1</span><br><span class="line">  </span><br><span class="line">  // 处理剩余元素</span><br><span class="line">  while i &lt; nL do</span><br><span class="line">    arr[k] = left[i]</span><br><span class="line">    i = i + 1</span><br><span class="line">    k = k + 1</span><br><span class="line">  </span><br><span class="line">  while j &lt; nR do</span><br><span class="line">    arr[k] = right[j]</span><br><span class="line">    j = j + 1</span><br><span class="line">    k = k + 1</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
 </ul>
