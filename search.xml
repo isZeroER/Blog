@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
-</ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
-</ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
-</ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
-</ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ Study</title>
     <url>/Blog/2024/02/14/C++%20Study/</url>
     <content><![CDATA[<h1 id="1-C-基础"><a href="#1-C-基础" class="headerlink" title="1.C++基础"></a>1.C++基础</h1><h2 id="1-1-C-运行原理"><a href="#1-1-C-运行原理" class="headerlink" title="1.1.C++运行原理"></a>1.1.C++运行原理</h2><ul>
@@ -247,7 +215,7 @@
 </ul>
 <h3 id="2-3-5-虚析构函数"><a href="#2-3-5-虚析构函数" class="headerlink" title="2.3.5.虚析构函数"></a>2.3.5.虚析构函数</h3><ul>
 <li>析构函数加上virtual与其他类中的函数加上virtual不一样，而是对析构函数加上一个功能，如果没有加上virtual,那么只能调用基类的析构函数<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">A</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;A Created!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">virtual</span> ~<span class="built_in">A</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;A Destroyed!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>:<span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">B</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;B Created!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	~<span class="built_in">B</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;B Destroyed!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A* a = <span class="keyword">new</span> <span class="built_in">A</span>();</span><br><span class="line">	<span class="keyword">delete</span> a;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;----------------&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	B* b = <span class="keyword">new</span> <span class="built_in">B</span>();</span><br><span class="line">	<span class="keyword">delete</span> b;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;----------------&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	A* c = <span class="keyword">new</span> <span class="built_in">B</span>();</span><br><span class="line">	<span class="keyword">delete</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
-<li>派生类指针不能指向基类对象，因为基类没有派生类的元素，所以指向基类的话导致不能对成员变量访问</li>
+<li>派生类指针不能指向基类对象，因为基类没有派生类的元素，所以指向基类的话导致不能对成员变量访问。默认可以上行转换（up_cast），想要下行可以进行dynamic_cast转换</li>
 </ul>
 <h3 id="2-3-5-类型转换"><a href="#2-3-5-类型转换" class="headerlink" title="2.3.5.类型转换"></a>2.3.5.类型转换</h3><ul>
 <li>C语言型转换<br>隐式转换和显式转换<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="type">float</span> b = a; <span class="comment">//这样就会自动隐式转换为float类型</span></span><br><span class="line">	<span class="type">float</span> b = (<span class="type">float</span>)a; <span class="comment">//(float)就是一个显式转换</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
@@ -304,6 +272,38 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 <h3 id="2-5-8-移动语义"><a href="#2-5-8-移动语义" class="headerlink" title="2.5.8.移动语义"></a>2.5.8.移动语义</h3><ul>
 <li>通过&amp;&amp;标记的引用类型，绑定到右值或者临时对象<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">String</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">String</span>() = <span class="keyword">default</span>; <span class="comment">//原始构造函数</span></span><br><span class="line">	<span class="built_in">String</span>(<span class="type">const</span> <span class="type">char</span>* name) <span class="comment">//创建构造函数</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Created!\n&quot;</span>);</span><br><span class="line">		m_size = <span class="built_in">strlen</span>(name);</span><br><span class="line">		m_name = <span class="keyword">new</span> <span class="type">char</span>[m_size];</span><br><span class="line">		<span class="built_in">memcpy</span>(m_name, name, m_size);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">String</span>(<span class="type">const</span> String&amp; string) <span class="comment">//复制构造函数</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Created!\n&quot;</span>);</span><br><span class="line">		m_size = string.m_size;</span><br><span class="line">		m_name = <span class="keyword">new</span> <span class="type">char</span>[m_size];</span><br><span class="line">		<span class="built_in">memcpy</span>(m_name, string.m_name, m_size);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">String</span>(String&amp;&amp; name) <span class="keyword">noexcept</span> <span class="comment">//移动语义构造函数</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Moved!\n&quot;</span>);</span><br><span class="line">		m_size = name.m_size;</span><br><span class="line">		m_name = name.m_name; <span class="comment">//将指针传递给m_name，通过浅拷贝</span></span><br><span class="line"></span><br><span class="line">		name.m_size = <span class="number">0</span>;</span><br><span class="line">		name.m_name = <span class="literal">nullptr</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	~<span class="built_in">String</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">delete</span> m_name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; m_size; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, m_name[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">char</span>* m_name;</span><br><span class="line">	<span class="type">uint32_t</span> m_size;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Entity</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Entity</span>(<span class="type">const</span> String&amp; name)</span><br><span class="line">		:<span class="built_in">m_string</span>(name)&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">Entity</span>(String&amp;&amp; name) <span class="comment">//移动语义</span></span><br><span class="line">		:<span class="built_in">m_string</span>(std::<span class="built_in">move</span>(name))&#123;&#125; <span class="comment">//这里std::move()也可以是(String&amp;&amp;)name。</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">()</span></span>&#123;m_string.<span class="built_in">print</span>();&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	String m_string;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Entity <span class="title">e</span><span class="params">(<span class="string">&quot;ztl&quot;</span>)</span></span>;</span><br><span class="line">	e.<span class="built_in">Print</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 <li>std::move就是将一个已经存在的变量，转换成一个临时变量，从而作为移动语义函数或者移动赋值操作符</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
 </ul>
 ]]></content>
       <tags>
@@ -372,17 +372,6 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 <li>纹理上设定uv坐标系，</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Unity实现小地图创建</title>
-    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Unity相关</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
   </entry>
   <entry>
     <title>UnityStudy</title>
@@ -519,6 +508,17 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 ]]></content>
       <categories>
         <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity实现小地图创建</title>
+    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity相关</category>
       </categories>
       <tags>
         <tag>study</tag>
