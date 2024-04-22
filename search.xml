@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
-</ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
-</ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
-</ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
-</ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++ Study</title>
     <url>/Blog/2024/02/14/C++%20Study/</url>
     <content><![CDATA[<h1 id="1-C-基础"><a href="#1-C-基础" class="headerlink" title="1.C++基础"></a>1.C++基础</h1><h2 id="1-1-C-运行原理"><a href="#1-1-C-运行原理" class="headerlink" title="1.1.C++运行原理"></a>1.1.C++运行原理</h2><ul>
@@ -114,7 +82,7 @@
 <li>如果访问数组范围外索引，则会Memory access violation（内存范文违规）  </li>
 <li>数组实质上是指针<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> example[<span class="number">5</span>];</span><br><span class="line"><span class="type">int</span>* ptr = example; <span class="comment">//不会报错</span></span><br></pre></td></tr></table></figure></div></li>
 <li>数组是指针<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line">*(<span class="type">int</span>*)((<span class="type">char</span>*)ptr+<span class="number">8</span>)=<span class="number">6</span>； <span class="comment">//将数组是指针的原理展现的很清晰</span></span><br></pre></td></tr></table></figure></div>
-首先，ptr是int指针，所以被定义4字节是一个索引；当（char<em>）转化的时候，被定义为了8字节为一个索引；所以加8就是加了一个索引，而（int</em>）就是将其重新转化为int指针，并且赋值为6</li>
+首先，ptr是int指针，所以被定义4字节是一个索引；当（char* ）转化的时候，被定义为了8字节为一个索引；所以加8就是加了一个索引，而（int*）就是将其重新转化为int指针，并且赋值为6</li>
 </ul>
 <h3 id="1-7-2-C-字符串"><a href="#1-7-2-C-字符串" class="headerlink" title="1.7.2.C++字符串"></a>1.7.2.C++字符串</h3><ul>
 <li>char是一个字节，char不是在堆，而是在栈上建立</li>
@@ -311,6 +279,38 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
       </tags>
   </entry>
   <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games101</title>
     <url>/Blog/2024/02/13/Games101/</url>
     <content><![CDATA[<h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
@@ -383,7 +383,50 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 <li>对于插值属性，同样是使用重心坐标</li>
 <li>重心坐标缺点：光栅化时，三角形形状在投影下是有缺陷的，不确定的，与原本三角形重心坐标不同。</li>
 </ul>
+<h3 id="3-6-纹理应用（Application）"><a href="#3-6-纹理应用（Application）" class="headerlink" title="3.6.纹理应用（Application）"></a>3.6.纹理应用（Application）</h3><h4 id="3-6-1-环境映射"><a href="#3-6-1-环境映射" class="headerlink" title="3.6.1.环境映射"></a>3.6.1.环境映射</h4><ul>
+<li>球面映射(存在扭曲现象)</li>
+<li>立方体映射</li>
+</ul>
+<h4 id="3-6-2-凹凸-法线贴图-Bump-Normal-Map"><a href="#3-6-2-凹凸-法线贴图-Bump-Normal-Map" class="headerlink" title="3.6.2.凹凸&#x2F;法线贴图(Bump&#x2F;Normal Map)"></a>3.6.2.凹凸&#x2F;法线贴图(Bump&#x2F;Normal Map)</h4><ul>
+<li>可以展示凹凸效果，但是并没有实际对几何体改变<br>n(p) &#x3D; (0, 0, 1)<br>dp&#x2F;du &#x3D; c1 * [h(u+1) - h(u)]<br>dp&#x2F;dv &#x3D; c2 * [h(v+1) - h(v)]<br>n &#x3D; (-dp&#x2F;du, -dp&#x2F;dv, 1)</li>
+<li>位移贴图(Displacement Mapping)：将实际的几何体进行改变<br>缺点：需要更多采样点，模型需要足够细致</li>
+</ul>
+<h4 id="3-6-3-三维纹理"><a href="#3-6-3-三维纹理" class="headerlink" title="3.6.3.三维纹理"></a>3.6.3.三维纹理</h4><ul>
+<li>利用三维空间中的噪声函数进行纹理映射（例如Perlin Noise）  </li>
+<li>预先进行环境光遮蔽计算模型阴影  </li>
+<li>体渲染通过三维纹理记录信息，然后进行渲染</li>
+</ul>
+<h2 id="4-几何-Geometry"><a href="#4-几何-Geometry" class="headerlink" title="4.几何(Geometry)"></a>4.几何(Geometry)</h2><h3 id="4-1-几何的表示方法"><a href="#4-1-几何的表示方法" class="headerlink" title="4.1.几何的表示方法"></a>4.1.几何的表示方法</h3><h4 id="4-1-1两种方法"><a href="#4-1-1两种方法" class="headerlink" title="4.1.1两种方法"></a>4.1.1两种方法</h4><ul>
+<li>隐式（Implicit):直接将几何体使用公式表示出来<br>优点：可以直接判断一个点在几何体内外<br>缺点：不能直接看出几何体形状<br>举例：（x² + 9y²&#x2F;4 + z² - 1）³ &#x3D; x²z³ + 9y²z³&#x2F;80，这是一个心形</li>
+<li>显式（Explicit):把点直接给出或者参数映射（u，v）-&gt;（x，y，z）<br>优点：可以直观得到几何体（可以是几何体点的集合，也可以是映射关系明确）<br>缺点：不能很容易判断一个点是否在几何体内外</li>
+</ul>
+<h4 id="4-1-2-一些其他的隐式"><a href="#4-1-2-一些其他的隐式" class="headerlink" title="4.1.2.一些其他的隐式"></a>4.1.2.一些其他的隐式</h4><ul>
+<li>代数曲面（algebraic surface）：通过一些代数式表示</li>
+<li>构造立体几何法（Constructive Solid Geometry，CSG）：通过一些几何体的交、并、差等操作</li>
+<li>距离函数（Distance Function，SDF）：不直接描述表面，而是描述每一个点到一个表面的最短距离，正在外，负在内，通过融合（blend）距离函数，将这些点表示出来</li>
+<li>水平集（Level Set Method）：将距离函数用数组表示，从而进行绘制</li>
+<li>分形（Fractals）：不断重复自身，类似于函数递归概念</li>
+</ul>
+<h3 id="4-2-曲线和曲面（Curves-and-Surfaces，显式几何）"><a href="#4-2-曲线和曲面（Curves-and-Surfaces，显式几何）" class="headerlink" title="4.2.曲线和曲面（Curves and Surfaces，显式几何）"></a>4.2.曲线和曲面（Curves and Surfaces，显式几何）</h3><h4 id="4-2-1-几个例子"><a href="#4-2-1-几个例子" class="headerlink" title="4.2.1.几个例子"></a>4.2.1.几个例子</h4><ul>
+<li>点云（Point Cloud）：用密集点进行几何体构造<br>可以构造任意一种几何体，在扫描里面经常使用</li>
+<li>多边形面（Polygon Mesh）：三角形或者四边形表达几何体。是应用最广泛的方式</li>
+<li>.obj文件<br>实际上就是.txt文件，用于存储一些数据，例如纹理，坐标，法线，重心</li>
+</ul>
+<h4 id="4-2-2-曲线（Curves）"><a href="#4-2-2-曲线（Curves）" class="headerlink" title="4.2.2.曲线（Curves）"></a>4.2.2.曲线（Curves）</h4><ul>
+<li>贝塞尔曲线（Bézier Curve）：用一系列控制点定义曲线<br>德卡斯特里奥算法：定义一个线段AB上面的点C，并系数u（0 &lt; u &lt; 1），使得AC &#x3D; u AB，得到C坐标 C &#x3D; uA + (1-u)B<br>伯恩斯坦：b^n(t) &#x3D; &amp;&amp;Σb_jB_j^n(t)&amp;&amp;</li>
+</ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Unity实现小地图创建</title>
+    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity相关</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
   </entry>
   <entry>
     <title>UnityStudy</title>
@@ -526,38 +569,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Unity实现小地图创建</title>
-    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Unity相关</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>config</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity Particle System</title>
     <url>/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/</url>
     <content><![CDATA[<h1 id="Unity-Particle-System"><a href="#Unity-Particle-System" class="headerlink" title="Unity Particle System"></a>Unity Particle System</h1><h3 id="1-1-粒子系统"><a href="#1-1-粒子系统" class="headerlink" title="1.1.粒子系统"></a>1.1.粒子系统</h3><ul>
@@ -605,6 +616,27 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </categories>
       <tags>
         <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>config</tag>
       </tags>
   </entry>
   <entry>
