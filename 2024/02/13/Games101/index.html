@@ -26,7 +26,7 @@
 <meta property="og:description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-13T03:01:39.000Z">
-<meta property="article:modified_time" content="2024-04-22T03:11:27.265Z">
+<meta property="article:modified_time" content="2024-04-23T05:29:15.070Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -712,8 +712,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-22 11:11:27</span>
-            <span class="mobile">2024-04-22 11:11:27</span>
+            <span class="desktop">2024-04-23 13:29:15</span>
+            <span class="mobile">2024-04-23 13:29:15</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.7k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>10 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 Mins</span>
         </span>
     
     
@@ -848,7 +848,19 @@
 <li>.obj文件<br>实际上就是.txt文件，用于存储一些数据，例如纹理，坐标，法线，重心</li>
 </ul>
 <h4 id="4-2-2-曲线（Curves）"><a href="#4-2-2-曲线（Curves）" class="headerlink" title="4.2.2.曲线（Curves）"></a>4.2.2.曲线（Curves）</h4><ul>
-<li>贝塞尔曲线（Bézier Curve）：用一系列控制点定义曲线<br>德卡斯特里奥算法：定义一个线段AB上面的点C，并系数u（0 &lt; u &lt; 1），使得AC &#x3D; u AB，得到C坐标 C &#x3D; uA + (1-u)B<br>伯恩斯坦：b^n(t) &#x3D; &amp;&amp;Σb_jB_j^n(t)&amp;&amp;</li>
+<li>贝塞尔曲线（Bézier Curve）：用一系列控制点定义曲线  </li>
+<li>属性：<br>1.经过起始点和终点<br>2.起始切线和结尾切线都是(n-1)(b0-b1)<br>3.仿射曲线<br>4.所有点都在凸包内</li>
+<li>德卡斯特里奥算法：定义一个线段AB上面的点C，并系数u（0 &lt; u &lt; 1），使得AC &#x3D; u AB，得到C坐标 C &#x3D; uA + (1-u)B<br>伯恩斯坦：b^n(t) &#x3D; &amp;&amp;Σb_jB_j^n(t)&amp;&amp;</li>
+<li>逐段贝塞尔曲线：当控制点太多时，就很难控制。也就是切点<br>C0连续：点线结合<br>C1连续：一阶导数连续</li>
+<li>样条（Splines）：一个可控的曲线</li>
+</ul>
+<h4 id="4-2-3-曲面（Surfaces）"><a href="#4-2-3-曲面（Surfaces）" class="headerlink" title="4.2.3.曲面（Surfaces）"></a>4.2.3.曲面（Surfaces）</h4><ul>
+<li>贝塞尔曲面：将多条贝塞尔曲线上面的点作为控制点，制作贝塞尔曲线</li>
+</ul>
+<h4 id="4-2-4-几何处理"><a href="#4-2-4-几何处理" class="headerlink" title="4.2.4.几何处理"></a>4.2.4.几何处理</h4><p>网格细分（Mesh Subdivision），网格简化（Mesh Simplification），网格正规化（Mesh Regularization） </p>
+<ul>
+<li>卢氏细分（Loop Subdivision)：<br>1.将三角形每个线段中点作为新点，并且相连，得到四个三角形<br>2.将新生成的点平移，将周围四个点进行加权平均，得到新点的位置；旧点度为n，以及权重u，则旧点变为(1-n * u) * 原本位置+u*周围旧点位置之和   </li>
+<li>Catmull-Clark Subdivision：用于非三角形<br>非四边形面（Non-quad face）：不是四边形的面<br>奇异点（extraordinary vertex）：只要度不是4都是奇异点<br>1.每一个线取中点，每一个面也取一个点<br>2.将这些点相连<br>第一次操作之后：<br>1.奇异点增加<br>2.非四边形面消失<br>实际上也就是非四边形变成奇异点，此后再次进行的时候，都是非四边形</li>
 </ul>
 
         </div>
@@ -864,7 +876,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-22 11:11:27
+                    :</strong> 2024-04-23 13:29:15
             </li>
         
         <li>
