@@ -91,6 +91,7 @@
 </ol>
 <h3 id="3-4-纹理映射（Texture-Mapping）"><a href="#3-4-纹理映射（Texture-Mapping）" class="headerlink" title="3.4.纹理映射（Texture Mapping）"></a>3.4.纹理映射（Texture Mapping）</h3><h4 id="3-4-1-纹理应用"><a href="#3-4-1-纹理应用" class="headerlink" title="3.4.1.纹理应用"></a>3.4.1.纹理应用</h4><ul>
 <li>物体表面实际上是2D的，也就是将一张图片贴在3D物体上，这张图就是纹理（Texture），贴的过程就叫做映射</li>
+<li></li>
 <li>纹理上设定uv坐标系</li>
 <li>对一个采样点，利用重心坐标（从面积算出）算出uv（利用重心坐标和三个顶点得到uv）</li>
 <li>纹理定义的就是Diffuse reflect里面的Kd</li>
@@ -109,8 +110,8 @@
 <li>球面映射(存在扭曲现象)</li>
 <li>立方体映射</li>
 </ul>
-<h4 id="3-6-2-凹凸-法线贴图-Bump-Normal-Map"><a href="#3-6-2-凹凸-法线贴图-Bump-Normal-Map" class="headerlink" title="3.6.2.凹凸&#x2F;法线贴图(Bump&#x2F;Normal Map)"></a>3.6.2.凹凸&#x2F;法线贴图(Bump&#x2F;Normal Map)</h4><ul>
-<li>可以展示凹凸效果，但是并没有实际对几何体改变<br>n(p) &#x3D; (0, 0, 1)<br>dp&#x2F;du &#x3D; c1 * [h(u+1) - h(u)]<br>dp&#x2F;dv &#x3D; c2 * [h(v+1) - h(v)]<br>n &#x3D; (-dp&#x2F;du, -dp&#x2F;dv, 1)</li>
+<h4 id="3-6-2-其他贴图"><a href="#3-6-2-其他贴图" class="headerlink" title="3.6.2.其他贴图"></a>3.6.2.其他贴图</h4><ul>
+<li>凹凸&#x2F;法线贴图(Bump&#x2F;Normal Map)：可以展示凹凸效果，但是并没有实际对几何体改变<br>n(p) &#x3D; (0, 0, 1)<br>dp&#x2F;du &#x3D; c1 * [h(u+1) - h(u)]<br>dp&#x2F;dv &#x3D; c2 * [h(v+1) - h(v)]<br>n &#x3D; (-dp&#x2F;du, -dp&#x2F;dv, 1)</li>
 <li>位移贴图(Displacement Mapping)：将实际的几何体进行改变<br>缺点：需要更多采样点，模型需要足够细致</li>
 </ul>
 <h4 id="3-6-3-三维纹理"><a href="#3-6-3-三维纹理" class="headerlink" title="3.6.3.三维纹理"></a>3.6.3.三维纹理</h4><ul>
@@ -118,7 +119,7 @@
 <li>预先进行环境光遮蔽计算模型阴影  </li>
 <li>体渲染通过三维纹理记录信息，然后进行渲染</li>
 </ul>
-<h2 id="4-几何-Geometry"><a href="#4-几何-Geometry" class="headerlink" title="4.几何(Geometry)"></a>4.几何(Geometry)</h2><h3 id="4-1-几何的表示方法"><a href="#4-1-几何的表示方法" class="headerlink" title="4.1.几何的表示方法"></a>4.1.几何的表示方法</h3><h4 id="4-1-1两种方法"><a href="#4-1-1两种方法" class="headerlink" title="4.1.1两种方法"></a>4.1.1两种方法</h4><ul>
+<h2 id="4-几何-Geometry"><a href="#4-几何-Geometry" class="headerlink" title="4.几何(Geometry)"></a>4.几何(Geometry)</h2><h3 id="4-1-几何的表示方法"><a href="#4-1-几何的表示方法" class="headerlink" title="4.1.几何的表示方法"></a>4.1.几何的表示方法</h3><h4 id="4-1-1-两种方法"><a href="#4-1-1-两种方法" class="headerlink" title="4.1.1.两种方法"></a>4.1.1.两种方法</h4><ul>
 <li>隐式（Implicit):直接将几何体使用公式表示出来<br>优点：可以直接判断一个点在几何体内外<br>缺点：不能直接看出几何体形状<br>举例：（x² + 9y²&#x2F;4 + z² - 1）³ &#x3D; x²z³ + 9y²z³&#x2F;80，这是一个心形</li>
 <li>显式（Explicit):把点直接给出或者参数映射（u，v）-&gt;（x，y，z）<br>优点：可以直观得到几何体（可以是几何体点的集合，也可以是映射关系明确）<br>缺点：不能很容易判断一个点是否在几何体内外</li>
 </ul>
@@ -144,12 +145,22 @@
 <h4 id="4-2-3-曲面（Surfaces）"><a href="#4-2-3-曲面（Surfaces）" class="headerlink" title="4.2.3.曲面（Surfaces）"></a>4.2.3.曲面（Surfaces）</h4><ul>
 <li>贝塞尔曲面：将多条贝塞尔曲线上面的点作为控制点，制作贝塞尔曲线</li>
 </ul>
-<h4 id="4-2-4-几何处理"><a href="#4-2-4-几何处理" class="headerlink" title="4.2.4.几何处理"></a>4.2.4.几何处理</h4><p>网格细分（Mesh Subdivision），网格简化（Mesh Simplification），网格正规化（Mesh Regularization） </p>
-<ul>
+<h4 id="4-2-4-几何处理"><a href="#4-2-4-几何处理" class="headerlink" title="4.2.4.几何处理"></a>4.2.4.几何处理</h4><h5 id="4-2-4-1-网格细分（Mesh-Subdivision）网格正规化（Mesh-Regularization）"><a href="#4-2-4-1-网格细分（Mesh-Subdivision）网格正规化（Mesh-Regularization）" class="headerlink" title="4.2.4.1.网格细分（Mesh Subdivision）网格正规化（Mesh Regularization）"></a>4.2.4.1.网格细分（Mesh Subdivision）网格正规化（Mesh Regularization）</h5><ul>
 <li>卢氏细分（Loop Subdivision)：<br>1.将三角形每个线段中点作为新点，并且相连，得到四个三角形<br>2.将新生成的点平移，将周围四个点进行加权平均，得到新点的位置；旧点度为n，以及权重u，则旧点变为(1-n * u) * 原本位置+u*周围旧点位置之和   </li>
 <li>Catmull-Clark Subdivision：用于非三角形<br>非四边形面（Non-quad face）：不是四边形的面<br>奇异点（extraordinary vertex）：只要度不是4都是奇异点<br>1.每一个线取中点，每一个面也取一个点<br>2.将这些点相连<br>第一次操作之后：<br>1.奇异点增加<br>2.非四边形面消失<br>实际上也就是非四边形变成奇异点，此后再次进行的时候，都是非四边形</li>
 </ul>
-]]></content>
+<h5 id="4-2-4-2-网格简化（Mesh-Simplification）"><a href="#4-2-4-2-网格简化（Mesh-Simplification）" class="headerlink" title="4.2.4.2.网格简化（Mesh Simplification）"></a>4.2.4.2.网格简化（Mesh Simplification）</h5><ul>
+<li>网格简化：有些时候只需要一个大概的轮廓就行，不需要那么精细的网格。例如远处的物体</li>
+<li>边坍缩(Edge Collaps)：将边结合起来成一个点<br>二次误差度量(Quadric Error Metric)：当前顶点到其邻域所有三角面（也称关联平面）的距离平方和。<br>需要使用堆进行每一次二次误差度量</li>
+</ul>
+<h4 id="4-2-5-阴影-Shadow-Mapping"><a href="#4-2-5-阴影-Shadow-Mapping" class="headerlink" title="4.2.5.阴影(Shadow Mapping)"></a>4.2.5.阴影(Shadow Mapping)</h4><ul>
+<li>在阴影里面的定义：在光源点看不到这个点，也不能被相机看到</li>
+<li>Shadow Mapping只能处理点光源投射的阴影，处理的是硬阴影</li>
+<li>步骤：<br>1.从光源看向场景，光栅化，记录每一个点的深度为多少（z-buffer）<br>2.从相机看向场景，光栅化，计算点到光源成像的深度为多少，并且与第一步的z-buffer进行比较，如果一样，说明可见，如果不一致，就在阴影里</li>
+<li>有一些误差问题，因为浮点型很难判断是否相等。用两者距离在一个小范围之内，也就是bias小浮动</li>
+<li>硬阴影和软阴影：<br>硬阴影：要么可见要么不可见<br>软阴影：有一定过渡，完全看不到为本影，能看到一点叫做伴影。产生的根本原因是光源本身有大小</li>
+</ul>
+<h1 id="5-光线追踪（Ray-Tracing）"><a href="#5-光线追踪（Ray-Tracing）" class="headerlink" title="5.光线追踪（Ray Tracing）"></a>5.光线追踪（Ray Tracing）</h1>]]></content>
   </entry>
   <entry>
     <title>C++ Study</title>
@@ -430,6 +441,17 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
       </tags>
   </entry>
   <entry>
+    <title>Unity实现小地图创建</title>
+    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity相关</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UnityStudy</title>
     <url>/Blog/2024/02/04/UnityStudy/</url>
     <content><![CDATA[<h1 id="Unity-使用学习"><a href="#Unity-使用学习" class="headerlink" title="Unity 使用学习"></a>Unity 使用学习</h1><ul>
@@ -570,38 +592,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Unity实现小地图创建</title>
-    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Unity相关</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>config</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实现Unity中UI的拖拽</title>
     <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
     <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
@@ -685,5 +675,64 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 <li>非比较序列，并不直接进行数的大小比较，而是对每一位进行比较<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 获取数组中最大元素的位数</span><br><span class="line">function getMax(arr):</span><br><span class="line">    max = arr[0]</span><br><span class="line">    for i from 1 to arr.length - 1 do</span><br><span class="line">        if arr[i] &gt; max then</span><br><span class="line">            max = arr[i]</span><br><span class="line">    return max</span><br><span class="line"></span><br><span class="line">// 对数组按照指定位数进行计数排序</span><br><span class="line">function countingSort(arr, exp):</span><br><span class="line">    n = arr.length</span><br><span class="line">    output = new Array(n)</span><br><span class="line">    count = new Array(10)</span><br><span class="line">    for i from 0 to 9 do</span><br><span class="line">        count[i] = 0</span><br><span class="line"></span><br><span class="line">    // 统计每个桶中元素的个数</span><br><span class="line">    for i from 0 to n - 1 do</span><br><span class="line">        index = (arr[i] / exp) % 10</span><br><span class="line">        count[index]++</span><br><span class="line"></span><br><span class="line">    // 将计数数组转换为位置索引数组</span><br><span class="line">    for i from 1 to 9 do</span><br><span class="line">        count[i] += count[i - 1]</span><br><span class="line"></span><br><span class="line">    // 将元素按照当前位的值放置到输出数组中</span><br><span class="line">    for i from n - 1 down to 0 do</span><br><span class="line">        index = (arr[i] / exp) % 10</span><br><span class="line">        output[count[index] - 1] = arr[i]</span><br><span class="line">        count[index]--</span><br><span class="line"></span><br><span class="line">    // 将输出数组复制回原数组</span><br><span class="line">    for i from 0 to n - 1 do</span><br><span class="line">        arr[i] = output[i]</span><br><span class="line"></span><br><span class="line">// 基数排序函数</span><br><span class="line">function radixSort(arr):</span><br><span class="line">    max = getMax(arr)</span><br><span class="line">    exp = 1</span><br><span class="line">    while max / exp &gt; 0 do</span><br><span class="line">        countingSort(arr, exp)</span><br><span class="line">        exp *= 10</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>config</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络</title>
+    <url>/Blog/2024/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="1-概论"><a href="#1-概论" class="headerlink" title="1.概论"></a>1.概论</h2><h3 id="1-1-网络、互联网以及因特网"><a href="#1-1-网络、互联网以及因特网" class="headerlink" title="1.1.网络、互联网以及因特网"></a>1.1.网络、互联网以及因特网</h3><ul>
+<li>网络由若干个结点和连接这些结点的链路组成</li>
+<li>多个网络可以用路由器互连起来，构成一个更大的网络，也就是互联网</li>
+<li>因特网就是最大的互联网</li>
+</ul>
+<h3 id="1-2-因特网组成"><a href="#1-2-因特网组成" class="headerlink" title="1.2.因特网组成"></a>1.2.因特网组成</h3><ul>
+<li>边缘部分：由所有连接到网络的主机构成，是用户直接使用的，作为通信和资源共享</li>
+<li>核心部分：由大量网络和连接这些网络的路由器组成的，用于向边缘部分提供服务</li>
+</ul>
+<h3 id="1-3-三种交换方式"><a href="#1-3-三种交换方式" class="headerlink" title="1.3.三种交换方式"></a>1.3.三种交换方式</h3><p>交换：按照某种方式动态分配传输线路的资源  </p>
+<ul>
+<li>电路交换：电话交换机接通电话线的方式<br>1.建立连接（分配通信资源）<br>2.通话（建立的资源始终被占用）<br>3.释放连接（归还通信资源）</li>
+<li>分组交换<br>1.发送方：构造分组，发送分组<br>2.路由器：缓存分组，转发分组<br>3.接收方：接受分组，还原报文</li>
+<li>报文交换：已经被分组交换替代</li>
+<li>后两者都引起了转发时延，但是都提高了线路利用率，并且可以提供多目标服务</li>
+</ul>
+<h3 id="1-4-定义和分类"><a href="#1-4-定义和分类" class="headerlink" title="1.4.定义和分类"></a>1.4.定义和分类</h3><ul>
+<li>定义：一些互相连接、自治的计算机集合</li>
+<li>分类：<br>1.按交换技术分类：电路交换网络、报文交换网络、分组交换网络<br>2.按使用者分类：公用网、专用网<br>3.传输介质：有线网络、无线网络<br>4.覆盖网络：广域网（WAN）、城域网（MAN）、局域网（LAN）、个域网（PAN）<br>5.拓扑结构：总线型网络、星型网络、环形网络、网状型网络</li>
+</ul>
+<h3 id="1-5-计算机网络性能指标"><a href="#1-5-计算机网络性能指标" class="headerlink" title="1.5.计算机网络性能指标"></a>1.5.计算机网络性能指标</h3><ul>
+<li>速率：传输数据的速度</li>
+<li>带宽：信号所包含的各种不同频率成分所占据的频率范围；网络的通信线路所能传输数据的能力，也就是单位时间内，从网络的某个点到另一个点所能通过的最高数据率</li>
+<li>吞吐量：单位时间内，通过某个网络的数据量。吞吐量受到网络带宽或者额定速率的限制</li>
+<li>时延：发送时延（分组长度&#x2F;发送速率）、传播时延（信道长度&#x2F;电磁波在不同介质中的传输速率）、处理时延（无法计算）</li>
+<li>时延带宽积：乘以的是传播时延和带宽乘积。也就是第一个比特到终点时，已经发送了的数据量</li>
+<li>往返时间（RTT，Round-Trip Time）：双向交互时间</li>
+<li>利用率：信道利用率、网络利用率。D0表示空闲时的时延，D表示当前时延，利用率U，则D&#x3D;D0&#x2F;（1-U）</li>
+<li>丢包率：传输过程中丢失的分组数量与总分组数量比值。丢包原因：误码或网络拥塞</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
   </entry>
 </search>
