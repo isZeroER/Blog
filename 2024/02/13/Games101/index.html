@@ -26,7 +26,7 @@
 <meta property="og:description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-13T03:01:39.000Z">
-<meta property="article:modified_time" content="2024-04-24T13:50:57.743Z">
+<meta property="article:modified_time" content="2024-04-26T17:17:47.998Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -712,8 +712,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-24 21:50:57</span>
-            <span class="mobile">2024-04-24 21:50:57</span>
+            <span class="desktop">2024-04-27 01:17:47</span>
+            <span class="mobile">2024-04-27 01:17:47</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.4k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>15 Mins</span>
         </span>
     
     
@@ -873,7 +873,26 @@
 <li>有一些误差问题，因为浮点型很难判断是否相等。用两者距离在一个小范围之内，也就是bias小浮动</li>
 <li>硬阴影和软阴影：<br>硬阴影：要么可见要么不可见<br>软阴影：有一定过渡，完全看不到为本影，能看到一点叫做伴影。产生的根本原因是光源本身有大小</li>
 </ul>
-<h1 id="5-光线追踪（Ray-Tracing）"><a href="#5-光线追踪（Ray-Tracing）" class="headerlink" title="5.光线追踪（Ray Tracing）"></a>5.光线追踪（Ray Tracing）</h1>
+<h1 id="5-光线追踪（Ray-Tracing）"><a href="#5-光线追踪（Ray-Tracing）" class="headerlink" title="5.光线追踪（Ray Tracing）"></a>5.光线追踪（Ray Tracing）</h1><ul>
+<li>产生的原因：光栅化不能解决软阴影、且有些光照会反射多次</li>
+<li>特点：光线追踪很精确，但是非常慢，适用于制作动画，但是实时渲染很慢</li>
+</ul>
+<h2 id="5-1-光线追踪"><a href="#5-1-光线追踪" class="headerlink" title="5.1.光线追踪"></a>5.1.光线追踪</h2><ul>
+<li>光线的定义：<br>1.光沿直线传播<br>2.光与光之间不会碰撞<br>3.光路可逆</li>
+<li>递归光线追踪（Recursive（Whitted-Style） Ray Tracing）：<br>光源（light source）、首发光线（primary rays）、二次光线（secondary rays）<br>从相机或视线位置发出光线，射到目标像素，然后根据折射或者反射计算光线去向（实际也就是光线来源），然后每次判断光源是否可以照射到新的像素点</li>
+</ul>
+<h2 id="5-2-光线表面交点（Ray-Surface-Intersection）"><a href="#5-2-光线表面交点（Ray-Surface-Intersection）" class="headerlink" title="5.2.光线表面交点（Ray-Surface Intersection）"></a>5.2.光线表面交点（Ray-Surface Intersection）</h2><ul>
+<li>光线的数学定义：射线，是一个向量，每一个向量上的点都用<strong>r</strong>(t) &#x3D; o + t<strong>d</strong>，其中o为光线起始点，<strong>d</strong>为单位方向向量，t为系数  </li>
+<li>光线与几何体的交点：<br>1.隐式：可以直接联立方程式<br>2.显式：对一个封闭几何体，任意一个点发出一道射线，与几何体交点为奇数个，说明点在几何体内部；偶数个，说明在几何体外部</li>
+<li>判断光线是否与三角形相交：<br>先将光线与三角形的面相交得到与三角形平面的交点，然后利用之前的叉积判断这个点是否在三角形内，如果在，说明相交，；不在，说明不相交<br>光线与平面的交点求法：<br>平面方程为P：（p-p’）* <strong>N</strong> &#x3D; 0，其中p’为任意一个平面上面的点，<strong>N</strong>为平面法向量。与光线联立可得交点</li>
+<li>mt算法：可以直接计算得到光线是否与三角形相交</li>
+</ul>
+<h2 id="5-3-光线表面交点加速"><a href="#5-3-光线表面交点加速" class="headerlink" title="5.3.光线表面交点加速"></a>5.3.光线表面交点加速</h2><p>每一个光线都要计算一次场景求交，因此需要提高速度</p>
+<ul>
+<li>包围盒(Bounding Volumes):利用一个包围盒将物体完全包住<br>如果光线没有经过包围盒，就不可能射过几何体  </li>
+<li>光线和AABB求交：<br>将AABB看作是一个由三个对面的集合，所以当光线进入所有的对面之间，才算进入到AABB里面；只要有光线射出所有对面之间，就算出了AABB<br>算法：将光线与AABB三组对面的交点时间tmin和tmax，tenter &#x3D; max（tmin），texit &#x3D; min（tmax），如果tenter&lt;texit且texit&gt;&#x3D;0，说明光线进入了AABB</li>
+</ul>
+
         </div>
 
         
@@ -887,7 +906,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-24 21:50:57
+                    :</strong> 2024-04-27 01:17:47
             </li>
         
         <li>
@@ -1018,7 +1037,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Games101</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88Z-buffering%EF%BC%89"><span class="nav-text">2.5.深度缓存（Z-buffering）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="nav-text">3.着色（Shading）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%B8%83%E6%9E%97%E5%86%AF%E6%A8%A1%E5%9E%8B-Blinn-Phong-Reflectance-Model-%EF%BC%9A"><span class="nav-text">3.1.布林冯模型(Blinn-Phong Reflectance Model)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Shading%E9%A2%91%E7%8E%87"><span class="nav-text">3.2.Shading频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-text">3.3.渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84%EF%BC%88Texture-Mapping%EF%BC%89"><span class="nav-text">3.4.纹理映射（Texture Mapping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87-Barycentric-coodinates"><span class="nav-text">3.5.重心坐标(Barycentric coodinates)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8%EF%BC%88Application%EF%BC%89"><span class="nav-text">3.6.纹理应用（Application）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%A0%E4%BD%95-Geometry"><span class="nav-text">4.几何(Geometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%87%A0%E4%BD%95%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">4.1.几何的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%EF%BC%88Curves-and-Surfaces%EF%BC%8C%E6%98%BE%E5%BC%8F%E5%87%A0%E4%BD%95%EF%BC%89"><span class="nav-text">4.2.曲线和曲面（Curves and Surfaces，显式几何）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%EF%BC%88Ray-Tracing%EF%BC%89"><span class="nav-text">5.光线追踪（Ray Tracing）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88Z-buffering%EF%BC%89"><span class="nav-text">2.5.深度缓存（Z-buffering）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="nav-text">3.着色（Shading）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%B8%83%E6%9E%97%E5%86%AF%E6%A8%A1%E5%9E%8B-Blinn-Phong-Reflectance-Model-%EF%BC%9A"><span class="nav-text">3.1.布林冯模型(Blinn-Phong Reflectance Model)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Shading%E9%A2%91%E7%8E%87"><span class="nav-text">3.2.Shading频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-text">3.3.渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84%EF%BC%88Texture-Mapping%EF%BC%89"><span class="nav-text">3.4.纹理映射（Texture Mapping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87-Barycentric-coodinates"><span class="nav-text">3.5.重心坐标(Barycentric coodinates)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8%EF%BC%88Application%EF%BC%89"><span class="nav-text">3.6.纹理应用（Application）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%A0%E4%BD%95-Geometry"><span class="nav-text">4.几何(Geometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%87%A0%E4%BD%95%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">4.1.几何的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%EF%BC%88Curves-and-Surfaces%EF%BC%8C%E6%98%BE%E5%BC%8F%E5%87%A0%E4%BD%95%EF%BC%89"><span class="nav-text">4.2.曲线和曲面（Curves and Surfaces，显式几何）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%EF%BC%88Ray-Tracing%EF%BC%89"><span class="nav-text">5.光线追踪（Ray Tracing）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA"><span class="nav-text">5.1.光线追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%EF%BC%88Ray-Surface-Intersection%EF%BC%89"><span class="nav-text">5.2.光线表面交点（Ray-Surface Intersection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%E5%8A%A0%E9%80%9F"><span class="nav-text">5.3.光线表面交点加速</span></a></li></ol></li></ol>
 
     </div>
 </div>
