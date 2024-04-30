@@ -13,20 +13,18 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://iszeroer.github.io/Blog/2024/02/13/games101/"/>
+    <link rel="canonical" href="https://iszeroer.github.io/Blog/2024/04/30/unity中存储框架/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Games101">
-<meta property="og:url" content="https://iszeroer.github.io/Blog/2024/02/13/Games101/index.html">
+        <meta property="og:type" content="article">
+<meta property="og:title" content="Unity中存储框架">
+<meta property="og:url" content="https://iszeroer.github.io/Blog/2024/04/30/Unity%E4%B8%AD%E5%AD%98%E5%82%A8%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="Zero">
-<meta property="og:description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-13T03:01:39.000Z">
-<meta property="article:modified_time" content="2024-04-26T17:17:47.998Z">
+<meta property="article:published_time" content="2024-04-30T02:22:10.000Z">
+<meta property="article:modified_time" content="2024-04-30T02:22:10.812Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -40,7 +38,7 @@
     
     <title>
         
-            Games101 -
+            Unity中存储框架 -
         
         Zero | Action
     </title>
@@ -684,7 +682,7 @@
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">Games101</h1>
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">Unity中存储框架</h1>
                 </div>
             
             </div>
@@ -705,15 +703,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-02-13 11:01:39</span>
-        <span class="mobile">2024-02-13 11:01:39</span>
+        <span class="desktop">2024-04-30 10:22:10</span>
+        <span class="mobile">2024-04-30 10:22:10</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-27 01:17:47</span>
-            <span class="mobile">2024-04-27 01:17:47</span>
+            <span class="desktop">2024-04-30 10:22:10</span>
+            <span class="mobile">2024-04-30 10:22:10</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -723,13 +721,9 @@
 
     
     
-        <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4k Words</span>
-        </span>
-    
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>15 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 Mins</span>
         </span>
     
     
@@ -748,169 +742,25 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
-<li>就是将MVP转化的结果，画到二维数组上面</li>
-</ul>
-<h3 id="2-1-屏幕（pixel）"><a href="#2-1-屏幕（pixel）" class="headerlink" title="2.1.屏幕（pixel）"></a>2.1.屏幕（pixel）</h3><ul>
-<li>颜色表示：RGB</li>
-<li>屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。</li>
-</ul>
-<h3 id="2-2-画到屏幕上"><a href="#2-2-画到屏幕上" class="headerlink" title="2.2.画到屏幕上"></a>2.2.画到屏幕上</h3><ul>
-<li>[-1, 1]^3的立方体转化到[0, h]高度以及[0, w]宽度上面：<br>1.将立方体拉伸到h，w<br>2.将立方体移到中心<br>变换矩阵：</li>
-</ul>
-<h3 id="2-3-三角形作为Mesh"><a href="#2-3-三角形作为Mesh" class="headerlink" title="2.3.三角形作为Mesh"></a>2.3.三角形作为Mesh</h3><ul>
-<li>为何选择三角形<br>1.最为基本的图形<br>2.任何图像都可以拆成三角形<br>3.三个顶点的属性定义之后，可以对三角形内部进行插值计算</li>
-<li>采样（Sample）：从不同的位置取值,将函数离散化；重复频域</li>
-<li>给定一个三角形，要对其采样，需要对每个屏幕空间中每个像素的中心进行一个判断，看是否在三角形内部<br>这里涉及到了叉积，三角形ABC，以及一个未知点Q，如果<strong>AB</strong> 和 <strong>AQ</strong>的叉积，与<strong>BC</strong> 和 <strong>BQ</strong>的叉积，以及<strong>CA</strong> 和 <strong>CQ</strong>的叉积方向一致（右手螺旋定则），说明点Q在三角形内部；否则Q点在三角形外部</li>
-<li>如果点落在三角形上，有些定则是：计上不计下，计左不计右</li>
-<li>三角形包围盒（BoundingBox）：不需要将所有像素进行判断，只需要将三个顶点，MAX&#x2F;MIN(A.x&#x2F;y,B.x&#x2F;y,C.x&#x2F;y)分别求出来</li>
-<li>现实生活中LCD<br>BayerPattern：红绿蓝组成图案，绿色偏多（人眼对于绿色更为敏感）</li>
-</ul>
-<h3 id="2-4-走样（Aliasing，Jaggies）"><a href="#2-4-走样（Aliasing，Jaggies）" class="headerlink" title="2.4.走样（Aliasing，Jaggies）"></a>2.4.走样（Aliasing，Jaggies）</h3><ul>
-<li>因为采样率有限，所以导致走样</li>
-<li>Artifacts：图形学中的瑕疵  </li>
-<li>由于走样产生的瑕疵：锯齿（Jaggies）、摩尔纹（Moire）、滚轮（Wagon Wheel Effect）</li>
-<li>走样原理：信号改变太快，但是采样太慢了</li>
-<li>频域（Frequency Domain）<br>频谱中高频意味着图像的边界，低频意味着图像的平坦区域，大块背景；两条亮白色线意味着时域图的边界发生剧烈频域变化</li>
-<li>反走样（Anti Aliasing）：<br>1.滤波（模糊，卷积）：模糊处理，也就是低通滤波，然后进行采样。不能反过来，因为先采样已经走样了，然后对走样的信号进行模糊处理<br>2.多重采样抗锯齿（MSAA）：将每一个像素取不同采样点，计算更精确一些的图像属性，并没有实际增大分辨率。但是增大计算量，消耗性能</li>
-<li>其他反走样：<br>FXAA（Fast Approximate AA）：图像后处理，与采样无关，速度很快<br>TAA（Temporal AA）：采用上一帧的像素值</li>
-</ul>
-<h3 id="2-5-深度缓存（Z-buffering）"><a href="#2-5-深度缓存（Z-buffering）" class="headerlink" title="2.5.深度缓存（Z-buffering）"></a>2.5.深度缓存（Z-buffering）</h3><ul>
-<li>画家算法：先绘制背景，然后逐一绘制前景中的物体，后画的会覆盖前画的物体。局限：多个物体相互遮挡，导致不能判断深度，复杂度为O(nlogn)</li>
-<li>z-buffer算法：通过对每一个像素进行值替换，与顺序无关，只与深度有关。（深度缓存发生在每一个像素里面）复杂度为O(n)<br>需要额外创建buffer：<br>frame-buffer：实际要展示的存储值<br>depth-buffer:每一个像素对应的深度值<br>算法原理：先是所有像素设置为无限大，对于一个像素中，看它的深度大于还是小于当前像素的深度，小于替换，大于就不变。</li>
-</ul>
-<h2 id="3-着色（Shading）"><a href="#3-着色（Shading）" class="headerlink" title="3.着色（Shading）"></a>3.着色（Shading）</h2><ul>
-<li>着色：对不同物体应用不同材质的过程（不同材质对于光的反应不同）</li>
-</ul>
-<h3 id="3-1-布林冯模型-Blinn-Phong-Reflectance-Model-："><a href="#3-1-布林冯模型-Blinn-Phong-Reflectance-Model-：" class="headerlink" title="3.1.布林冯模型(Blinn-Phong Reflectance Model)："></a>3.1.布林冯模型(Blinn-Phong Reflectance Model)：</h3><ul>
-<li>高光(Specular highlights):光源直射光。<br>引入半程向量<strong>h</strong>，<strong>h</strong> &#x3D; bisector(<strong>v</strong>, <strong>l</strong>)，即(<strong>v</strong> + <strong>l</strong>)&#x2F;||(<strong>v</strong> + <strong>l</strong>)||。cosα &#x3D; <strong>n</strong> * <strong>h</strong>，其中α为半程向量和法线夹角。<br>Ls &#x3D; Ks(I&#x2F;r^2) * MAX(0, <strong>n</strong> * <strong>h</strong>)^p<br>Ks表示白色系数,p用于限制视线方向的高光范围，通常为100~200  </li>
-<li>漫反射(Diffuse reflection):与物体表面法线有关，根据光线与物体表面法线夹角有关，cosθ &#x3D; <strong>l</strong> * <strong>n</strong>,其中<strong>l</strong>为光线方向，<strong>n</strong>为物体法线方向。因此得到<br>Ld &#x3D; Kd(I&#x2F;r^2) * MAX(0, <strong>l</strong> * <strong>n</strong>)<br>其中Kd为材质的漫反射系数，反射出去的颜色为没有吸收的能量，如果表示为RGB值，则表示颜色。由于均匀反射出去，那么从任意一个方向观测都是一样结果，因此与观测方向无关  </li>
-<li>环境光(Ambient lighting):均匀间接光照结果<br>La &#x3D; Ka * Ia<br>Ka是环境光系数，Ia为环境光强度<br>与视觉发向、光照方向都无关，是一个常量<br>L &#x3D; Ls + Ld + La</li>
-<li>shading是局部的,没有shadow，也就是忽略所有的其他物体存在，只考虑自己</li>
-</ul>
-<h3 id="3-2-Shading频率"><a href="#3-2-Shading频率" class="headerlink" title="3.2.Shading频率"></a>3.2.Shading频率</h3><ul>
-<li>Shading 频率：一个平面进行一次BP模型<br>Flat shading：三角形着色，每一个三角形都是一个颜色，对于平滑表面不太适合<br>Gouraud shading：顶点着色<br>Phong shading：像素着色</li>
-<li>着色频率取决于物体本身平面频率如何</li>
-<li>顶点法线求法：对顶点四周平面进行加权或者不加权平均。</li>
-<li>通过重心坐标获得顶点之间的插值法线</li>
-</ul>
-<h3 id="3-3-渲染管线"><a href="#3-3-渲染管线" class="headerlink" title="3.3.渲染管线"></a>3.3.渲染管线</h3><ol>
-<li>输入场景（点）  shader，可以在硬件里面执行的，里面有控制顶点和像素如何着色的</li>
-<li>投影</li>
-<li>形成三角形</li>
-<li>光栅化</li>
-<li>着色</li>
-<li>输出<br>GPU：Graphics Process Unit，图形处理单元<br>着色器：顶点着色器、像素着色器<br>shadertoy.com</li>
-</ol>
-<h3 id="3-4-纹理映射（Texture-Mapping）"><a href="#3-4-纹理映射（Texture-Mapping）" class="headerlink" title="3.4.纹理映射（Texture Mapping）"></a>3.4.纹理映射（Texture Mapping）</h3><h4 id="3-4-1-纹理应用"><a href="#3-4-1-纹理应用" class="headerlink" title="3.4.1.纹理应用"></a>3.4.1.纹理应用</h4><ul>
-<li>物体表面实际上是2D的，也就是将一张图片贴在3D物体上，这张图就是纹理（Texture），贴的过程就叫做映射</li>
-<li></li>
-<li>纹理上设定uv坐标系</li>
-<li>对一个采样点，利用重心坐标（从面积算出）算出uv（利用重心坐标和三个顶点得到uv）</li>
-<li>纹理定义的就是Diffuse reflect里面的Kd</li>
-</ul>
-<h4 id="3-4-2-纹理对应"><a href="#3-4-2-纹理对应" class="headerlink" title="3.4.2.纹理对应"></a>3.4.2.纹理对应</h4><ul>
-<li>纹理太小（需要Texture Maginification）：<br>四舍五入(Nearest)<br>线性插值(Bilinear Interpolation)：对周围四个uv值进行插值<br>二次立方(Bicubic)：对周围16个值进行插值</li>
-<li>纹理太大(导致出现纹理混叠):<br>范围查询(Mipmap):快速，但是只能适用于简单规则正方形。将一张纹理放小一半，如256 * 256到128 * 128…将存储量变小，仅仅是原本的三分之一。<br>且Mipmap会将第D&#x3D;log2L层寻找<br>如果在两层之间，如0和1之间的0.8层，则可以进行第三步插值，也就是三线性插值<br>各向异性过滤(Anisotropic Filtering):对于矩形查询优化，生成了其他单水平或垂直方向图，开销为原本三倍，也就是Ripmap<br>EWA Filtering：多次查询圆形</li>
-</ul>
-<h3 id="3-5-重心坐标-Barycentric-coodinates"><a href="#3-5-重心坐标-Barycentric-coodinates" class="headerlink" title="3.5.重心坐标(Barycentric coodinates)"></a>3.5.重心坐标(Barycentric coodinates)</h3><ul>
-<li>顶点着色的时候，需要对三角形内部进行插值(纹理uv坐标，颜色，法线方向)，也就需要利用重心坐标</li>
-<li>重心坐标定义在三角形内，设▲ABC，则同一个平面中任意一个点(x,y),都可以得到(x, y) &#x3D; αA + βB + γC，其中α + β + γ &#x3D; 1.如果三者都大于0，则点在三角形内。重心坐标就是(α， β， γ)<br>ABC内切圆心O，则α &#x3D; Sboc&#x2F;Sabc，β &#x3D; Saoc&#x2F;Sabc，γ &#x3D; Saob&#x2F;Sabc。三角形面积三等分的点对于重心坐标就是(1&#x2F;3, 1&#x2F;3, 1&#x2F;3)</li>
-<li>对于插值属性，同样是使用重心坐标</li>
-<li>重心坐标缺点：光栅化时，三角形形状在投影下是有缺陷的，不确定的，与原本三角形重心坐标不同。</li>
-</ul>
-<h3 id="3-6-纹理应用（Application）"><a href="#3-6-纹理应用（Application）" class="headerlink" title="3.6.纹理应用（Application）"></a>3.6.纹理应用（Application）</h3><h4 id="3-6-1-环境映射"><a href="#3-6-1-环境映射" class="headerlink" title="3.6.1.环境映射"></a>3.6.1.环境映射</h4><ul>
-<li>球面映射(存在扭曲现象)</li>
-<li>立方体映射</li>
-</ul>
-<h4 id="3-6-2-其他贴图"><a href="#3-6-2-其他贴图" class="headerlink" title="3.6.2.其他贴图"></a>3.6.2.其他贴图</h4><ul>
-<li>凹凸&#x2F;法线贴图(Bump&#x2F;Normal Map)：可以展示凹凸效果，但是并没有实际对几何体改变<br>n(p) &#x3D; (0, 0, 1)<br>dp&#x2F;du &#x3D; c1 * [h(u+1) - h(u)]<br>dp&#x2F;dv &#x3D; c2 * [h(v+1) - h(v)]<br>n &#x3D; (-dp&#x2F;du, -dp&#x2F;dv, 1)</li>
-<li>位移贴图(Displacement Mapping)：将实际的几何体进行改变<br>缺点：需要更多采样点，模型需要足够细致</li>
-</ul>
-<h4 id="3-6-3-三维纹理"><a href="#3-6-3-三维纹理" class="headerlink" title="3.6.3.三维纹理"></a>3.6.3.三维纹理</h4><ul>
-<li>利用三维空间中的噪声函数进行纹理映射（例如Perlin Noise）  </li>
-<li>预先进行环境光遮蔽计算模型阴影  </li>
-<li>体渲染通过三维纹理记录信息，然后进行渲染</li>
-</ul>
-<h2 id="4-几何-Geometry"><a href="#4-几何-Geometry" class="headerlink" title="4.几何(Geometry)"></a>4.几何(Geometry)</h2><h3 id="4-1-几何的表示方法"><a href="#4-1-几何的表示方法" class="headerlink" title="4.1.几何的表示方法"></a>4.1.几何的表示方法</h3><h4 id="4-1-1-两种方法"><a href="#4-1-1-两种方法" class="headerlink" title="4.1.1.两种方法"></a>4.1.1.两种方法</h4><ul>
-<li>隐式（Implicit):直接将几何体使用公式表示出来<br>优点：可以直接判断一个点在几何体内外<br>缺点：不能直接看出几何体形状<br>举例：（x² + 9y²&#x2F;4 + z² - 1）³ &#x3D; x²z³ + 9y²z³&#x2F;80，这是一个心形</li>
-<li>显式（Explicit):把点直接给出或者参数映射（u，v）-&gt;（x，y，z）<br>优点：可以直观得到几何体（可以是几何体点的集合，也可以是映射关系明确）<br>缺点：不能很容易判断一个点是否在几何体内外</li>
-</ul>
-<h4 id="4-1-2-一些其他的隐式"><a href="#4-1-2-一些其他的隐式" class="headerlink" title="4.1.2.一些其他的隐式"></a>4.1.2.一些其他的隐式</h4><ul>
-<li>代数曲面（algebraic surface）：通过一些代数式表示</li>
-<li>构造立体几何法（Constructive Solid Geometry，CSG）：通过一些几何体的交、并、差等操作</li>
-<li>距离函数（Distance Function，SDF）：不直接描述表面，而是描述每一个点到一个表面的最短距离，正在外，负在内，通过融合（blend）距离函数，将这些点表示出来</li>
-<li>水平集（Level Set Method）：将距离函数用数组表示，从而进行绘制</li>
-<li>分形（Fractals）：不断重复自身，类似于函数递归概念</li>
-</ul>
-<h3 id="4-2-曲线和曲面（Curves-and-Surfaces，显式几何）"><a href="#4-2-曲线和曲面（Curves-and-Surfaces，显式几何）" class="headerlink" title="4.2.曲线和曲面（Curves and Surfaces，显式几何）"></a>4.2.曲线和曲面（Curves and Surfaces，显式几何）</h3><h4 id="4-2-1-几个例子"><a href="#4-2-1-几个例子" class="headerlink" title="4.2.1.几个例子"></a>4.2.1.几个例子</h4><ul>
-<li>点云（Point Cloud）：用密集点进行几何体构造<br>可以构造任意一种几何体，在扫描里面经常使用</li>
-<li>多边形面（Polygon Mesh）：三角形或者四边形表达几何体。是应用最广泛的方式</li>
-<li>.obj文件<br>实际上就是.txt文件，用于存储一些数据，例如纹理，坐标，法线，重心</li>
-</ul>
-<h4 id="4-2-2-曲线（Curves）"><a href="#4-2-2-曲线（Curves）" class="headerlink" title="4.2.2.曲线（Curves）"></a>4.2.2.曲线（Curves）</h4><ul>
-<li>贝塞尔曲线（Bézier Curve）：用一系列控制点定义曲线  </li>
-<li>属性：<br>1.经过起始点和终点<br>2.起始切线和结尾切线都是(n-1)(b0-b1)<br>3.仿射曲线<br>4.所有点都在凸包内</li>
-<li>德卡斯特里奥算法：定义一个线段AB上面的点C，并系数u（0 &lt; u &lt; 1），使得AC &#x3D; u AB，得到C坐标 C &#x3D; uA + (1-u)B<br>伯恩斯坦：b^n(t) &#x3D; &amp;&amp;Σb_jB_j^n(t)&amp;&amp;</li>
-<li>逐段贝塞尔曲线：当控制点太多时，就很难控制。也就是切点<br>C0连续：点线结合<br>C1连续：一阶导数连续</li>
-<li>样条（Splines）：一个可控的曲线</li>
-</ul>
-<h4 id="4-2-3-曲面（Surfaces）"><a href="#4-2-3-曲面（Surfaces）" class="headerlink" title="4.2.3.曲面（Surfaces）"></a>4.2.3.曲面（Surfaces）</h4><ul>
-<li>贝塞尔曲面：将多条贝塞尔曲线上面的点作为控制点，制作贝塞尔曲线</li>
-</ul>
-<h4 id="4-2-4-几何处理"><a href="#4-2-4-几何处理" class="headerlink" title="4.2.4.几何处理"></a>4.2.4.几何处理</h4><h5 id="4-2-4-1-网格细分（Mesh-Subdivision）网格正规化（Mesh-Regularization）"><a href="#4-2-4-1-网格细分（Mesh-Subdivision）网格正规化（Mesh-Regularization）" class="headerlink" title="4.2.4.1.网格细分（Mesh Subdivision）网格正规化（Mesh Regularization）"></a>4.2.4.1.网格细分（Mesh Subdivision）网格正规化（Mesh Regularization）</h5><ul>
-<li>卢氏细分（Loop Subdivision)：<br>1.将三角形每个线段中点作为新点，并且相连，得到四个三角形<br>2.将新生成的点平移，将周围四个点进行加权平均，得到新点的位置；旧点度为n，以及权重u，则旧点变为(1-n * u) * 原本位置+u*周围旧点位置之和   </li>
-<li>Catmull-Clark Subdivision：用于非三角形<br>非四边形面（Non-quad face）：不是四边形的面<br>奇异点（extraordinary vertex）：只要度不是4都是奇异点<br>1.每一个线取中点，每一个面也取一个点<br>2.将这些点相连<br>第一次操作之后：<br>1.奇异点增加<br>2.非四边形面消失<br>实际上也就是非四边形变成奇异点，此后再次进行的时候，都是非四边形</li>
-</ul>
-<h5 id="4-2-4-2-网格简化（Mesh-Simplification）"><a href="#4-2-4-2-网格简化（Mesh-Simplification）" class="headerlink" title="4.2.4.2.网格简化（Mesh Simplification）"></a>4.2.4.2.网格简化（Mesh Simplification）</h5><ul>
-<li>网格简化：有些时候只需要一个大概的轮廓就行，不需要那么精细的网格。例如远处的物体</li>
-<li>边坍缩(Edge Collaps)：将边结合起来成一个点<br>二次误差度量(Quadric Error Metric)：当前顶点到其邻域所有三角面（也称关联平面）的距离平方和。<br>需要使用堆进行每一次二次误差度量</li>
-</ul>
-<h4 id="4-2-5-阴影-Shadow-Mapping"><a href="#4-2-5-阴影-Shadow-Mapping" class="headerlink" title="4.2.5.阴影(Shadow Mapping)"></a>4.2.5.阴影(Shadow Mapping)</h4><ul>
-<li>在阴影里面的定义：在光源点看不到这个点，也不能被相机看到</li>
-<li>Shadow Mapping只能处理点光源投射的阴影，处理的是硬阴影</li>
-<li>步骤：<br>1.从光源看向场景，光栅化，记录每一个点的深度为多少（z-buffer）<br>2.从相机看向场景，光栅化，计算点到光源成像的深度为多少，并且与第一步的z-buffer进行比较，如果一样，说明可见，如果不一致，就在阴影里</li>
-<li>有一些误差问题，因为浮点型很难判断是否相等。用两者距离在一个小范围之内，也就是bias小浮动</li>
-<li>硬阴影和软阴影：<br>硬阴影：要么可见要么不可见<br>软阴影：有一定过渡，完全看不到为本影，能看到一点叫做伴影。产生的根本原因是光源本身有大小</li>
-</ul>
-<h1 id="5-光线追踪（Ray-Tracing）"><a href="#5-光线追踪（Ray-Tracing）" class="headerlink" title="5.光线追踪（Ray Tracing）"></a>5.光线追踪（Ray Tracing）</h1><ul>
-<li>产生的原因：光栅化不能解决软阴影、且有些光照会反射多次</li>
-<li>特点：光线追踪很精确，但是非常慢，适用于制作动画，但是实时渲染很慢</li>
-</ul>
-<h2 id="5-1-光线追踪"><a href="#5-1-光线追踪" class="headerlink" title="5.1.光线追踪"></a>5.1.光线追踪</h2><ul>
-<li>光线的定义：<br>1.光沿直线传播<br>2.光与光之间不会碰撞<br>3.光路可逆</li>
-<li>递归光线追踪（Recursive（Whitted-Style） Ray Tracing）：<br>光源（light source）、首发光线（primary rays）、二次光线（secondary rays）<br>从相机或视线位置发出光线，射到目标像素，然后根据折射或者反射计算光线去向（实际也就是光线来源），然后每次判断光源是否可以照射到新的像素点</li>
-</ul>
-<h2 id="5-2-光线表面交点（Ray-Surface-Intersection）"><a href="#5-2-光线表面交点（Ray-Surface-Intersection）" class="headerlink" title="5.2.光线表面交点（Ray-Surface Intersection）"></a>5.2.光线表面交点（Ray-Surface Intersection）</h2><ul>
-<li>光线的数学定义：射线，是一个向量，每一个向量上的点都用<strong>r</strong>(t) &#x3D; o + t<strong>d</strong>，其中o为光线起始点，<strong>d</strong>为单位方向向量，t为系数  </li>
-<li>光线与几何体的交点：<br>1.隐式：可以直接联立方程式<br>2.显式：对一个封闭几何体，任意一个点发出一道射线，与几何体交点为奇数个，说明点在几何体内部；偶数个，说明在几何体外部</li>
-<li>判断光线是否与三角形相交：<br>先将光线与三角形的面相交得到与三角形平面的交点，然后利用之前的叉积判断这个点是否在三角形内，如果在，说明相交，；不在，说明不相交<br>光线与平面的交点求法：<br>平面方程为P：（p-p’）* <strong>N</strong> &#x3D; 0，其中p’为任意一个平面上面的点，<strong>N</strong>为平面法向量。与光线联立可得交点</li>
-<li>mt算法：可以直接计算得到光线是否与三角形相交</li>
-</ul>
-<h2 id="5-3-光线表面交点加速"><a href="#5-3-光线表面交点加速" class="headerlink" title="5.3.光线表面交点加速"></a>5.3.光线表面交点加速</h2><p>每一个光线都要计算一次场景求交，因此需要提高速度</p>
-<ul>
-<li>包围盒(Bounding Volumes):利用一个包围盒将物体完全包住<br>如果光线没有经过包围盒，就不可能射过几何体  </li>
-<li>光线和AABB求交：<br>将AABB看作是一个由三个对面的集合，所以当光线进入所有的对面之间，才算进入到AABB里面；只要有光线射出所有对面之间，就算出了AABB<br>算法：将光线与AABB三组对面的交点时间tmin和tmax，tenter &#x3D; max（tmin），texit &#x3D; min（tmax），如果tenter&lt;texit且texit&gt;&#x3D;0，说明光线进入了AABB</li>
-</ul>
-
+            
         </div>
 
         
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> Games101</li>
+        <li><strong>Title:</strong> Unity中存储框架</li>
         <li><strong>Author:</strong> Zero</li>
         <li><strong>Created at
-                :</strong> 2024-02-13 11:01:39</li>
+                :</strong> 2024-04-30 10:22:10</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-27 01:17:47
+                    :</strong> 2024-04-30 10:22:10
             </li>
         
         <li>
-            <strong>Link:</strong> https://iszeroer.github.io/Blog/2024/02/13/Games101/
+            <strong>Link:</strong> https://iszeroer.github.io/Blog/2024/04/30/Unity中存储框架/
         </li>
         <li>
             <strong>
@@ -935,29 +785,14 @@
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
                 
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/Blog/2024/02/14/C++%20Study/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">C++ Study</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/"
+                        href="/Blog/2024/04/29/UI%E6%A1%86%E6%9E%B6/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">Unity Particle System</span>
+                                <span class="post-nav-title-item">UI框架</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -1036,8 +871,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">Games101</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88Z-buffering%EF%BC%89"><span class="nav-text">2.5.深度缓存（Z-buffering）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="nav-text">3.着色（Shading）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%B8%83%E6%9E%97%E5%86%AF%E6%A8%A1%E5%9E%8B-Blinn-Phong-Reflectance-Model-%EF%BC%9A"><span class="nav-text">3.1.布林冯模型(Blinn-Phong Reflectance Model)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Shading%E9%A2%91%E7%8E%87"><span class="nav-text">3.2.Shading频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-text">3.3.渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84%EF%BC%88Texture-Mapping%EF%BC%89"><span class="nav-text">3.4.纹理映射（Texture Mapping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87-Barycentric-coodinates"><span class="nav-text">3.5.重心坐标(Barycentric coodinates)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8%EF%BC%88Application%EF%BC%89"><span class="nav-text">3.6.纹理应用（Application）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%A0%E4%BD%95-Geometry"><span class="nav-text">4.几何(Geometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%87%A0%E4%BD%95%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">4.1.几何的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%EF%BC%88Curves-and-Surfaces%EF%BC%8C%E6%98%BE%E5%BC%8F%E5%87%A0%E4%BD%95%EF%BC%89"><span class="nav-text">4.2.曲线和曲面（Curves and Surfaces，显式几何）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%EF%BC%88Ray-Tracing%EF%BC%89"><span class="nav-text">5.光线追踪（Ray Tracing）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA"><span class="nav-text">5.1.光线追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%EF%BC%88Ray-Surface-Intersection%EF%BC%89"><span class="nav-text">5.2.光线表面交点（Ray-Surface Intersection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%E5%8A%A0%E9%80%9F"><span class="nav-text">5.3.光线表面交点加速</span></a></li></ol></li></ol>
+        <div class="page-title">Unity中存储框架</div>
+        
 
     </div>
 </div>
