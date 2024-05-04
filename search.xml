@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Study</title>
     <url>/Blog/2024/02/14/C++%20Study/</url>
     <content><![CDATA[<h1 id="1-C-基础"><a href="#1-C-基础" class="headerlink" title="1.C++基础"></a>1.C++基础</h1><h2 id="1-1-C-运行原理"><a href="#1-1-C-运行原理" class="headerlink" title="1.1.C++运行原理"></a>1.1.C++运行原理</h2><ul>
@@ -279,58 +311,6 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
       </tags>
   </entry>
   <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
-</ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
-</ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
-</ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
-</ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UI框架</title>
-    <url>/Blog/2024/04/29/UI%E6%A1%86%E6%9E%B6/</url>
-    <content><![CDATA[<h1 id="框架要素（MVC模式）"><a href="#框架要素（MVC模式）" class="headerlink" title="框架要素（MVC模式）"></a>框架要素（MVC模式）</h1><ul>
-<li>UIManager：将manager设置为单例模式</li>
-<li>BasePanel：用于控制UI的一些函数，需要继承Monobehaviour以对其他节点进行控制</li>
-<li>界面配置关系：UI名称、UI预制体路径等</li>
-</ul>
-<h2 id="1-UIManager"><a href="#1-UIManager" class="headerlink" title="1.UIManager"></a>1.UIManager</h2><ul>
-<li>确保UIManager是单例模式</li>
-<li>创建字典来分别保存路径、预制体、以及已经打开的UI</li>
-<li>利用UIConst作为不同UI配置</li>
-<li>调用BasePanel实例的open和close<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UIManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> UIManager _uiManager;</span><br><span class="line">    <span class="comment">//预制体字典</span></span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="built_in">string</span>, GameObject&gt; prefabsLists;</span><br><span class="line">    <span class="comment">//路径字典</span></span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; pathLists;</span><br><span class="line">    <span class="comment">//已经打开的UI</span></span><br><span class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="built_in">string</span>, BasePanel&gt; panelLists;</span><br><span class="line">    <span class="keyword">private</span> Transform _uiRoot;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取单例</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> UIManager Instance</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (_uiManager == <span class="literal">null</span>)</span><br><span class="line">                _uiManager = <span class="keyword">new</span> UIManager();</span><br><span class="line">            <span class="keyword">return</span> _uiManager;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">UIManager</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        InitUI();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//UI界面配置，名称与Prefabs路径等</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">InitUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        _uiRoot = UIRoot;</span><br><span class="line">        panelLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, BasePanel&gt;();</span><br><span class="line">        prefabsLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, GameObject&gt;();</span><br><span class="line">        pathLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;()</span><br><span class="line">        &#123;</span><br><span class="line">            &#123; UIConst.MainPanel, <span class="string">&quot;Prefabs/UI/MainPanel&quot;</span> &#125;,</span><br><span class="line">            &#123; UIConst.SuccessPanel, <span class="string">&quot;Prefabs/UI/SuccessPanel&quot;</span> &#125;,</span><br><span class="line">            &#123; UIConst.FailPanel, <span class="string">&quot;Prefabs/UI/FailPanel&quot;</span> &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取根节点</span></span><br><span class="line">    <span class="keyword">private</span> Transform UIRoot</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (_uiRoot == <span class="literal">null</span>)</span><br><span class="line">                _uiRoot = GameObject.Find(<span class="string">&quot;Canvas&quot;</span>).transform;</span><br><span class="line">            <span class="keyword">return</span> _uiRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BasePanel <span class="title">OpenPanel</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        BasePanel panel = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (panelLists.TryGetValue(name, <span class="keyword">out</span> panel))</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(name + <span class="string">&quot;界面已经打开&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">string</span> path = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!pathLists.TryGetValue(name, <span class="keyword">out</span> path))</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(name + <span class="string">&quot;的UI路径出错！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        GameObject panelPrefabs = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (!prefabsLists.TryGetValue(name, <span class="keyword">out</span> panelPrefabs))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> realpath = path;</span><br><span class="line">            panelPrefabs = Resources.Load&lt;GameObject&gt;(realpath) <span class="keyword">as</span> GameObject;</span><br><span class="line">            prefabsLists.Add(name, panelPrefabs);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//打开界面</span></span><br><span class="line">        GameObject panelObject = GameObject.Instantiate(panelPrefabs);</span><br><span class="line">        panel = panelObject.GetComponent&lt;BasePanel&gt;();</span><br><span class="line">        panel.OpenPanel(name);</span><br><span class="line">        panelLists.Add(name, panel);</span><br><span class="line">        <span class="keyword">return</span> panel;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">ClosePanel</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        BasePanel panel = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (!panelLists.TryGetValue(name, <span class="keyword">out</span> panel))</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;界面未打开！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        panel.ClosePanel();</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//UI定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UIConst</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> MainPanel = <span class="string">&quot;MainPanel&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> SuccessPanel = <span class="string">&quot;SuccessPanel&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> FailPanel = <span class="string">&quot;FailPanel&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<h2 id="2-BasePanel"><a href="#2-BasePanel" class="headerlink" title="2.BasePanel"></a>2.BasePanel</h2><ul>
-<li>基本打开和关闭方法<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BasePanel</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">protected</span> <span class="built_in">bool</span> isReMove = <span class="literal">false</span>;</span><br><span class="line">   <span class="keyword">protected</span> <span class="built_in">string</span> _name;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">OpenPanel</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">this</span>._name = name;</span><br><span class="line">      gameObject.SetActive(<span class="literal">true</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">ClosePanel</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">      isReMove = <span class="literal">true</span>;  </span><br><span class="line">      gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">      Destroy(gameObject);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (UIManager.Instance.panelLists.ContainsKey(_name))</span><br><span class="line">      &#123;</span><br><span class="line">         UIManager.Instance.panelLists.Remove(_name);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<h2 id="3-界面配置关系"><a href="#3-界面配置关系" class="headerlink" title="3.界面配置关系"></a>3.界面配置关系</h2><p>Unity中可以使用两种方式，一种是Excel导入，一种是使用Unity自带的</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Games101</title>
     <url>/Blog/2024/02/13/Games101/</url>
     <content><![CDATA[<h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
@@ -480,6 +460,91 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 ]]></content>
   </entry>
   <entry>
+    <title>UI框架</title>
+    <url>/Blog/2024/04/29/UI%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<h1 id="框架要素（MVC模式）"><a href="#框架要素（MVC模式）" class="headerlink" title="框架要素（MVC模式）"></a>框架要素（MVC模式）</h1><ul>
+<li>UIManager：将manager设置为单例模式</li>
+<li>BasePanel：用于控制UI的一些函数，需要继承Monobehaviour以对其他节点进行控制</li>
+<li>界面配置关系：UI名称、UI预制体路径等</li>
+</ul>
+<h2 id="1-UIManager"><a href="#1-UIManager" class="headerlink" title="1.UIManager"></a>1.UIManager</h2><ul>
+<li>确保UIManager是单例模式</li>
+<li>创建字典来分别保存路径、预制体、以及已经打开的UI</li>
+<li>利用UIConst作为不同UI配置</li>
+<li>调用BasePanel实例的open和close<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UIManager</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> UIManager _uiManager;</span><br><span class="line">    <span class="comment">//预制体字典</span></span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="built_in">string</span>, GameObject&gt; prefabsLists;</span><br><span class="line">    <span class="comment">//路径字典</span></span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; pathLists;</span><br><span class="line">    <span class="comment">//已经打开的UI</span></span><br><span class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="built_in">string</span>, BasePanel&gt; panelLists;</span><br><span class="line">    <span class="keyword">private</span> Transform _uiRoot;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取单例</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> UIManager Instance</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (_uiManager == <span class="literal">null</span>)</span><br><span class="line">                _uiManager = <span class="keyword">new</span> UIManager();</span><br><span class="line">            <span class="keyword">return</span> _uiManager;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">UIManager</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        InitUI();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//UI界面配置，名称与Prefabs路径等</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">InitUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        _uiRoot = UIRoot;</span><br><span class="line">        panelLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, BasePanel&gt;();</span><br><span class="line">        prefabsLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, GameObject&gt;();</span><br><span class="line">        pathLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;()</span><br><span class="line">        &#123;</span><br><span class="line">            &#123; UIConst.MainPanel, <span class="string">&quot;Prefabs/UI/MainPanel&quot;</span> &#125;,</span><br><span class="line">            &#123; UIConst.SuccessPanel, <span class="string">&quot;Prefabs/UI/SuccessPanel&quot;</span> &#125;,</span><br><span class="line">            &#123; UIConst.FailPanel, <span class="string">&quot;Prefabs/UI/FailPanel&quot;</span> &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取根节点</span></span><br><span class="line">    <span class="keyword">private</span> Transform UIRoot</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (_uiRoot == <span class="literal">null</span>)</span><br><span class="line">                _uiRoot = GameObject.Find(<span class="string">&quot;Canvas&quot;</span>).transform;</span><br><span class="line">            <span class="keyword">return</span> _uiRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BasePanel <span class="title">OpenPanel</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        BasePanel panel = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (panelLists.TryGetValue(name, <span class="keyword">out</span> panel))</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(name + <span class="string">&quot;界面已经打开&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">string</span> path = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!pathLists.TryGetValue(name, <span class="keyword">out</span> path))</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(name + <span class="string">&quot;的UI路径出错！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        GameObject panelPrefabs = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (!prefabsLists.TryGetValue(name, <span class="keyword">out</span> panelPrefabs))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">string</span> realpath = path;</span><br><span class="line">            panelPrefabs = Resources.Load&lt;GameObject&gt;(realpath) <span class="keyword">as</span> GameObject;</span><br><span class="line">            prefabsLists.Add(name, panelPrefabs);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//打开界面</span></span><br><span class="line">        GameObject panelObject = GameObject.Instantiate(panelPrefabs);</span><br><span class="line">        panel = panelObject.GetComponent&lt;BasePanel&gt;();</span><br><span class="line">        panel.OpenPanel(name);</span><br><span class="line">        panelLists.Add(name, panel);</span><br><span class="line">        <span class="keyword">return</span> panel;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">ClosePanel</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        BasePanel panel = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (!panelLists.TryGetValue(name, <span class="keyword">out</span> panel))</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;界面未打开！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        panel.ClosePanel();</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//UI定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">UIConst</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> MainPanel = <span class="string">&quot;MainPanel&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> SuccessPanel = <span class="string">&quot;SuccessPanel&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">const</span> <span class="built_in">string</span> FailPanel = <span class="string">&quot;FailPanel&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="2-BasePanel"><a href="#2-BasePanel" class="headerlink" title="2.BasePanel"></a>2.BasePanel</h2><ul>
+<li>基本打开和关闭方法<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BasePanel</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">protected</span> <span class="built_in">bool</span> isReMove = <span class="literal">false</span>;</span><br><span class="line">   <span class="keyword">protected</span> <span class="built_in">string</span> _name;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">OpenPanel</span>(<span class="params"><span class="built_in">string</span> name</span>)</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">this</span>._name = name;</span><br><span class="line">      gameObject.SetActive(<span class="literal">true</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">ClosePanel</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">      isReMove = <span class="literal">true</span>;  </span><br><span class="line">      gameObject.SetActive(<span class="literal">false</span>);</span><br><span class="line">      Destroy(gameObject);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (UIManager.Instance.panelLists.ContainsKey(_name))</span><br><span class="line">      &#123;</span><br><span class="line">         UIManager.Instance.panelLists.Remove(_name);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="3-界面配置关系"><a href="#3-界面配置关系" class="headerlink" title="3.界面配置关系"></a>3.界面配置关系</h2><p>Unity中可以使用两种方式，一种是Excel导入，一种是使用Unity自带的</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Unity中存储框架</title>
+    <url>/Blog/2024/04/30/Unity%E4%B8%AD%E5%AD%98%E5%82%A8%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<h1 id="数据存储框架"><a href="#数据存储框架" class="headerlink" title="数据存储框架"></a>数据存储框架</h1><ul>
+<li>分为两种，网络存储和本地存储</li>
+</ul>
+<h2 id="1-本地存储"><a href="#1-本地存储" class="headerlink" title="1.本地存储"></a>1.本地存储</h2><ul>
+<li>Unity中可以有两种方式，一种是CSV文件，一种是使用Unity自带</li>
+</ul>
+<h3 id="1-1-Unity自带"><a href="#1-1-Unity自带" class="headerlink" title="1.1.Unity自带"></a>1.1.Unity自带</h3><ul>
+<li>使用AssetMenu存储<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这里使得可以右键创建文件</span></span><br><span class="line">[<span class="meta">CreateAssetMenu(menuName = <span class="string">&quot;ConfigTable&quot;</span>, fileName = <span class="string">&quot;data&quot;</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PackageTable</span> : <span class="title">ScriptableObject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;BagConfig&gt; bagconfiga = <span class="keyword">new</span> List&lt;BagConfig&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里使得可以在检查器里面显示并且修改</span></span><br><span class="line">[<span class="meta">System.Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BagConfig</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> id;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> describ;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> level;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> imgPath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="1-2-CSV文件"><a href="#1-2-CSV文件" class="headerlink" title="1.2.CSV文件"></a>1.2.CSV文件</h3><p>利用csv文件创建相关配置，然后使用代码进行获取</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Unity Particle System</title>
+    <url>/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/</url>
+    <content><![CDATA[<h1 id="Unity-Particle-System"><a href="#Unity-Particle-System" class="headerlink" title="Unity Particle System"></a>Unity Particle System</h1><h3 id="1-1-粒子系统"><a href="#1-1-粒子系统" class="headerlink" title="1.1.粒子系统"></a>1.1.粒子系统</h3><ul>
+<li>添加一个ParticleSystem</li>
+<li>预览与运行</li>
+<li>模块与参数<br>1个主模块（基础参数）和22个子模块（扩展参数）<br>默认启用3个子模块：</li>
+</ul>
+<ol>
+<li>Emission，发射的频率</li>
+<li>Shape，粒子发生器的形状</li>
+<li>Render，粒子的显示</li>
+</ol>
+<h3 id="1-2-粒子本质"><a href="#1-2-粒子本质" class="headerlink" title="1.2.粒子本质"></a>1.2.粒子本质</h3><ul>
+<li>粒子是一个个小纸片，而粒子系统就是一个不短创建并且发射出去的粒子发生器</li>
+<li>可以使用Render中的render mode进行修改渲染模式：<br>Billbord：广告牌，自动旋转，始终面向相机</li>
+</ul>
+<h3 id="1-3-贴图"><a href="#1-3-贴图" class="headerlink" title="1.3.贴图"></a>1.3.贴图</h3><ul>
+<li>对于贴图material，使用着色器：<br>Shader：Praticles|Standered Unit<br>Render Mode:Additive<br>Color Mode:Multiply<br>Albedo:指定贴图</li>
+</ul>
+<h3 id="1-4-周期和时长"><a href="#1-4-周期和时长" class="headerlink" title="1.4.周期和时长"></a>1.4.周期和时长</h3><ul>
+<li>Duration：周期，粒子系统的工作时长</li>
+<li>Looping：循环，粒子系统工作一次&#x2F;循环工作</li>
+<li>Prewarm：预热，粒子系统是否先预热一个周期</li>
+<li>Strat Lifetime：粒子的生命时长，默认五秒</li>
+</ul>
+<h3 id="1-5-模拟空间"><a href="#1-5-模拟空间" class="headerlink" title="1.5.模拟空间"></a>1.5.模拟空间</h3><ul>
+<li>Simulation Space模块<br>Local，本地空间，粒子会以粒子发生器为中心<br>World，世界空间，粒子使用世界坐标系</li>
+</ul>
+<h3 id="1-6-发射"><a href="#1-6-发射" class="headerlink" title="1.6.发射"></a>1.6.发射</h3><h4 id="1-6-1-发射方式"><a href="#1-6-1-发射方式" class="headerlink" title="1.6.1.发射方式"></a>1.6.1.发射方式</h4><ul>
+<li>Emission：匀速发射<br>Rate over Time:按时间发射（一般用于静止）<br>Rate over Distance：按距离发射（一般用于运动物体）<br>Max Particles：最大存在粒子数</li>
+<li>Brusts：爆发式发射<br>Time：爆炸发生时间<br>Count：爆出多少个粒子<br>Cycles&#x2F;Interval：爆炸次数&#x2F;间隔<br>Probability：爆炸的可能概率，0表示不会爆炸</li>
+</ul>
+<h4 id="1-6-2-发射器形状"><a href="#1-6-2-发射器形状" class="headerlink" title="1.6.2.发射器形状"></a>1.6.2.发射器形状</h4><ul>
+<li>Shape模块<br>Cone：锥形<br>Sphere：球形<br>Hemisphere：半球形<br>Box：盒形<br>Circle：圆形<br>Rectangle：长方形</li>
+</ul>
+<h3 id="1-7-渐变"><a href="#1-7-渐变" class="headerlink" title="1.7.渐变"></a>1.7.渐变</h3><h4 id="1-7-1-颜色渐变"><a href="#1-7-1-颜色渐变" class="headerlink" title="1.7.1.颜色渐变"></a>1.7.1.颜色渐变</h4><ul>
+<li>Color over Lifetime模块<br>上面是透明度，下面是颜色，可以在上面设置多个透明度，以达到淡入淡出的效果<br>颜色的最终值 &#x3D; 初始颜色 * Color over Time设置的颜色（RGB分别相乘）</li>
+</ul>
+<h4 id="1-7-2-大小渐变"><a href="#1-7-2-大小渐变" class="headerlink" title="1.7.2.大小渐变"></a>1.7.2.大小渐变</h4><ul>
+<li>Size over Lifetime模块<br>曲线变化：横坐标lifetime，纵坐标size</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UnityStudy</title>
     <url>/Blog/2024/02/04/UnityStudy/</url>
     <content><![CDATA[<h1 id="Unity-使用学习"><a href="#Unity-使用学习" class="headerlink" title="Unity 使用学习"></a>Unity 使用学习</h1><ul>
@@ -609,6 +674,9 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 <li>碰撞<br>条件：两个物体都有碰撞体+至少有个物体有刚体。<br>注意：<br>（1）Unity中碰撞体独立于物体大小，与物体的MeshFilter大小无关。<br>（2）只有碰撞体才能被射线检测到，否则无法被检测。<br>（3）只有刚体才会有受力效果。<br>（4）isKinematic就有点像把刚体关了，但没完全关，因为保留了物理特性如质量，速度等等。</li>
 <li>触发<br>条件：产生碰撞的条件(两个物体都有碰撞体+至少有个物体有刚体)+两个物体至少有个有触发器<br>注意：<br>（1）碰撞检测和触发检测不能同时触发，如果是触发检测方法调用就不可能会有碰撞检测方法调用。</li>
 </ul>
+<h2 id="4-项目中的学习"><a href="#4-项目中的学习" class="headerlink" title="4.项目中的学习"></a>4.项目中的学习</h2><ul>
+<li>按键封装<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GameInput</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="built_in">string</span>, KeyCode&gt; ButtonLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, KeyCode&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        InitCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">InitCode</span>(<span class="params"><span class="built_in">string</span> type = <span class="string">&quot;&quot;</span></span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (type == <span class="string">&quot;&quot;</span> || type == <span class="string">&quot;button&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            AddButton(<span class="string">&quot;Up&quot;</span>, KeyCode.W);</span><br><span class="line">            AddButton(<span class="string">&quot;Down&quot;</span>, KeyCode.S);</span><br><span class="line">            AddButton(<span class="string">&quot;Left&quot;</span>, KeyCode.A);</span><br><span class="line">            AddButton(<span class="string">&quot;Right&quot;</span>, KeyCode.D);</span><br><span class="line">            AddButton(<span class="string">&quot;Fire&quot;</span>, KeyCode.J);</span><br><span class="line">            AddButton(<span class="string">&quot;Jump&quot;</span>, KeyCode.K);</span><br><span class="line">            AddButton(<span class="string">&quot;Skill&quot;</span>, KeyCode.L);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">AddButton</span>(<span class="params"><span class="built_in">string</span> button, KeyCode code</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">        &#123;</span><br><span class="line">            ButtonLists[button] = code;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ButtonLists.Add(button, code);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">GetButton</span>(<span class="params"><span class="built_in">string</span> button</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">            <span class="keyword">return</span> Input.GetKey(ButtonLists[button]);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">GetButtonDown</span>(<span class="params"><span class="built_in">string</span> button</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">            <span class="keyword">return</span> Input.GetKeyDown(ButtonLists[button]);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">GetButtonUp</span>(<span class="params"><span class="built_in">string</span> button</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">            <span class="keyword">return</span> Input.GetKeyUp(ButtonLists[button]);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
 <h2 id="附：unity以及rider快捷键"><a href="#附：unity以及rider快捷键" class="headerlink" title="附：unity以及rider快捷键"></a>附：unity以及rider快捷键</h2><h3 id="rider："><a href="#rider：" class="headerlink" title="rider："></a>rider：</h3><p>快速注释：ctrl+K，ctrl+C<br>选中当前灭光标所在单词：ctrl+W<br>多光标：shift+alt+鼠标&#x2F;上下键</p>
 <h3 id="unity："><a href="#unity：" class="headerlink" title="unity："></a>unity：</h3><p>可以使视角跟随物体运动：-&gt;Edit-&gt;Lock View to Seleted</p>
 ]]></content>
@@ -620,71 +688,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Unity Particle System</title>
-    <url>/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/</url>
-    <content><![CDATA[<h1 id="Unity-Particle-System"><a href="#Unity-Particle-System" class="headerlink" title="Unity Particle System"></a>Unity Particle System</h1><h3 id="1-1-粒子系统"><a href="#1-1-粒子系统" class="headerlink" title="1.1.粒子系统"></a>1.1.粒子系统</h3><ul>
-<li>添加一个ParticleSystem</li>
-<li>预览与运行</li>
-<li>模块与参数<br>1个主模块（基础参数）和22个子模块（扩展参数）<br>默认启用3个子模块：</li>
-</ul>
-<ol>
-<li>Emission，发射的频率</li>
-<li>Shape，粒子发生器的形状</li>
-<li>Render，粒子的显示</li>
-</ol>
-<h3 id="1-2-粒子本质"><a href="#1-2-粒子本质" class="headerlink" title="1.2.粒子本质"></a>1.2.粒子本质</h3><ul>
-<li>粒子是一个个小纸片，而粒子系统就是一个不短创建并且发射出去的粒子发生器</li>
-<li>可以使用Render中的render mode进行修改渲染模式：<br>Billbord：广告牌，自动旋转，始终面向相机</li>
-</ul>
-<h3 id="1-3-贴图"><a href="#1-3-贴图" class="headerlink" title="1.3.贴图"></a>1.3.贴图</h3><ul>
-<li>对于贴图material，使用着色器：<br>Shader：Praticles|Standered Unit<br>Render Mode:Additive<br>Color Mode:Multiply<br>Albedo:指定贴图</li>
-</ul>
-<h3 id="1-4-周期和时长"><a href="#1-4-周期和时长" class="headerlink" title="1.4.周期和时长"></a>1.4.周期和时长</h3><ul>
-<li>Duration：周期，粒子系统的工作时长</li>
-<li>Looping：循环，粒子系统工作一次&#x2F;循环工作</li>
-<li>Prewarm：预热，粒子系统是否先预热一个周期</li>
-<li>Strat Lifetime：粒子的生命时长，默认五秒</li>
-</ul>
-<h3 id="1-5-模拟空间"><a href="#1-5-模拟空间" class="headerlink" title="1.5.模拟空间"></a>1.5.模拟空间</h3><ul>
-<li>Simulation Space模块<br>Local，本地空间，粒子会以粒子发生器为中心<br>World，世界空间，粒子使用世界坐标系</li>
-</ul>
-<h3 id="1-6-发射"><a href="#1-6-发射" class="headerlink" title="1.6.发射"></a>1.6.发射</h3><h4 id="1-6-1-发射方式"><a href="#1-6-1-发射方式" class="headerlink" title="1.6.1.发射方式"></a>1.6.1.发射方式</h4><ul>
-<li>Emission：匀速发射<br>Rate over Time:按时间发射（一般用于静止）<br>Rate over Distance：按距离发射（一般用于运动物体）<br>Max Particles：最大存在粒子数</li>
-<li>Brusts：爆发式发射<br>Time：爆炸发生时间<br>Count：爆出多少个粒子<br>Cycles&#x2F;Interval：爆炸次数&#x2F;间隔<br>Probability：爆炸的可能概率，0表示不会爆炸</li>
-</ul>
-<h4 id="1-6-2-发射器形状"><a href="#1-6-2-发射器形状" class="headerlink" title="1.6.2.发射器形状"></a>1.6.2.发射器形状</h4><ul>
-<li>Shape模块<br>Cone：锥形<br>Sphere：球形<br>Hemisphere：半球形<br>Box：盒形<br>Circle：圆形<br>Rectangle：长方形</li>
-</ul>
-<h3 id="1-7-渐变"><a href="#1-7-渐变" class="headerlink" title="1.7.渐变"></a>1.7.渐变</h3><h4 id="1-7-1-颜色渐变"><a href="#1-7-1-颜色渐变" class="headerlink" title="1.7.1.颜色渐变"></a>1.7.1.颜色渐变</h4><ul>
-<li>Color over Lifetime模块<br>上面是透明度，下面是颜色，可以在上面设置多个透明度，以达到淡入淡出的效果<br>颜色的最终值 &#x3D; 初始颜色 * Color over Time设置的颜色（RGB分别相乘）</li>
-</ul>
-<h4 id="1-7-2-大小渐变"><a href="#1-7-2-大小渐变" class="headerlink" title="1.7.2.大小渐变"></a>1.7.2.大小渐变</h4><ul>
-<li>Size over Lifetime模块<br>曲线变化：横坐标lifetime，纵坐标size</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity中存储框架</title>
-    <url>/Blog/2024/04/30/Unity%E4%B8%AD%E5%AD%98%E5%82%A8%E6%A1%86%E6%9E%B6/</url>
-    <content><![CDATA[<h1 id="数据存储框架"><a href="#数据存储框架" class="headerlink" title="数据存储框架"></a>数据存储框架</h1><ul>
-<li>分为两种，网络存储和本地存储</li>
-</ul>
-<h2 id="1-本地存储"><a href="#1-本地存储" class="headerlink" title="1.本地存储"></a>1.本地存储</h2><ul>
-<li>Unity中可以有两种方式，一种是CSV文件，一种是使用Unity自带</li>
-</ul>
-<h3 id="1-1-Unity自带"><a href="#1-1-Unity自带" class="headerlink" title="1.1.Unity自带"></a>1.1.Unity自带</h3><ul>
-<li>使用AssetMenu存储<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这里使得可以右键创建文件</span></span><br><span class="line">[<span class="meta">CreateAssetMenu(menuName = <span class="string">&quot;ConfigTable&quot;</span>, fileName = <span class="string">&quot;data&quot;</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PackageTable</span> : <span class="title">ScriptableObject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;BagConfig&gt; bagconfiga = <span class="keyword">new</span> List&lt;BagConfig&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里使得可以在检查器里面显示并且修改</span></span><br><span class="line">[<span class="meta">System.Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BagConfig</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> id;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> describ;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> level;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> imgPath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<h3 id="1-2-CSV文件"><a href="#1-2-CSV文件" class="headerlink" title="1.2.CSV文件"></a>1.2.CSV文件</h3><p>利用csv文件创建相关配置，然后使用代码进行获取</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Unity实现小地图创建</title>
     <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
     <content><![CDATA[]]></content>
@@ -694,14 +697,6 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       <tags>
         <tag>study</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>实现Unity中UI的拖拽</title>
-    <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
-    <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
-<li>需要将屏幕坐标转换为世界坐标<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UIElements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControal</span> : <span class="title">MonoBehaviour</span>,<span class="title">IBeginDragHandler</span>,<span class="title">IDragHandler</span>,<span class="title">IEndDragHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isDragging = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector3 offset;</span><br><span class="line">    <span class="keyword">private</span> Vector2 position;</span><br><span class="line">    <span class="keyword">private</span> RectTransform rectTransform;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        rectTransform = GetComponent&lt;RectTransform&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeginDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;开始拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 pos;</span><br><span class="line">        RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position, eventData.enterEventCamera, <span class="keyword">out</span> pos);</span><br><span class="line">        rectTransform.position = pos;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;结束拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -729,8 +724,10 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
     <url>/Blog/2024/03/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="1-插入排序"><a href="#1-插入排序" class="headerlink" title="1.插入排序"></a>1.插入排序</h2><p>将无序序列中的值与有序序列中每一个值进行比较并且插入</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">insertionSort(arr)</span><br><span class="line"> n = arr.length</span><br><span class="line"> </span><br><span class="line"> // 从第二个元素开始遍历数组</span><br><span class="line"> for i from 1 to n-1 do</span><br><span class="line">   // 将当前元素插入已排序部分的合适位置</span><br><span class="line">   key = arr[i]</span><br><span class="line">   j = i - 1</span><br><span class="line">   </span><br><span class="line">   // 将比当前元素大的元素向后移动</span><br><span class="line">   while j &gt;= 0 and arr[j] &gt; key do</span><br><span class="line">     arr[j + 1] = arr[j]</span><br><span class="line">     j = j - 1</span><br><span class="line">   </span><br><span class="line">   // 将当前元素插入到正确位置</span><br><span class="line">   arr[j + 1] = key</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-<h2 id="2-希尔排序"><a href="#2-希尔排序" class="headerlink" title="2.希尔排序"></a>2.希尔排序</h2><p>通过缩小增量进行排序，达到排序结果</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">function shellSort(arr)</span><br><span class="line">    n = arr.length</span><br><span class="line">    gap = n / 2</span><br><span class="line">    while gap &gt; 0</span><br><span class="line">        for i = gap to n - 1</span><br><span class="line">            temp = arr[i]</span><br><span class="line">            j = i</span><br><span class="line">            while j &gt;= gap and arr[j - gap] &gt; temp</span><br><span class="line">                arr[j] = arr[j - gap]</span><br><span class="line">                j = j - gap</span><br><span class="line">            arr[j] = temp</span><br><span class="line">        gap = gap / 2</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h2 id="2-希尔排序"><a href="#2-希尔排序" class="headerlink" title="2.希尔排序"></a>2.希尔排序</h2><ul>
+<li>通过缩小增量进行排序，达到排序结果<br>第一趟排序： 设 gap1 &#x3D; N &#x2F; 2 &#x3D; 5，即相隔距离为 5 的元素组成一组，可以分为 5 组。接下来，按照直接插入排序的方法对每个组进行排序。<br>第二趟排序：将上次的 gap 缩小一半，即 gap2 &#x3D; gap1 &#x2F; 2 &#x3D; 2 (取整数)。这样每相隔距离为 2 的元素组成一组，可以分为2组。按照直接插入排序的方法对每个组进行排序。<br>第三趟排序：再次把 gap 缩小一半，即gap3 &#x3D; gap2 &#x2F; 2 &#x3D; 1。 这样相隔距离为1的元素组成一组，即只有一组。按照直接插入排序的方法对每个组进行排序。此时，排序已经结束。  </li>
+<li>平均时间复杂度：O(Nlog2N)<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">function shellSort(arr)</span><br><span class="line">    n = arr.length</span><br><span class="line">    gap = n / 2</span><br><span class="line">    while gap &gt; 0</span><br><span class="line">        for i = gap to n - 1</span><br><span class="line">            temp = arr[i]</span><br><span class="line">            j = i</span><br><span class="line">            while j &gt;= gap and arr[j - gap] &gt; temp</span><br><span class="line">                arr[j] = arr[j - gap]</span><br><span class="line">                j = j - gap</span><br><span class="line">            arr[j] = temp</span><br><span class="line">        gap = gap / 2</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
 <h2 id="3-冒泡排序"><a href="#3-冒泡排序" class="headerlink" title="3.冒泡排序"></a>3.冒泡排序</h2><p>从第一个开始两两比较，进行两两排序，每排完一个循环，总有一个大值从后往前归到正确位置，所以叫冒泡法</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">procedure bubbleSort(arr)</span><br><span class="line">    n = length(arr)</span><br><span class="line">    for i from 0 to n-1</span><br><span class="line">        for j from 0 to n-i-1</span><br><span class="line">            if arr[j] &gt; arr[j+1]</span><br><span class="line">                swap(arr[j], arr[j+1])</span><br></pre></td></tr></table></figure></div>
 <h2 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h2><ol>
@@ -842,5 +839,13 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       <tags>
         <tag>study</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>实现Unity中UI的拖拽</title>
+    <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
+    <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
+<li>需要将屏幕坐标转换为世界坐标<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UIElements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControal</span> : <span class="title">MonoBehaviour</span>,<span class="title">IBeginDragHandler</span>,<span class="title">IDragHandler</span>,<span class="title">IEndDragHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isDragging = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector3 offset;</span><br><span class="line">    <span class="keyword">private</span> Vector2 position;</span><br><span class="line">    <span class="keyword">private</span> RectTransform rectTransform;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        rectTransform = GetComponent&lt;RectTransform&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeginDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;开始拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 pos;</span><br><span class="line">        RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position, eventData.enterEventCamera, <span class="keyword">out</span> pos);</span><br><span class="line">        rectTransform.position = pos;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;结束拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+]]></content>
   </entry>
 </search>
