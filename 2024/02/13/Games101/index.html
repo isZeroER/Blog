@@ -26,7 +26,7 @@
 <meta property="og:description" content="Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization） 就是将MVP转化的结果，画到二维数组上面  2.1.屏幕（pixel） 颜色表示：RGB 屏幕：二维数组，从左下角的(0, 0)开始，所以每一个像素(x, y)的中心在于(x+0.5, y+0.5)。  2.2.画到屏幕上 [-1,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-13T03:01:39.000Z">
-<meta property="article:modified_time" content="2024-04-26T17:17:47.998Z">
+<meta property="article:modified_time" content="2024-05-06T16:43:49.826Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -712,8 +712,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-27 01:17:47</span>
-            <span class="mobile">2024-04-27 01:17:47</span>
+            <span class="desktop">2024-05-07 00:43:49</span>
+            <span class="mobile">2024-05-07 00:43:49</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.6k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>15 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
         </span>
     
     
@@ -889,9 +889,39 @@
 </ul>
 <h2 id="5-3-光线表面交点加速"><a href="#5-3-光线表面交点加速" class="headerlink" title="5.3.光线表面交点加速"></a>5.3.光线表面交点加速</h2><p>每一个光线都要计算一次场景求交，因此需要提高速度</p>
 <ul>
-<li>包围盒(Bounding Volumes):利用一个包围盒将物体完全包住<br>如果光线没有经过包围盒，就不可能射过几何体  </li>
+<li>包围盒(Bounding Volumes):利用一个包围盒将物体完全包住<br>加速原理：如果光线没有经过包围盒，就不可能射过几何体  </li>
 <li>光线和AABB求交：<br>将AABB看作是一个由三个对面的集合，所以当光线进入所有的对面之间，才算进入到AABB里面；只要有光线射出所有对面之间，就算出了AABB<br>算法：将光线与AABB三组对面的交点时间tmin和tmax，tenter &#x3D; max（tmin），texit &#x3D; min（tmax），如果tenter&lt;texit且texit&gt;&#x3D;0，说明光线进入了AABB</li>
 </ul>
+<h3 id="5-3-1-均匀空间划分（Uniform-Spatial-Partitions）使用格子"><a href="#5-3-1-均匀空间划分（Uniform-Spatial-Partitions）使用格子" class="headerlink" title="5.3.1.均匀空间划分（Uniform Spatial Partitions）使用格子"></a>5.3.1.均匀空间划分（Uniform Spatial Partitions）使用格子</h3><p>1.找到包围盒<br>2.创建格子<br>3.将可能存在物体表面的格子储存  </p>
+<ul>
+<li><p>如果格子太少：达不到加速的目的</p>
+</li>
+<li><p>如果格子太多：导致性能下降</p>
+</li>
+<li><p>格子划分数 &#x3D; C * 场景物体数量，其中3D里，C ≈ 27</p>
+</li>
+<li><p>然而均匀空间划分对于大规模无物体空间，导致许多性能浪费</p>
+</li>
+</ul>
+<h3 id="5-3-2-空间划分（Spatial-Partition）"><a href="#5-3-2-空间划分（Spatial-Partition）" class="headerlink" title="5.3.2.空间划分（Spatial Partition）"></a>5.3.2.空间划分（Spatial Partition）</h3><ul>
+<li>Oct-Tree，八叉树，所谓八就是在空间中将空间分成均匀8份</li>
+<li>KD-Tree，沿着某一个轴，总是砍成两个空间，类似二叉树</li>
+<li>BSP-Tree，对空间二分，每一次选择不同方向</li>
+</ul>
+<p>KD-Tree：与大盒子有交点，于是将盒子细分，再进行判断里面的盒子是否有交，如此递归，一直到不能再分了，就对其中所有物体进行求交。  </p>
+<ul>
+<li>缺点：可能一个物体在不同盒子之内都存在，也可能三角形包住了盒子</li>
+</ul>
+<h3 id="5-3-3-Bounding-Volume-Hierarchy（BVH）"><a href="#5-3-3-Bounding-Volume-Hierarchy（BVH）" class="headerlink" title="5.3.3.Bounding Volume Hierarchy（BVH）"></a>5.3.3.Bounding Volume Hierarchy（BVH）</h3><p>1.找到包围盒<br>2.递归地将空间划分成两个子集，然后重新计算子盒子的包围盒（选择节点中最长的轴 或者 取中间的物体的位置来划分节点。）<br>3.满足要求时停止下来，不再划分，并且将物体存储在叶子结点中</p>
+<ul>
+<li>弥补了KD-Tree的问题，使得每一个物体只会出现在一个盒子里，并且不用考虑三角形与包围盒求交</li>
+<li>缺点：没有把空间严格分开，存在空间重叠</li>
+<li>伪代码：<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Intersect(Ray ray,BVH node)&#123;</span><br><span class="line">	if(ray misses node.bbox) return;</span><br><span class="line">	if(node is a leaf node)</span><br><span class="line">		test intersection with all objs;</span><br><span class="line">		return closest intersection;</span><br><span class="line">	</span><br><span class="line">	hit1 = Intersect(ray,node.child1);</span><br><span class="line">	hit2 = Intersect(ray,node.child2);</span><br><span class="line"></span><br><span class="line">	return the closer of hit1,hit2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="5-4-辐射度量学（Radiometry）"><a href="#5-4-辐射度量学（Radiometry）" class="headerlink" title="5.4.辐射度量学（Radiometry）"></a>5.4.辐射度量学（Radiometry）</h2><ul>
+<li>由于Whitted-Style形成的光线追踪体系其实并不够真实，引入辐射度量学</li>
+</ul>
+<h3 id="5-4-1-一些物理量"><a href="#5-4-1-一些物理量" class="headerlink" title="5.4.1.一些物理量"></a>5.4.1.一些物理量</h3><p>Radiant Energy（辐射能量），单位为焦耳，J<br>Radiant Flux（辐射通量）功率，单位为瓦特&#x2F;流明，W&#x2F;lm<br>Radiant Intensity（辐射强度）光源发出的某一方向上的亮度，每一个立体角度（立体面积除以半径r²）对应的能量，lm&#x2F;sr，也就是cd，得出I &#x3D; ⨚&#x2F;4Π<br>Radiant Irradiance（辐射光照度）某一平面所接受到的光线亮度<br>Radiant Radiance（辐射亮度）一条传播光线所具有的亮度  </p>
 
         </div>
 
@@ -906,7 +936,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-27 01:17:47
+                    :</strong> 2024-05-07 00:43:49
             </li>
         
         <li>
@@ -1037,7 +1067,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Games101</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88Z-buffering%EF%BC%89"><span class="nav-text">2.5.深度缓存（Z-buffering）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="nav-text">3.着色（Shading）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%B8%83%E6%9E%97%E5%86%AF%E6%A8%A1%E5%9E%8B-Blinn-Phong-Reflectance-Model-%EF%BC%9A"><span class="nav-text">3.1.布林冯模型(Blinn-Phong Reflectance Model)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Shading%E9%A2%91%E7%8E%87"><span class="nav-text">3.2.Shading频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-text">3.3.渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84%EF%BC%88Texture-Mapping%EF%BC%89"><span class="nav-text">3.4.纹理映射（Texture Mapping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87-Barycentric-coodinates"><span class="nav-text">3.5.重心坐标(Barycentric coodinates)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8%EF%BC%88Application%EF%BC%89"><span class="nav-text">3.6.纹理应用（Application）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%A0%E4%BD%95-Geometry"><span class="nav-text">4.几何(Geometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%87%A0%E4%BD%95%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">4.1.几何的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%EF%BC%88Curves-and-Surfaces%EF%BC%8C%E6%98%BE%E5%BC%8F%E5%87%A0%E4%BD%95%EF%BC%89"><span class="nav-text">4.2.曲线和曲面（Curves and Surfaces，显式几何）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%EF%BC%88Ray-Tracing%EF%BC%89"><span class="nav-text">5.光线追踪（Ray Tracing）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA"><span class="nav-text">5.1.光线追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%EF%BC%88Ray-Surface-Intersection%EF%BC%89"><span class="nav-text">5.2.光线表面交点（Ray-Surface Intersection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%E5%8A%A0%E9%80%9F"><span class="nav-text">5.3.光线表面交点加速</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Games101"><span class="nav-text">Games101</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E6%8D%A2%EF%BC%88Transformation%EF%BC%89"><span class="nav-text">1.变换（Transformation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1MVP%E5%8F%98%E6%8D%A2-%E5%B0%86%E7%89%A9%E4%BD%93%E8%BD%AC%E5%8C%96%E5%88%B0-1-1-3%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93%E4%B8%8A%E9%9D%A2"><span class="nav-text">1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%89%E6%A0%85%E5%8C%96%EF%BC%88Rasterization%EF%BC%89"><span class="nav-text">2.光栅化（Rasterization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B1%8F%E5%B9%95%EF%BC%88pixel%EF%BC%89"><span class="nav-text">2.1.屏幕（pixel）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%94%BB%E5%88%B0%E5%B1%8F%E5%B9%95%E4%B8%8A"><span class="nav-text">2.2.画到屏幕上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BD%9C%E4%B8%BAMesh"><span class="nav-text">2.3.三角形作为Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E8%B5%B0%E6%A0%B7%EF%BC%88Aliasing%EF%BC%8CJaggies%EF%BC%89"><span class="nav-text">2.4.走样（Aliasing，Jaggies）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88Z-buffering%EF%BC%89"><span class="nav-text">2.5.深度缓存（Z-buffering）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="nav-text">3.着色（Shading）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%B8%83%E6%9E%97%E5%86%AF%E6%A8%A1%E5%9E%8B-Blinn-Phong-Reflectance-Model-%EF%BC%9A"><span class="nav-text">3.1.布林冯模型(Blinn-Phong Reflectance Model)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Shading%E9%A2%91%E7%8E%87"><span class="nav-text">3.2.Shading频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-text">3.3.渲染管线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84%EF%BC%88Texture-Mapping%EF%BC%89"><span class="nav-text">3.4.纹理映射（Texture Mapping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E9%87%8D%E5%BF%83%E5%9D%90%E6%A0%87-Barycentric-coodinates"><span class="nav-text">3.5.重心坐标(Barycentric coodinates)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E7%BA%B9%E7%90%86%E5%BA%94%E7%94%A8%EF%BC%88Application%EF%BC%89"><span class="nav-text">3.6.纹理应用（Application）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%A0%E4%BD%95-Geometry"><span class="nav-text">4.几何(Geometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%87%A0%E4%BD%95%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">4.1.几何的表示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%9B%B2%E7%BA%BF%E5%92%8C%E6%9B%B2%E9%9D%A2%EF%BC%88Curves-and-Surfaces%EF%BC%8C%E6%98%BE%E5%BC%8F%E5%87%A0%E4%BD%95%EF%BC%89"><span class="nav-text">4.2.曲线和曲面（Curves and Surfaces，显式几何）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%EF%BC%88Ray-Tracing%EF%BC%89"><span class="nav-text">5.光线追踪（Ray Tracing）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA"><span class="nav-text">5.1.光线追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%EF%BC%88Ray-Surface-Intersection%EF%BC%89"><span class="nav-text">5.2.光线表面交点（Ray-Surface Intersection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E5%85%89%E7%BA%BF%E8%A1%A8%E9%9D%A2%E4%BA%A4%E7%82%B9%E5%8A%A0%E9%80%9F"><span class="nav-text">5.3.光线表面交点加速</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-1-%E5%9D%87%E5%8C%80%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86%EF%BC%88Uniform-Spatial-Partitions%EF%BC%89%E4%BD%BF%E7%94%A8%E6%A0%BC%E5%AD%90"><span class="nav-text">5.3.1.均匀空间划分（Uniform Spatial Partitions）使用格子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-2-%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86%EF%BC%88Spatial-Partition%EF%BC%89"><span class="nav-text">5.3.2.空间划分（Spatial Partition）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-3-Bounding-Volume-Hierarchy%EF%BC%88BVH%EF%BC%89"><span class="nav-text">5.3.3.Bounding Volume Hierarchy（BVH）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-%E8%BE%90%E5%B0%84%E5%BA%A6%E9%87%8F%E5%AD%A6%EF%BC%88Radiometry%EF%BC%89"><span class="nav-text">5.4.辐射度量学（Radiometry）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-1-%E4%B8%80%E4%BA%9B%E7%89%A9%E7%90%86%E9%87%8F"><span class="nav-text">5.4.1.一些物理量</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
