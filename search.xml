@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>.fbx文件使用</title>
+    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
+<li><strong>mesh</strong>：网格，定义物体形状</li>
+<li><strong>meterial</strong>：材质，定义表面光学特性</li>
+<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
+</ul>
+<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
+<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
+<li><strong>观察节点图标</strong></li>
+<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
+</ul>
+<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
+<li><strong>选择.fbx文件</strong></li>
+<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
+<li><strong>Apply应用设置</strong></li>
+</ul>
+<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
+<li><strong>选中.fbx文件</strong></li>
+<li><strong>Location：Use External Materials：使用外部材质</strong></li>
+<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
+<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
+</ul>
+<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
+<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Study</title>
     <url>/Blog/2024/02/14/C++%20Study/</url>
     <content><![CDATA[<h1 id="1-C-基础"><a href="#1-C-基础" class="headerlink" title="1.C++基础"></a>1.C++基础</h1><h2 id="1-1-C-运行原理"><a href="#1-1-C-运行原理" class="headerlink" title="1.1.C++运行原理"></a>1.1.C++运行原理</h2><ul>
@@ -279,38 +311,6 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
       </tags>
   </entry>
   <entry>
-    <title>.fbx文件使用</title>
-    <url>/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h3 id="一、三个组成部分"><a href="#一、三个组成部分" class="headerlink" title="一、三个组成部分"></a>一、三个组成部分</h3><ul>
-<li><strong>mesh</strong>：网格，定义物体形状</li>
-<li><strong>meterial</strong>：材质，定义表面光学特性</li>
-<li><strong>textures</strong>：贴图，定义表面像素颜色</li>
-</ul>
-<h3 id="二、-fbx使用方式"><a href="#二、-fbx使用方式" class="headerlink" title="二、.fbx使用方式"></a>二、.fbx使用方式</h3><h4 id="1、直接拖动"><a href="#1、直接拖动" class="headerlink" title="1、直接拖动"></a>1、直接拖动</h4><ul>
-<li><strong>选择.fbx文件，直接拖到层级窗口</strong></li>
-<li><strong>观察节点图标</strong></li>
-<li><strong>选中节点，观察inspector中的操作按钮</strong></li>
-</ul>
-<h4 id="2、材质替换"><a href="#2、材质替换" class="headerlink" title="2、材质替换"></a>2、材质替换</h4><ul>
-<li><strong>选择.fbx文件</strong></li>
-<li><strong>在inspector里面切到materials属性-&gt;Use Embeded Materials-&gt;On Demand Remap:映射新的材质</strong></li>
-<li><strong>Apply应用设置</strong></li>
-</ul>
-<h5 id="or……"><a href="#or……" class="headerlink" title="or……"></a>or……</h5><ul>
-<li><strong>选中.fbx文件</strong></li>
-<li><strong>Location：Use External Materials：使用外部材质</strong></li>
-<li><strong>Apply，可以获得内嵌材质解压缩后的Materials目录</strong></li>
-<li><strong>直接对解压缩后的材质文件进行修改</strong></li>
-</ul>
-<h4 id="3、分解重组"><a href="#3、分解重组" class="headerlink" title="3、分解重组"></a>3、分解重组</h4><ul>
-<li><strong>将fbx文件中的材质单独拿出来使用</strong></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>study</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games101</title>
     <url>/Blog/2024/02/13/Games101/</url>
     <content><![CDATA[<h1 id="Games101"><a href="#Games101" class="headerlink" title="Games101"></a>Games101</h1><h2 id="1-变换（Transformation）"><a href="#1-变换（Transformation）" class="headerlink" title="1.变换（Transformation）"></a>1.变换（Transformation）</h2><h3 id="1-1MVP变换-将物体转化到-1-1-3的立方体上面"><a href="#1-1MVP变换-将物体转化到-1-1-3的立方体上面" class="headerlink" title="1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面"></a>1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面</h3><h2 id="2-光栅化（Rasterization）"><a href="#2-光栅化（Rasterization）" class="headerlink" title="2.光栅化（Rasterization）"></a>2.光栅化（Rasterization）</h2><ul>
@@ -510,6 +510,17 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 ]]></content>
   </entry>
   <entry>
+    <title>Unity实现小地图创建</title>
+    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Unity相关</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UnityStudy</title>
     <url>/Blog/2024/02/04/UnityStudy/</url>
     <content><![CDATA[<h1 id="Unity-使用学习"><a href="#Unity-使用学习" class="headerlink" title="Unity 使用学习"></a>Unity 使用学习</h1><ul>
@@ -653,6 +664,27 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/Blog/2024/02/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>config</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity中存储框架</title>
     <url>/Blog/2024/04/30/Unity%E4%B8%AD%E5%AD%98%E5%82%A8%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<h1 id="数据存储框架"><a href="#数据存储框架" class="headerlink" title="数据存储框架"></a>数据存储框架</h1><ul>
@@ -668,15 +700,12 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 ]]></content>
   </entry>
   <entry>
-    <title>Unity实现小地图创建</title>
-    <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Unity相关</category>
-      </categories>
-      <tags>
-        <tag>study</tag>
-      </tags>
+    <title>实现Unity中UI的拖拽</title>
+    <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
+    <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
+<li>需要将屏幕坐标转换为世界坐标<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UIElements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControal</span> : <span class="title">MonoBehaviour</span>,<span class="title">IBeginDragHandler</span>,<span class="title">IDragHandler</span>,<span class="title">IEndDragHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isDragging = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector3 offset;</span><br><span class="line">    <span class="keyword">private</span> Vector2 position;</span><br><span class="line">    <span class="keyword">private</span> RectTransform rectTransform;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        rectTransform = GetComponent&lt;RectTransform&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeginDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;开始拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 pos;</span><br><span class="line">        RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position, eventData.enterEventCamera, <span class="keyword">out</span> pos);</span><br><span class="line">        rectTransform.position = pos;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;结束拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Unity Particle System</title>
@@ -729,33 +758,37 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/Blog/2024/02/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy  </span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>config</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>实现Unity中UI的拖拽</title>
-    <url>/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/</url>
-    <content><![CDATA[<h1 id="实现Unity中UI的拖拽"><a href="#实现Unity中UI的拖拽" class="headerlink" title="实现Unity中UI的拖拽"></a>实现Unity中UI的拖拽</h1><ul>
-<li>需要将屏幕坐标转换为世界坐标<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.EventSystems;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UIElements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControal</span> : <span class="title">MonoBehaviour</span>,<span class="title">IBeginDragHandler</span>,<span class="title">IDragHandler</span>,<span class="title">IEndDragHandler</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> isDragging = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector3 offset;</span><br><span class="line">    <span class="keyword">private</span> Vector2 position;</span><br><span class="line">    <span class="keyword">private</span> RectTransform rectTransform;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        rectTransform = GetComponent&lt;RectTransform&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnBeginDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;开始拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 pos;</span><br><span class="line">        RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position, eventData.enterEventCamera, <span class="keyword">out</span> pos);</span><br><span class="line">        rectTransform.position = pos;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnEndDrag</span>(<span class="params">PointerEventData eventData</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;结束拖拽&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+    <title>数据结构</title>
+    <url>/Blog/2024/05/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="1-数据结构概论"><a href="#1-数据结构概论" class="headerlink" title="1.数据结构概论"></a>1.数据结构概论</h1><ul>
+<li>两种讨论方法：数学和逻辑模型（从抽象视图Abstract Data Types（ADT）认识），讨论实现</li>
+<li>对于ADT学习内容：<br>1.逻辑视图<br>2.为我们提供的操作<br>3.操作的消耗<br>4.使用编程语言进行相应实现</li>
+</ul>
+<h1 id="2-Linked-List"><a href="#2-Linked-List" class="headerlink" title="2.Linked List"></a>2.Linked List</h1><ul>
+<li>可以尝试使用数组来实现list，但是有一些弊端，而一个比较好的替代就是链表</li>
+<li>数组是一个连续内存块，数组不能直接进行弹性扩展。而链表可以很简单地增删</li>
+</ul>
+<h2 id="2-1-链表抽象视图"><a href="#2-1-链表抽象视图" class="headerlink" title="2.1.链表抽象视图"></a>2.1.链表抽象视图</h2><ul>
+<li>链表实际上就是一堆Node节点，每个节点分为两个部分，第一部分为数据，第二个部分为链接地址,最后一个节点的链接地址为null或者0，头一个是关于链表信息的链接地址。这个头节点一般不参与遍历等操作，避免被修改</li>
+<li>通过链接地址，可以访问到一整个链表</li>
+<li>链表的结构使得其数据可以不在一个连续的内存块，可以是在不同地址区域</li>
+<li>增加操作，也就是新创建一个数据，然后从链表起始地址遍历到目的地址的前一个节点，将其链接地址修改为新数据的目的地址，并且将新数据的链接地址修改为下一个地址。删除操作有类似的操作</li>
+</ul>
+<h2 id="2-2-数组vs链表"><a href="#2-2-数组vs链表" class="headerlink" title="2.2.数组vs链表"></a>2.2.数组vs链表</h2><ul>
+<li>不同数据结构都可以满足不同的数据需求，所以没有哪个数据结构是最好的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://github.com/isZeroER/POST/blob/main/forBlog/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E7%BB%84vs%E9%93%BE%E8%A1%A8.png?raw=true"
+                      alt="数组vs链表"
+                ></li>
+</ul>
+<h2 id="2-3-C-C-实现链表"><a href="#2-3-C-C-实现链表" class="headerlink" title="2.3.C&#x2F;C++实现链表"></a>2.3.C&#x2F;C++实现链表</h2><ul>
+<li>链表的创建、插入和删除<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义链表</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> data;</span><br><span class="line">	Node* next;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*Node(int data) &#123;</span></span><br><span class="line"><span class="comment">		this-&gt;data = data;</span></span><br><span class="line"><span class="comment">		next = nullptr;</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">创建一个链表头节点，没有数据，只有链接地址</span><br><span class="line">Node* A = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入尾部函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">InsertHead</span><span class="params">(<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">	Node* temp = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">	temp-&gt;data = data;</span><br><span class="line">	temp-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">	Node* tempA = A;</span><br><span class="line">	<span class="keyword">while</span> (tempA-&gt;next!= <span class="literal">nullptr</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		tempA = tempA-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	tempA-&gt;next = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">(Node** node)</span> </span>&#123;</span><br><span class="line">	Node* temp = *node;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (temp-&gt;next != <span class="literal">nullptr</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		temp = temp-&gt;next;</span><br><span class="line">		std::cout &lt;&lt; temp-&gt;data &lt;&lt; std::endl;</span><br><span class="line">		i += <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	std::cout &lt;&lt;<span class="string">&quot;total nums:&quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//任意指定位置插入</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">InsertAnywhere</span><span class="params">(<span class="type">int</span> data, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	Node* temp = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">	Node* tempA = A;</span><br><span class="line">	temp-&gt;data = data;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		tempA = tempA-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	temp-&gt;next = tempA-&gt;next;</span><br><span class="line">	tempA-&gt;next = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//任意位置的删除</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DeleteAnywhere</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">	Node* tempA = A;</span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">		tempA = tempA-&gt;next;</span><br><span class="line">		<span class="keyword">delete</span> A-&gt;next;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-2</span>; i++)	</span><br><span class="line">		tempA = tempA-&gt;next;</span><br><span class="line">	Node* toDelete = tempA-&gt;next;</span><br><span class="line">	tempA-&gt;next = toDelete-&gt;next;</span><br><span class="line">	<span class="keyword">delete</span> toDelete;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">InsertHead</span>(<span class="number">5</span>);</span><br><span class="line">	<span class="built_in">InsertHead</span>(<span class="number">7</span>);</span><br><span class="line">	<span class="built_in">InsertHead</span>(<span class="number">23</span>);</span><br><span class="line">	<span class="built_in">InsertHead</span>(<span class="number">19</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">InsertAnywhere</span>(<span class="number">15</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">InsertAnywhere</span>(<span class="number">16</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">Print</span>(&amp;A); <span class="comment">//这里是引用</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">DeleteAnywhere</span>(<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">Print</span>(&amp;A);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>study</tag>
+      </tags>
   </entry>
   <entry>
     <title>排序算法</title>
