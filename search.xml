@@ -670,7 +670,13 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
   <entry>
     <title>Unity实现小地图创建</title>
     <url>/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="1-简易版本"><a href="#1-简易版本" class="headerlink" title="1.简易版本"></a>1.简易版本</h1><ul>
+<li>首先创建一个新的相机，并且给其一个合理的脚本使之跟随player</li>
+<li>创建一个render texture，将其与刚刚创建好的相机绑定</li>
+<li>创建一个Raw Image，并且讲刚刚的render texture拖拽到这个Raw Image上面</li>
+</ul>
+<p>综上所述，得到了我们想要的一个简易小地图</p>
+]]></content>
       <categories>
         <category>Unity相关</category>
       </categories>
