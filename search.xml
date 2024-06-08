@@ -1314,4 +1314,26 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
         <tag>study</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Kali渗透</title>
+    <url>/Blog/2024/06/08/Kali%E6%B8%97%E9%80%8F/</url>
+    <content><![CDATA[<h1 id="1-信息收集"><a href="#1-信息收集" class="headerlink" title="1.信息收集"></a>1.信息收集</h1><ul>
+<li>对于漏洞遗漏非常重要，信息收集越充分，漏洞就越少  </li>
+<li>信息收集内容<br>1.域名<br>2.IP<br>3.端口<br>4.CMS指纹<br>5.通过搜索引擎收集信息（gogle dork）：可以使用一些语法进行引擎搜索<br>6.网络空间测绘<br>7.目录扫描</li>
+</ul>
+<h2 id="1-1-网络空间测绘（Cyberspace）"><a href="#1-1-网络空间测绘（Cyberspace）" class="headerlink" title="1.1.网络空间测绘（Cyberspace）"></a>1.1.网络空间测绘（Cyberspace）</h2><ul>
+<li>钟馗之眼、Shodan、fofa.info</li>
+</ul>
+<h2 id="1-2-端口扫描（Port-Scan）"><a href="#1-2-端口扫描（Port-Scan）" class="headerlink" title="1.2.端口扫描（Port Scan）"></a>1.2.端口扫描（Port Scan）</h2><ul>
+<li>nmap（网络界的瑞士军刀）进行扫描，可以获取具体IP地址的端口开放关闭状态</li>
+</ul>
+<h2 id="1-3-子域名暴破"><a href="#1-3-子域名暴破" class="headerlink" title="1.3.子域名暴破"></a>1.3.子域名暴破</h2><ul>
+<li>在线子域名暴破、maltego</li>
+<li>原理：每一个域名都枚举</li>
+</ul>
+<h2 id="1-4-目录扫描"><a href="#1-4-目录扫描" class="headerlink" title="1.4.目录扫描"></a>1.4.目录扫描</h2><ul>
+<li>默认查找index.html,index.htm,index.php</li>
+</ul>
+<h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1>]]></content>
+  </entry>
 </search>
