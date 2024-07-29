@@ -53,7 +53,7 @@
 <meta property="og:image" content="https://github.com/isZeroER/POST/blob/main/forBlog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F.png?raw=true">
 <meta property="og:image" content="https://github.com/isZeroER/POST/blob/main/forBlog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F.png?raw=true">
 <meta property="article:published_time" content="2024-06-11T08:53:07.000Z">
-<meta property="article:modified_time" content="2024-07-26T02:24:04.895Z">
+<meta property="article:modified_time" content="2024-07-27T16:34:03.981Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -667,7 +667,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -721,8 +721,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-07-26 10:24:04</span>
-            <span class="mobile">2024-07-26 10:24:04</span>
+            <span class="desktop">2024-07-28 00:34:03</span>
+            <span class="mobile">2024-07-28 00:34:03</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -744,12 +744,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>10.4k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>11k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>47 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>49 Mins</span>
         </span>
     
     
@@ -1274,7 +1274,13 @@
 <li>对象只知道中介者对象，不知道其他对象</li>
 </ol>
 <ul>
-<li>缺点：中介者可能变得庞大复杂，难以维护</li>
+<li>缺点：</li>
+</ul>
+<ol>
+<li>中介者可能变得庞大复杂，难以维护</li>
+<li>中介者一旦出现问题，整个系统就容易瘫痪</li>
+</ol>
+<ul>
 <li>结构：</li>
 </ul>
 <ol>
@@ -1291,32 +1297,63 @@
                       alt="中介者模式"
                 ></li>
 <li>代码实现：<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChatRoon</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">USER</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	std::string m_name;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">USER</span>(<span class="type">const</span> std::string&amp; name):<span class="built_in">m_name</span>(name) &#123;&#125;</span><br><span class="line">	<span class="function">std::string <span class="title">getName</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> m_name; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SendMessage</span><span class="params">(<span class="type">const</span> std::string&amp; message)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChatRoom</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="built_in">ChatRoom</span>() &#123;&#125;</span><br><span class="line">	<span class="type">static</span> std::unique_ptr&lt;ChatRoom&gt; m_chatroom;</span><br><span class="line">	<span class="comment">//友元函数使得这个函数可以访问private部分</span></span><br><span class="line">	<span class="keyword">friend</span> std::unique_ptr&lt;ChatRoom&gt; std::<span class="built_in">make_unique</span>&lt;ChatRoom&gt;();</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">static</span> ChatRoom* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (m_chatroom == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">			m_chatroom = std::<span class="built_in">make_unique</span>&lt;ChatRoom&gt;();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> m_chatroom.<span class="built_in">get</span>();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SendMessage</span><span class="params">(USER* user, <span class="type">const</span> std::string&amp; message)</span> </span>&#123;</span><br><span class="line">		std::cout &lt;&lt; user-&gt;<span class="built_in">getName</span>() &lt;&lt; <span class="string">&quot;: &quot;</span> &lt;&lt; message &lt;&lt; std::endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">std::unique_ptr&lt;ChatRoom&gt; ChatRoom::m_chatroom = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">USER::SendMessage</span><span class="params">(<span class="type">const</span> std::string&amp; message)</span> </span>&#123;</span><br><span class="line">	ChatRoom::<span class="built_in">getInstance</span>()-&gt;<span class="built_in">SendMessage</span>(<span class="keyword">this</span>, message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">USER <span class="title">David</span><span class="params">(<span class="string">&quot;David&quot;</span>)</span></span>;</span><br><span class="line">	<span class="function">USER <span class="title">Mike</span><span class="params">(<span class="string">&quot;Mike&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	David.<span class="built_in">SendMessage</span>(<span class="string">&quot;I am David!&quot;</span>);</span><br><span class="line">	Mike.<span class="built_in">SendMessage</span>(<span class="string">&quot;Nice to meet u, I am Mike!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>优化：如果要加入新的用户，就需要修改中介者，此时就可以使用观察者模式和状态模式</li>
 </ul>
 <h2 id="3-9-迭代器模式"><a href="#3-9-迭代器模式" class="headerlink" title="3.9.迭代器模式"></a>3.9.迭代器模式</h2><ul>
-<li>迭代器模式：</li>
+<li>迭代器模式：顺序访问一个聚合对象里的每一个元素，但又不用暴露其内部的表示</li>
 <li>特点：</li>
-<li>缺点：</li>
+</ul>
+<ol>
+<li>不同迭代器可以迭代不同的遍历方式</li>
+<li>聚合类不需要关系遍历逻辑</li>
+<li>可以对同一个聚合对象进行多次遍历</li>
+<li>增加新的聚合类和迭代器类都很方便，无需更改现有代码</li>
+</ol>
+<ul>
+<li>缺点：每增加一个聚合类，就需要增加至少一个迭代器类，增加系统复杂性</li>
 <li>结构：</li>
+</ul>
+<ol>
+<li>迭代器接口：定义了访问和遍历每一个聚合类的方法，通常包括获取下一个元素、判断是否还有元素、获取当前位置的方法</li>
+<li>具体迭代器：实现了迭代器接口，负责对聚合对象进行遍历和访问，同时记录遍历的当前位置</li>
+<li>聚合对象接口：定义了创建迭代器对象的接口，通常包含一个工厂方法，用于创建迭代器对象</li>
+<li>具体聚合对象：实现了聚合对象接口，负责创建具体的迭代器对象，并提供需要进行遍历的数据</li>
+</ol>
+<ul>
 <li>类图：<br><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://github.com/isZeroER/POST/blob/main/forBlog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F.png?raw=true"
                       alt="迭代器模式"
                 ></li>
-<li>代码实现：</li>
+<li>代码实现：<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></li>
 </ul>
 <h2 id="3-10-备忘录模式"><a href="#3-10-备忘录模式" class="headerlink" title="3.10.备忘录模式"></a>3.10.备忘录模式</h2><ul>
-<li>备忘录模式：</li>
+<li>备忘录模式：保存一个对象的某个状态，以便在需要时恢复其状态</li>
 <li>特点：</li>
-<li>缺点：</li>
+</ul>
+<ol>
+<li>在不破坏封装性的前提下，捕获一个对象的内部状态，并且允许在对象之外保存和恢复这个状态</li>
+<li>允许用户方便地回到历史状态</li>
+<li>用户不需要关心状态的保存细节</li>
+</ol>
+<ul>
+<li>缺点：如果保存对象的状态复杂，保存状态可能占用较多资源</li>
 <li>结构：</li>
+</ul>
+<ol>
+<li>备忘录：负责存储原发器对象的内部状态，备忘录可以保持原发器的状态的一部分或者全部信息</li>
+<li>原发器：创建一个备忘录对象，并且可以使用备忘录对象存储或者恢复自身的状态。原发器通常会在需要保存状态的时候才创建备忘录对象，在需要恢复的时候使用备忘录对象</li>
+<li>负责人：负责保存备忘录对象，但不对备忘录对象进行操作或者检查，负责人只负责把备忘录对象传递给其他对象</li>
+</ol>
+<ul>
 <li>类图：<br><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://github.com/isZeroER/POST/blob/main/forBlog/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F.png?raw=true"
                       alt="备忘录模式"
                 ></li>
-<li>代码实现：</li>
+<li>代码实现：<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div></li>
 </ul>
 
         </div>
@@ -1332,7 +1369,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-07-26 10:24:04
+                    :</strong> 2024-07-28 00:34:03
             </li>
         
         <li>
