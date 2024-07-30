@@ -32,7 +32,7 @@
 <meta property="og:description" content="Unity 使用学习 学习资料参考：unity官方文档（中文版） b站阿发教程（十分详尽）   1.基本结构1.1.游戏物体 cube：正方体   sphere：球体   cylinder：圆柱   capsule：圆柱头   plane：平面  1.2.资源文件 模型文件Model（*.fbx） 图片文件Texture（*.jpg&#x2F;png&#x2F;psd&#x2F;tif） 音频文件">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-04T14:18:29.000Z">
-<meta property="article:modified_time" content="2024-05-01T16:01:08.537Z">
+<meta property="article:modified_time" content="2024-07-29T12:34:59.038Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -645,7 +645,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">19</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -699,8 +699,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-05-02 00:01:08</span>
-            <span class="mobile">2024-05-02 00:01:08</span>
+            <span class="desktop">2024-07-29 20:34:59</span>
+            <span class="mobile">2024-07-29 20:34:59</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -738,12 +738,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.7k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 Mins</span>
         </span>
     
     
@@ -889,10 +889,26 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 <li>碰撞<br>条件：两个物体都有碰撞体+至少有个物体有刚体。<br>注意：<br>（1）Unity中碰撞体独立于物体大小，与物体的MeshFilter大小无关。<br>（2）只有碰撞体才能被射线检测到，否则无法被检测。<br>（3）只有刚体才会有受力效果。<br>（4）isKinematic就有点像把刚体关了，但没完全关，因为保留了物理特性如质量，速度等等。</li>
 <li>触发<br>条件：产生碰撞的条件(两个物体都有碰撞体+至少有个物体有刚体)+两个物体至少有个有触发器<br>注意：<br>（1）碰撞检测和触发检测不能同时触发，如果是触发检测方法调用就不可能会有碰撞检测方法调用。</li>
 </ul>
+<h3 id="3-5-射线检测"><a href="#3-5-射线检测" class="headerlink" title="3.5.射线检测"></a>3.5.射线检测</h3><ul>
+<li>工具<br>Gizmos.DrawLine([V3], [V3]);在两个点之间画辅助线<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">OnDrawGizmos</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Gizmos.DrawLine(_groundCheck.position, <span class="keyword">new</span> Vector3(_groundCheck.position.x, _groundCheck.position.y - _groundDistance));</span><br><span class="line">        Gizmos.DrawLine(_wallCheck.position, <span class="keyword">new</span> Vector3(_wallCheck.position.x + _wallDistance * facingDir, _wallCheck.position.y));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>实际检测<br>RayCastHit</li>
+</ul>
+<ol>
+<li>collider:<br>类型：Collider<br>描述：返回被射线碰撞到的碰撞体（Collider）。</li>
+<li>point:<br>类型：Vector3<br>描述：返回射线碰撞的具体点。</li>
+<li>normal:<br>类型：Vector3<br>描述：返回碰撞点的法线。</li>
+<li>distance:<br>类型：float<br>描述：返回射线起点到碰撞点的距离。</li>
+<li>transform:<br>类型：Transform<br>描述：返回被射线碰撞到的物体的变换（Transform）。</li>
+<li>rigidbody:<br>类型：Rigidbody<br>描述：返回被射线碰撞到的物体的刚体（Rigidbody），如果有的话。</li>
+<li>textureCoord:<br>类型：Vector2<br>描述：返回被射线碰撞到的碰撞体表面的纹理坐标。</li>
+<li>textureCoord2:<br>类型：Vector2<br>描述：返回被射线碰撞到的碰撞体表面的第二套纹理坐标。</li>
+<li>lightmapCoord:<br>类型：Vector2<br>描述：返回被射线碰撞到的碰撞体表面的光照贴图坐标。</li>
+<li>barycentricCoordinate:<br>类型：Vector3<br>描述：返回碰撞点的重心坐标。  <div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//画线参数：（出发点，发射方向，发射长度，面向layer）</span></span><br><span class="line">_isGrounded = Physics2D.Raycast(_groundCheck.position, Vector2.down, _groundDistance, _whatisGround);</span><br></pre></td></tr></table></figure></div></li>
+</ol>
 <h2 id="4-项目中的学习"><a href="#4-项目中的学习" class="headerlink" title="4.项目中的学习"></a>4.项目中的学习</h2><ul>
 <li>按键封装<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GameInput</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="built_in">string</span>, KeyCode&gt; ButtonLists = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, KeyCode&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        InitCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">InitCode</span>(<span class="params"><span class="built_in">string</span> type = <span class="string">&quot;&quot;</span></span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (type == <span class="string">&quot;&quot;</span> || type == <span class="string">&quot;button&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            AddButton(<span class="string">&quot;Up&quot;</span>, KeyCode.W);</span><br><span class="line">            AddButton(<span class="string">&quot;Down&quot;</span>, KeyCode.S);</span><br><span class="line">            AddButton(<span class="string">&quot;Left&quot;</span>, KeyCode.A);</span><br><span class="line">            AddButton(<span class="string">&quot;Right&quot;</span>, KeyCode.D);</span><br><span class="line">            AddButton(<span class="string">&quot;Fire&quot;</span>, KeyCode.J);</span><br><span class="line">            AddButton(<span class="string">&quot;Jump&quot;</span>, KeyCode.K);</span><br><span class="line">            AddButton(<span class="string">&quot;Skill&quot;</span>, KeyCode.L);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">AddButton</span>(<span class="params"><span class="built_in">string</span> button, KeyCode code</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">        &#123;</span><br><span class="line">            ButtonLists[button] = code;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ButtonLists.Add(button, code);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">GetButton</span>(<span class="params"><span class="built_in">string</span> button</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">            <span class="keyword">return</span> Input.GetKey(ButtonLists[button]);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">GetButtonDown</span>(<span class="params"><span class="built_in">string</span> button</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">            <span class="keyword">return</span> Input.GetKeyDown(ButtonLists[button]);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">GetButtonUp</span>(<span class="params"><span class="built_in">string</span> button</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ButtonLists.ContainsKey(button))</span><br><span class="line">            <span class="keyword">return</span> Input.GetKeyUp(ButtonLists[button]);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 </ul>
-<h2 id="附：unity以及rider快捷键"><a href="#附：unity以及rider快捷键" class="headerlink" title="附：unity以及rider快捷键"></a>附：unity以及rider快捷键</h2><h3 id="rider："><a href="#rider：" class="headerlink" title="rider："></a>rider：</h3><p>快速注释：ctrl+K，ctrl+C<br>选中当前灭光标所在单词：ctrl+W<br>多光标：shift+alt+鼠标&#x2F;上下键</p>
+<h2 id="附：unity以及rider快捷键"><a href="#附：unity以及rider快捷键" class="headerlink" title="附：unity以及rider快捷键"></a>附：unity以及rider快捷键</h2><h3 id="rider："><a href="#rider：" class="headerlink" title="rider："></a>rider：</h3><p>快速注释：ctrl+K，ctrl+C<br>选中当前灭光标所在单词：ctrl+W<br>多光标：shift+alt+鼠标&#x2F;上下键<br>选中所有当前单词：shift+alt+；<br>直接替换当前选中所有单词：ctrl+r*2<br>直接override基类属性或者方法：Alt+INS</p>
 <h3 id="unity："><a href="#unity：" class="headerlink" title="unity："></a>unity：</h3><p>可以使视角跟随物体运动：-&gt;Edit-&gt;Lock View to Seleted</p>
 
         </div>
@@ -908,7 +924,7 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-05-02 00:01:08
+                    :</strong> 2024-07-29 20:34:59
             </li>
         
         <li>
@@ -982,61 +998,17 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 
         
             <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
-                <div class="comments-container mt-10 w-full ">
-    <div id="comment-anchor" class="w-full h-2.5"></div>
-    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
-        Comments
-    </div>
-    
+                if (hexo-config('comment.enable') == true && hexo-config('comment.system') != "") {
+  if (hexo-config('comment.system') == "waline") {
+    @require "./waline.styl"
 
-        
-            
-    <div id="gitalk-container"></div>
-    <script data-swup-reload-script
-            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
-    <script data-swup-reload-script>
+  } else if (hexo-config('comment.system') == "gitalk") {
+    @require "./gitalk.styl"
 
-        function loadGitalk() {
-            let __gitalk__pathname = decodeURI(location.pathname);
-            const __gitalk__pathnameLength = __gitalk__pathname.length;
-            const __gitalk__pathnameMaxLength = 50;
-            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
-                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
-            }
-
-            try {
-                Gitalk && new Gitalk({
-                    clientID: 'e3424327562eddbe78f0',
-                    clientSecret: '51d38eea5f706ea8a8ccb68e5181bf690fcc43e1',
-                    repo: 'Gitalk',
-                    owner: 'isZeroER',
-                    admin: ['isZeroER'],
-                    id: __gitalk__pathname,
-                    language: 'en',
-                    proxy: 'https://github.com/login/oauth/access_token'
-                }).render('gitalk-container');
-
-            } catch (e) {
-                window.Gitalk = null;
-            }
-        }
-
-        if ('true') {
-            const loadGitalkTimeout = setTimeout(() => {
-                loadGitalk();
-                clearTimeout(loadGitalkTimeout);
-            }, 1000);
-        } else {
-            window.addEventListener('DOMContentLoaded', loadGitalk);
-        }
-    </script>
-
-
-
-        
-    
-</div>
-
+  } else if (hexo-config('comment.system') == "twikoo") {
+    @require "./twikoo.styl"
+  }
+}
             </div>
         
     </div>
@@ -1047,7 +1019,7 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">UnityStudy</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">Unity 使用学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">1.基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="nav-text">1.1.游戏物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-text">1.2.资源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B5%84%E6%BA%90%E5%8C%85"><span class="nav-text">1.3.资源包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E6%91%84%E5%83%8F%E6%9C%BA"><span class="nav-text">1.4.摄像机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E8%84%9A%E6%9C%AC"><span class="nav-text">1.5.脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E5%B8%A7%E6%9B%B4%E6%96%B0"><span class="nav-text">1.6.帧更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E7%89%A9%E4%BD%93%E7%9A%84%E8%BF%90%E5%8A%A8"><span class="nav-text">1.7.物体的运动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-%E7%89%A9%E4%BD%93%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-text">1.8.物体的旋转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0"><span class="nav-text">2.深入学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%84%9A%E6%9C%AC%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="nav-text">2.1.脚本运行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%B6%88%E6%81%AF%E5%87%BD%E6%95%B0-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">2.2.消息函数&#x2F;生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-text">2.3.脚本执行优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E4%B8%BB%E6%8E%A7%E8%84%9A%E6%9C%AC"><span class="nav-text">2.4.主控脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-text">2.5.参数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E7%AD%89%E8%BE%93%E5%85%A5"><span class="nav-text">2.6.鼠标键盘等输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8"><span class="nav-text">2.7.组件调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-%E7%89%A9%E4%BD%93%E8%8E%B7%E5%8F%96"><span class="nav-text">2.8.物体获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-%E8%84%9A%E6%9C%AC%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8"><span class="nav-text">2.9.脚本资源使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-%E5%AE%9A%E6%97%B6%E8%B0%83%E7%94%A8"><span class="nav-text">2.10.定时调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-%E5%90%91%E9%87%8F%E4%BD%BF%E7%94%A8"><span class="nav-text">2.11.向量使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-%E9%A2%84%E5%88%B6%E4%BD%93%E4%BD%BF%E7%94%A8"><span class="nav-text">2.12.预制体使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%89%A9%E7%90%86%E4%B8%8E%E7%89%B9%E6%95%88"><span class="nav-text">3.物理与特效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%89%A9%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">3.1.物理系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%88%9A%E4%BD%93%E7%A2%B0%E6%92%9E"><span class="nav-text">3.2.刚体碰撞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%8F%8D%E5%BC%B9%E4%B8%8E%E6%91%A9%E6%93%A6"><span class="nav-text">3.3.反弹与摩擦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B"><span class="nav-text">3.4.碰撞检测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="nav-text">4.项目中的学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%EF%BC%9Aunity%E4%BB%A5%E5%8F%8Arider%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">附：unity以及rider快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rider%EF%BC%9A"><span class="nav-text">rider：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unity%EF%BC%9A"><span class="nav-text">unity：</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0"><span class="nav-text">Unity 使用学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">1.基本结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%B8%B8%E6%88%8F%E7%89%A9%E4%BD%93"><span class="nav-text">1.1.游戏物体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-text">1.2.资源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B5%84%E6%BA%90%E5%8C%85"><span class="nav-text">1.3.资源包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E6%91%84%E5%83%8F%E6%9C%BA"><span class="nav-text">1.4.摄像机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E8%84%9A%E6%9C%AC"><span class="nav-text">1.5.脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E5%B8%A7%E6%9B%B4%E6%96%B0"><span class="nav-text">1.6.帧更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E7%89%A9%E4%BD%93%E7%9A%84%E8%BF%90%E5%8A%A8"><span class="nav-text">1.7.物体的运动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-%E7%89%A9%E4%BD%93%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-text">1.8.物体的旋转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0"><span class="nav-text">2.深入学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%84%9A%E6%9C%AC%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86"><span class="nav-text">2.1.脚本运行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%B6%88%E6%81%AF%E5%87%BD%E6%95%B0-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">2.2.消息函数&#x2F;生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-text">2.3.脚本执行优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E4%B8%BB%E6%8E%A7%E8%84%9A%E6%9C%AC"><span class="nav-text">2.4.主控脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-text">2.5.参数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E7%AD%89%E8%BE%93%E5%85%A5"><span class="nav-text">2.6.鼠标键盘等输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8"><span class="nav-text">2.7.组件调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-%E7%89%A9%E4%BD%93%E8%8E%B7%E5%8F%96"><span class="nav-text">2.8.物体获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-%E8%84%9A%E6%9C%AC%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8"><span class="nav-text">2.9.脚本资源使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-%E5%AE%9A%E6%97%B6%E8%B0%83%E7%94%A8"><span class="nav-text">2.10.定时调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-%E5%90%91%E9%87%8F%E4%BD%BF%E7%94%A8"><span class="nav-text">2.11.向量使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-%E9%A2%84%E5%88%B6%E4%BD%93%E4%BD%BF%E7%94%A8"><span class="nav-text">2.12.预制体使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%89%A9%E7%90%86%E4%B8%8E%E7%89%B9%E6%95%88"><span class="nav-text">3.物理与特效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%89%A9%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="nav-text">3.1.物理系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%88%9A%E4%BD%93%E7%A2%B0%E6%92%9E"><span class="nav-text">3.2.刚体碰撞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%8F%8D%E5%BC%B9%E4%B8%8E%E6%91%A9%E6%93%A6"><span class="nav-text">3.3.反弹与摩擦</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B"><span class="nav-text">3.4.碰撞检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E5%B0%84%E7%BA%BF%E6%A3%80%E6%B5%8B"><span class="nav-text">3.5.射线检测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="nav-text">4.项目中的学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%EF%BC%9Aunity%E4%BB%A5%E5%8F%8Arider%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">附：unity以及rider快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rider%EF%BC%9A"><span class="nav-text">rider：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unity%EF%BC%9A"><span class="nav-text">unity：</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
