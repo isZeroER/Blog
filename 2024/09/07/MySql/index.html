@@ -19,18 +19,26 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://iszeroer.github.io/Blog/page/2/"/>
+    <link rel="canonical" href="https://iszeroer.github.io/Blog/2024/09/07/mysql/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Zero">
-<meta property="og:url" content="https://iszeroer.github.io/Blog/page/2/index.html">
+        <meta name="description" content="1. 库操作###1.1.登录和退出数据库user -uroot -p+password;exit; 1.2.显示所有数据库show databases; 1.3.选中一个数据库使用use database; 1.4.创建数据库&#x2F;删除数据库create database [name];drop database [name]; 2. 表操作2.1.显示数据库中的所有表show table">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql">
+<meta property="og:url" content="https://iszeroer.github.io/Blog/2024/09/07/MySql/index.html">
 <meta property="og:site_name" content="Zero">
+<meta property="og:description" content="1. 库操作###1.1.登录和退出数据库user -uroot -p+password;exit; 1.2.显示所有数据库show databases; 1.3.选中一个数据库使用use database; 1.4.创建数据库&#x2F;删除数据库create database [name];drop database [name]; 2. 表操作2.1.显示数据库中的所有表show table">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66dee2cad9c307b7e9268417.jpg">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66dee2fad9c307b7e926b5cf.jpg">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66dee2f9d9c307b7e926b56d.jpg">
+<meta property="article:published_time" content="2024-09-07T15:20:37.000Z">
+<meta property="article:modified_time" content="2024-09-09T11:59:22.786Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/66dee2cad9c307b7e9268417.jpg">
     
     
     <!--- Icon Part-->
@@ -41,6 +49,8 @@
     <!--- Page Info-->
     
     <title>
+        
+            MySql -
         
         Zero | Action
     </title>
@@ -261,39 +271,6 @@
 <main class="page-container" id="swup">
 
     
-        <style>
-    .home-article-item,
-    .sidebar-links,
-    .sidebar-content,
-    a.page-number,
-    a.extend,
-    .sidebar-links .links:hover,
-    .right-bottom-tools,
-    footer.footer {
-        background-color: var(--background-color-transparent-80) !important;
-    }
-    .right-bottom-tools:hover,
-    a.page-number:hover,
-    a.extend:hover {
-        background-color: var(--primary-color) !important;
-    }
-    .site-info,
-    .home-article-sticky-label {
-        background-color: var(--background-color-transparent-15) !important;
-    }
-    .home-article-sticky-label {
-        backdrop-filter: none !important;
-    }
-    .home-banner-background {
-        filter: blur(15px);
-    }
-</style>
-
-<div class="home-banner-background">
-</div>
-
-
-    
 
     <div class="main-content-container">
 
@@ -305,9 +282,9 @@
         <div class="left">
             
             <a class="logo-title" href="/Blog/">
-                <h1>
+                
                 Zero | Action
-                </h1>
+                
             </a>
         </div>
 
@@ -321,7 +298,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/Blog/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
@@ -496,7 +473,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/Blog/"
                         >
                             <span>
@@ -691,666 +668,304 @@
             <div class="main-content">
 
                 
-                    <div class="home-content-container">
-    <ul class="home-article-list">
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">MySql</h1>
+                </div>
+            
+            </div>
+
         
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                            计算机网络
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://pic.imgdb.cn/item/65bc6f36871b83018a506123.webp">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zero</span>
                         
-                            计算机网络1.概论1.1.网络、互联网以及因特网
-网络由若干个结点和连接这些结点的链路组成
-多个网络可以用路由器互连起来，构成一个更大的网络，也就是互联网
-因特网就是最大的互联网
-
-1.2.因特网组成
-边缘部分：由所有连接到网络的主机构成，是用户直接...
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
                         
                     </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Mar 24 2024 21:52:13 GMT+0800">
-                
-                    2024-03-24
-                
-            </span>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-09-07 23:20:37</span>
+        <span class="mobile">2024-09-07 23:20:37</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-09-09 19:59:22</span>
+            <span class="mobile">2024-09-09 19:59:22</span>
+            <span class="hover-info">Updated</span>
         </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
+    
 
-    <a href="/Blog/2024/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">Read more<span class="seo-reader-text">计算机网络</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.6k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>7 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/03/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-                            排序算法
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            排序算法1.插入排序将无序序列中的值与有序序列中每一个值进行比较并且插入
-1234567891011121314151617insertionSort(arr) n = arr.length  // 从第二个元素开始遍历数组 for i from 1...
-                        
                     </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Mar 18 2024 16:54:24 GMT+0800">
-                
-                    2024-03-18
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/03/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">Read more<span class="seo-reader-text">排序算法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
                 </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="1-库操作"><a href="#1-库操作" class="headerlink" title="1. 库操作"></a>1. 库操作</h2><p>###1.1.登录和退出数据库<br>user -uroot -p+password;<br>exit;</p>
+<h3 id="1-2-显示所有数据库"><a href="#1-2-显示所有数据库" class="headerlink" title="1.2.显示所有数据库"></a>1.2.显示所有数据库</h3><p>show databases;</p>
+<h3 id="1-3-选中一个数据库使用"><a href="#1-3-选中一个数据库使用" class="headerlink" title="1.3.选中一个数据库使用"></a>1.3.选中一个数据库使用</h3><p>use database;</p>
+<h3 id="1-4-创建数据库-删除数据库"><a href="#1-4-创建数据库-删除数据库" class="headerlink" title="1.4.创建数据库&#x2F;删除数据库"></a>1.4.创建数据库&#x2F;删除数据库</h3><p>create database [name];<br>drop database [name];</p>
+<h2 id="2-表操作"><a href="#2-表操作" class="headerlink" title="2. 表操作"></a>2. 表操作</h2><h3 id="2-1-显示数据库中的所有表"><a href="#2-1-显示数据库中的所有表" class="headerlink" title="2.1.显示数据库中的所有表"></a>2.1.显示数据库中的所有表</h3><p>show tables;</p>
+<h3 id="2-2-显示表中所有数据"><a href="#2-2-显示表中所有数据" class="headerlink" title="2.2.显示表中所有数据"></a>2.2.显示表中所有数据</h3><p>select * from [tableName];</p>
+<h3 id="2-3-创建数据表"><a href="#2-3-创建数据表" class="headerlink" title="2.3.创建数据表"></a>2.3.创建数据表</h3><p>create table [tableName](<br>[data1] [type],<br>[data2] [type]);</p>
+<h3 id="2-4-查看数据表结构详情"><a href="#2-4-查看数据表结构详情" class="headerlink" title="2.4.查看数据表结构详情"></a>2.4.查看数据表结构详情</h3><p>describe [tableName];</p>
+<h3 id="2-5-向表中添加数据记录"><a href="#2-5-向表中添加数据记录" class="headerlink" title="2.5.向表中添加数据记录"></a>2.5.向表中添加数据记录</h3><p>insert into [name]<br>values([value1], [value2]…);</p>
+<ul>
+<li>mysql常用数据类型</li>
+</ul>
+<ol>
+<li>数值<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/66dee2cad9c307b7e9268417.jpg"
+                      alt="数值类型"
+                ></li>
+<li>日期<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/66dee2fad9c307b7e926b5cf.jpg"
+                      alt="日期类型"
+                ></li>
+<li>字符串<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/66dee2f9d9c307b7e926b56d.jpg"
+                      alt="字符类型"
+                ></li>
+</ol>
+<h3 id="2-6-删除特定一条数据"><a href="#2-6-删除特定一条数据" class="headerlink" title="2.6.删除特定一条数据"></a>2.6.删除特定一条数据</h3><p>delete from [tableName] where [data]&#x3D;[value];</p>
+<h3 id="2-7-修改特定数据"><a href="#2-7-修改特定数据" class="headerlink" title="2.7.修改特定数据"></a>2.7.修改特定数据</h3><p>update [tableName] set [data]&#x3D;[value] where [data]&#x3D;[value];</p>
+<h3 id="2-8-特定查询"><a href="#2-8-特定查询" class="headerlink" title="2.8.特定查询"></a>2.8.特定查询</h3><p>select * from [tableName] where [data] &#x3D; [value];</p>
+<h2 id="3-约束"><a href="#3-约束" class="headerlink" title="3.约束"></a>3.约束</h2><h3 id="3-1-主键约束"><a href="#3-1-主键约束" class="headerlink" title="3.1.主键约束"></a>3.1.主键约束</h3><p>create table [tableName] (<br>[data1] [type1] primary key,<br>[data2] [type2],<br>);<br>主键约束只能有一个，用于唯一标识每一不同的数据</p>
+<h3 id="3-2-联合主键"><a href="#3-2-联合主键" class="headerlink" title="3.2.联合主键"></a>3.2.联合主键</h3><p>create table [tableName](<br>[data1] [type],<br>[data2] [type],<br>primary key(data1, data2)<br>);<br>这样data1和data2都是联合主键，两个与所有的其他数据不完全相同即可</p>
+<h3 id="3-3-自增约束"><a href="#3-3-自增约束" class="headerlink" title="3.3.自增约束"></a>3.3.自增约束</h3><p>create table [tableName](<br>[data1] [type] primary key auto_increment,<br>[data2] [type],<br>);</p>
+<h3 id="3-4-唯一约束，不能重复"><a href="#3-4-唯一约束，不能重复" class="headerlink" title="3.4.唯一约束，不能重复"></a>3.4.唯一约束，不能重复</h3><p>create table [tableName] (<br>[data1] [type1] unique,<br>[data2] [type2]<br>unique(data2);<br>);<br>联合唯一约束<br>create table [tableName] (<br>[data1] [type1]<br>[data2] [type2]<br>unique(data1, data2);<br>);</p>
+<h3 id="3-5-非空约束"><a href="#3-5-非空约束" class="headerlink" title="3.5.非空约束"></a>3.5.非空约束</h3><p>create table [tableName](<br>[data1] [type1] not null,<br>[data2] [type2]<br>);</p>
+<h3 id="3-6-默认约束：如果插入数据的时候没有输入数据，就使用默认值"><a href="#3-6-默认约束：如果插入数据的时候没有输入数据，就使用默认值" class="headerlink" title="3.6.默认约束：如果插入数据的时候没有输入数据，就使用默认值"></a>3.6.默认约束：如果插入数据的时候没有输入数据，就使用默认值</h3><p>create table [tableName](<br>[data] [type] default [value]<br>);</p>
+<h3 id="3-7-外键约束：涉及两个表，父表子表"><a href="#3-7-外键约束：涉及两个表，父表子表" class="headerlink" title="3.7.外键约束：涉及两个表，父表子表"></a>3.7.外键约束：涉及两个表，父表子表</h3><p>create table class(<br>id int primary key,<br>name varchar(20)<br>);<br>create table student(<br>id int primary key,<br>name varchar(20),<br>class_id int,<br>foreign key(class_id) references class(id)<br>);<br>1）student.class_id只能约束为class.id里面出现过的数据<br>2）主表里面的数据如果已经被子表引用，那么主表里面的数据不能删除</p>
+<h2 id="4-表结构操作DDL："><a href="#4-表结构操作DDL：" class="headerlink" title="4.表结构操作DDL："></a>4.表结构操作DDL：</h2><h3 id="4-1-补充约束"><a href="#4-1-补充约束" class="headerlink" title="4.1.补充约束"></a>4.1.补充约束</h3><p>alter table [tableName] add primary key(dataName);<br>alter table [tableName] add unique(dataName);<br>如果要添加的dataName有的数据里面已经有了重复，就不能补充成功</p>
+<h3 id="4-2-删除主键约束"><a href="#4-2-删除主键约束" class="headerlink" title="4.2.删除主键约束"></a>4.2.删除主键约束</h3><p>alter table [tableName] drop primary key;</p>
+<h3 id="4-3-修改列数据结构"><a href="#4-3-修改列数据结构" class="headerlink" title="4.3.修改列数据结构"></a>4.3.修改列数据结构</h3><p>alter table [tableName] modify [dataName] int primary key;<br>alter table [tableName] change [dataOldName] [dataNewName] [type] [restraint];</p>
+<h3 id="4-4-删除唯一约束"><a href="#4-4-删除唯一约束" class="headerlink" title="4.4.删除唯一约束"></a>4.4.删除唯一约束</h3><p>alter table [tableName] drop index [dataName];</p>
+<h3 id="4-5-删除整个表数据"><a href="#4-5-删除整个表数据" class="headerlink" title="4.5.删除整个表数据"></a>4.5.删除整个表数据</h3><p>delete from [tableName];<br>truncate table [tableName];</p>
+<h3 id="4-6-查看建表语句和字符集"><a href="#4-6-查看建表语句和字符集" class="headerlink" title="4.6.查看建表语句和字符集"></a>4.6.查看建表语句和字符集</h3><p>show create table [tableName]</p>
+<h3 id="4-7-添加列"><a href="#4-7-添加列" class="headerlink" title="4.7.添加列"></a>4.7.添加列</h3><p>alter table [tableName] add [dataName] [type] [restraint];</p>
+<h3 id="4-8-修改表名"><a href="#4-8-修改表名" class="headerlink" title="4.8.修改表名"></a>4.8.修改表名</h3><p>rename table [tableOldName] to [tableNewName];</p>
+<h3 id="4-9-修改表字符集"><a href="#4-9-修改表字符集" class="headerlink" title="4.9.修改表字符集"></a>4.9.修改表字符集</h3><p>alter table [tableName] character set [encodeName];</p>
+<h2 id="5-数据库三大范式"><a href="#5-数据库三大范式" class="headerlink" title="5.数据库三大范式"></a>5.数据库三大范式</h2><p>范式越详尽，对于实际操作可能更好，但不绝对</p>
+<h3 id="5-1-第一范式1NF"><a href="#5-1-第一范式1NF" class="headerlink" title="5.1.第一范式1NF"></a>5.1.第一范式1NF</h3><p>字段不能继续拆分就ok </p>
+<h3 id="5-2-第二范式2NF"><a href="#5-2-第二范式2NF" class="headerlink" title="5.2.第二范式2NF"></a>5.2.第二范式2NF</h3><p>在第一范式的前提下，除了主键（或者联合主键）之外的字段都必须完全依赖于主键<br>这种情况下，就可以将该表拆分为多个互不相干的表</p>
+<h3 id="5-3-第三范式3NF"><a href="#5-3-第三范式3NF" class="headerlink" title="5.3.第三范式3NF"></a>5.3.第三范式3NF</h3><p>在第二范式的前提下，除了主键外的其他列之间不能有传递依赖关系</p>
+<h2 id="6-表查询"><a href="#6-表查询" class="headerlink" title="6.表查询"></a>6.表查询</h2><h3 id="6-1-全表查询"><a href="#6-1-全表查询" class="headerlink" title="6.1.全表查询"></a>6.1.全表查询</h3><p>select * from [tableName];</p>
+<h3 id="6-2-特定列查询"><a href="#6-2-特定列查询" class="headerlink" title="6.2.特定列查询"></a>6.2.特定列查询</h3><p>select data1, data2… from [tableName];</p>
+<h3 id="6-3-列排重查询"><a href="#6-3-列排重查询" class="headerlink" title="6.3.列排重查询"></a>6.3.列排重查询</h3><p>select distinct [dataName] from [tableName];</p>
+<h3 id="6-4-查询区间"><a href="#6-4-查询区间" class="headerlink" title="6.4.查询区间"></a>6.4.查询区间</h3><p>select * from [tableName] where [data] between min and max;<br>select * from score where score &gt; 80 and score &lt; 90;<br>select * from score where score in (85, 86, 88);<br>可以直接使用运算符比较</p>
+<h3 id="6-5-or-and"><a href="#6-5-or-and" class="headerlink" title="6.5.or, and"></a>6.5.or, and</h3><p>select * from student where class&#x3D;’4’ or ssex&#x3D;’girl’;<br>select * from score where score &gt; 80 and score &lt; 90;</p>
+<h3 id="6-6-升序降序查询记录-默认是升序）"><a href="#6-6-升序降序查询记录-默认是升序）" class="headerlink" title="6.6.升序降序查询记录(默认是升序）"></a>6.6.升序降序查询记录(默认是升序）</h3><p>降序<br>select * from score order by score desc；<br>升序<br>select * from score order by score asc;<br>联合排序，先排前面的条件<br>select * from score order by cid asc, score desc;</p>
+<h3 id="6-7-数量查询"><a href="#6-7-数量查询" class="headerlink" title="6.7.数量查询"></a>6.7.数量查询</h3><p>select count(*) from student where class&#x3D;’3’;</p>
+<h3 id="6-8-最高查询"><a href="#6-8-最高查询" class="headerlink" title="6.8.最高查询"></a>6.8.最高查询</h3><p>select sid, cid from score where score&#x3D;(select max(score) from score);<br>实际上是嵌套查询了</p>
+<ul>
+<li>排序搜查：<br>select sid, cid, score from score order by score desc limit 0,1;<br>0代表起始位置下标，1表示选取个数</li>
+</ul>
+<h3 id="6-9-平均查询"><a href="#6-9-平均查询" class="headerlink" title="6.9.平均查询"></a>6.9.平均查询</h3><p>select avg([dataName]) from [tableName];<br>可以添加where查询<br>还可以分组查询<br>select avg([dataName]) from [tableName] group by [dataName];</p>
+<h3 id="6-10-分组条件和模糊查询"><a href="#6-10-分组条件和模糊查询" class="headerlink" title="6.10.分组条件和模糊查询"></a>6.10.分组条件和模糊查询</h3><p>select cid, avg(degree), count(*) from score group by cid<br>having count(cid)&gt;&#x3D;2<br>and cid like’3%’;</p>
+<p>分组条件使用group by, having，然后使用like进行模糊查询（正则表达式）</p>
+<h3 id="6-11-范围查询两种方式"><a href="#6-11-范围查询两种方式" class="headerlink" title="6.11.范围查询两种方式"></a>6.11.范围查询两种方式</h3><p>select * from score where degree &gt; 60 and degree &lt; 80;<br>select * from score where degree between 69 and 80;</p>
+<h3 id="6-12-多表查询"><a href="#6-12-多表查询" class="headerlink" title="6.12.多表查询"></a>6.12.多表查询</h3><ul>
+<li>主键的重要性：用以在多个表中进行匹配相等</li>
+<li>双表查询<br>select cid, sname, degree from student, score where student.sid&#x3D;score.sid;<br>添加一个where查询<br>多表查询步骤：先分别查表，然后综合查表</li>
+<li>三表查询<br>select sname, cname, degree from student, course, score<br>where student.sid&#x3D;score.sid<br>and course.cid&#x3D;score.cid;<br>如果要将不同表中的相同数据展示，需要使用as取别名<br>select sname, cname, degree, student.sid as stu_sid, score.sid from student, course, score<br>where student.sid&#x3D;score.sid<br>and course.cid&#x3D;score.cid;</li>
+</ul>
+<h3 id="6-13-子查询加分组查询平均分"><a href="#6-13-子查询加分组查询平均分" class="headerlink" title="6.13.子查询加分组查询平均分"></a>6.13.子查询加分组查询平均分</h3><p>例子1：查询2班学生每门课程的平均分</p>
+<ul>
+<li>先把2班学生的sid都查询<br>select sid from student where class&#x3D;2;</li>
+<li>再利用in查找score里面的分数<br>select * from score where sid in (select sid from student where class&#x3D;2);</li>
+<li>再去求平均分<br>select cid, avg(degree)<br>from score<br>where sid in(select sid from student where class&#x3D;2)<br>group by cid;</li>
+</ul>
+<p>例子2：查询选修5472课程的成绩高于103号同学在5472课程上成绩的同学<br>select * from score<br>where cid&#x3D;5472<br>and degree &gt; (select degree from score where sid&#x3D;103 and cid&#x3D;5472);</p>
+<h3 id="6-14-year函数与带in关键字的子查询"><a href="#6-14-year函数与带in关键字的子查询" class="headerlink" title="6.14.year函数与带in关键字的子查询"></a>6.14.year函数与带in关键字的子查询</h3><p>例子：查询与学号为101和102的同学同年出生的所有学生的sid、sname、birthday<br>select * from student where year(sbirth) in (select year(sbirth) from student where sid in (101,103));<br>要使某个值等于多个里面的一个，使用in</p>
+<h3 id="6-15-多层嵌套子查询"><a href="#6-15-多层嵌套子查询" class="headerlink" title="6.15.多层嵌套子查询"></a>6.15.多层嵌套子查询</h3><p>select sid, degree from score where cid&#x3D;(select cid from course where teachernum&#x3D;(select tid from teacher where tname&#x3D;’zx’));</p>
+<h3 id="6-16-多表查询"><a href="#6-16-多表查询" class="headerlink" title="6.16.多表查询"></a>6.16.多表查询</h3><p>例子：查询选修某课程的同学人数多于5人的教师姓名<br>select tname from teacher<br>where tid in<br>(select tid from course where cid in<br>(select cid from score group by cid<br>having count(cid)&gt;2));</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> MySql</li>
+        <li><strong>Author:</strong> Zero</li>
+        <li><strong>Created at
+                :</strong> 2024-09-07 23:20:37</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-09-09 19:59:22
             </li>
         
-            <li class="home-article-item">
+        <li>
+            <strong>Link:</strong> https://iszeroer.github.io/Blog/2024/09/07/MySql/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
 
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/">
-                            实现Unity中UI的拖拽
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            实现Unity中UI的拖拽
-需要将屏幕坐标转换为世界坐标12345678910111213141516171819202122232425262728293031323334353637383940using System;using System....
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Mar 15 2024 01:52:06 GMT+0800">
-                
-                    2024-03-15
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/03/15/%E5%AE%9E%E7%8E%B0Unity%E4%B8%ADUI%E7%9A%84%E6%8B%96%E6%8B%BD/">Read more<span class="seo-reader-text">实现Unity中UI的拖拽</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/14/C++%20Study/">
-                            C++ Study
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1.C++基础1.1.C++运行原理
-C++如何工作编译器先处理预处理，即在编译前处理；所有cpp文件被编译后，生成.obj文件，linker将这些文件整合成一个二进制可执行文件，也就是.exe 文件
-C++编译器如何工作预处理的处理-&gt;生成语...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Wed Feb 14 2024 13:18:10 GMT+0800">
-                
-                    2024-02-14
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/02/14/C++%20Study/">Read more<span class="seo-reader-text">C++ Study</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/13/Games101/">
-                            Games101
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            Games1011.变换（Transformation）1.1MVP变换-&gt;将物体转化到[-1, 1]^3的立方体上面2.光栅化（Rasterization）
-就是将MVP转化的结果，画到二维数组上面
-
-2.1.屏幕（pixel）
-颜色表示：R...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Feb 13 2024 11:01:39 GMT+0800">
-                
-                    2024-02-13
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/02/13/Games101/">Read more<span class="seo-reader-text">Games101</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/">
-                            Unity Particle System
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            Unity Particle System1.1.粒子系统
-添加一个ParticleSystem
-预览与运行
-模块与参数1个主模块（基础参数）和22个子模块（扩展参数）默认启用3个子模块：
-
-
-Emission，发射的频率
-Shape，粒子发生器的形...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Feb 08 2024 14:18:34 GMT+0800">
-                
-                    2024-02-08
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/Blog/categories/Unity/">Unity</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/02/08/Unity%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/">Read more<span class="seo-reader-text">Unity Particle System</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/">
-                            Unity实现小地图创建
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1.简易版本
-首先创建一个新的相机，并且给其一个合理的脚本使之跟随player
-创建一个render texture，将其与刚刚创建好的相机绑定
-创建一个Raw Image，并且讲刚刚的render texture拖拽到这个Raw Image上面
-
-...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Feb 08 2024 12:09:20 GMT+0800">
-                
-                    2024-02-08
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/Blog/categories/Unity%E7%9B%B8%E5%85%B3/">Unity相关</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/02/08/Unity%E5%AE%9E%E7%8E%B0%E5%B0%8F%E5%9C%B0%E5%9B%BE%E5%88%9B%E5%BB%BA/">Read more<span class="seo-reader-text">Unity实现小地图创建</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/04/UnityStudy/">
-                            UnityStudy
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            Unity 使用学习
-学习资料参考：unity官方文档（中文版） b站阿发教程（十分详尽） 
-
-1.基本结构1.1.游戏物体
-cube：正方体  
-sphere：球体  
-cylinder：圆柱  
-capsule：圆柱头  
-plane：平面
-
-1...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Feb 04 2024 22:18:29 GMT+0800">
-                
-                    2024-02-04
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/Blog/categories/Unity/">Unity</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/02/04/UnityStudy/">Read more<span class="seo-reader-text">UnityStudy</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/">
-                            .fbx文件使用
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            一、三个组成部分
-mesh：网格，定义物体形状
-meterial：材质，定义表面光学特性
-textures：贴图，定义表面像素颜色
-
-二、.fbx使用方式1、直接拖动
-选择.fbx文件，直接拖到层级窗口
-观察节点图标
-选中节点，观察inspector...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Feb 02 2024 20:39:00 GMT+0800">
-                
-                    2024-02-02
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/02/02/FBX%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8/">Read more<span class="seo-reader-text">.fbx文件使用</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/02/02/hello-world/">
-                            Hello World
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, ...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Feb 02 2024 14:04:52 GMT+0800">
-                
-                    2024-02-02
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/config/">config</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/02/02/hello-world/">Read more<span class="seo-reader-text">Hello World</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
     </ul>
-
-    <div class="home-paginator px-7 py-5">
-        <div class="paginator">
-    <a class="extend prev" rel="prev" href="/Blog/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/Blog/">1</a><span class="page-number current">2</span>
 </div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/Blog/2024/07/30/Unity%E6%97%A0%E9%99%90%E5%9C%B0%E5%9B%BE%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Unity无限地图制作与动态效果</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'e3424327562eddbe78f0',
+                    clientSecret: '51d38eea5f706ea8a8ccb68e5181bf690fcc43e1',
+                    repo: 'Gitalk',
+                    owner: 'isZeroER',
+                    admin: ['isZeroER'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://github.com/login/oauth/access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">MySql</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">1. 库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.2.显示所有数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E9%80%89%E4%B8%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="nav-text">1.3.选中一个数据库使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1.4.创建数据库&#x2F;删除数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-text">2. 表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E8%A1%A8"><span class="nav-text">2.1.显示数据库中的所有表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%98%BE%E7%A4%BA%E8%A1%A8%E4%B8%AD%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE"><span class="nav-text">2.2.显示表中所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">2.3.创建数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%BB%93%E6%9E%84%E8%AF%A6%E6%83%85"><span class="nav-text">2.4.查看数据表结构详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E5%90%91%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E8%AE%B0%E5%BD%95"><span class="nav-text">2.5.向表中添加数据记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E5%88%A0%E9%99%A4%E7%89%B9%E5%AE%9A%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">2.6.删除特定一条数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E4%BF%AE%E6%94%B9%E7%89%B9%E5%AE%9A%E6%95%B0%E6%8D%AE"><span class="nav-text">2.7.修改特定数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-%E7%89%B9%E5%AE%9A%E6%9F%A5%E8%AF%A2"><span class="nav-text">2.8.特定查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BA%A6%E6%9D%9F"><span class="nav-text">3.约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="nav-text">3.1.主键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE"><span class="nav-text">3.2.联合主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%87%AA%E5%A2%9E%E7%BA%A6%E6%9D%9F"><span class="nav-text">3.3.自增约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E5%94%AF%E4%B8%80%E7%BA%A6%E6%9D%9F%EF%BC%8C%E4%B8%8D%E8%83%BD%E9%87%8D%E5%A4%8D"><span class="nav-text">3.4.唯一约束，不能重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E9%9D%9E%E7%A9%BA%E7%BA%A6%E6%9D%9F"><span class="nav-text">3.5.非空约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E9%BB%98%E8%AE%A4%E7%BA%A6%E6%9D%9F%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E7%9A%84%E6%97%B6%E5%80%99%E6%B2%A1%E6%9C%89%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%B0%B1%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-text">3.6.默认约束：如果插入数据的时候没有输入数据，就使用默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F%EF%BC%9A%E6%B6%89%E5%8F%8A%E4%B8%A4%E4%B8%AA%E8%A1%A8%EF%BC%8C%E7%88%B6%E8%A1%A8%E5%AD%90%E8%A1%A8"><span class="nav-text">3.7.外键约束：涉及两个表，父表子表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A1%A8%E7%BB%93%E6%9E%84%E6%93%8D%E4%BD%9CDDL%EF%BC%9A"><span class="nav-text">4.表结构操作DDL：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E8%A1%A5%E5%85%85%E7%BA%A6%E6%9D%9F"><span class="nav-text">4.1.补充约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%88%A0%E9%99%A4%E4%B8%BB%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="nav-text">4.2.删除主键约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E4%BF%AE%E6%94%B9%E5%88%97%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">4.3.修改列数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E5%88%A0%E9%99%A4%E5%94%AF%E4%B8%80%E7%BA%A6%E6%9D%9F"><span class="nav-text">4.4.删除唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E5%88%A0%E9%99%A4%E6%95%B4%E4%B8%AA%E8%A1%A8%E6%95%B0%E6%8D%AE"><span class="nav-text">4.5.删除整个表数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">4.6.查看建表语句和字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-%E6%B7%BB%E5%8A%A0%E5%88%97"><span class="nav-text">4.7.添加列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="nav-text">4.8.修改表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">4.9.修改表字符集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F"><span class="nav-text">5.数据库三大范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F1NF"><span class="nav-text">5.1.第一范式1NF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F2NF"><span class="nav-text">5.2.第二范式2NF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F3NF"><span class="nav-text">5.3.第三范式3NF</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E5%85%A8%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.1.全表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E7%89%B9%E5%AE%9A%E5%88%97%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.2.特定列查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%88%97%E6%8E%92%E9%87%8D%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.3.列排重查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E6%9F%A5%E8%AF%A2%E5%8C%BA%E9%97%B4"><span class="nav-text">6.4.查询区间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-or-and"><span class="nav-text">6.5.or, and</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-%E5%8D%87%E5%BA%8F%E9%99%8D%E5%BA%8F%E6%9F%A5%E8%AF%A2%E8%AE%B0%E5%BD%95-%E9%BB%98%E8%AE%A4%E6%98%AF%E5%8D%87%E5%BA%8F%EF%BC%89"><span class="nav-text">6.6.升序降序查询记录(默认是升序）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-%E6%95%B0%E9%87%8F%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.7.数量查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-%E6%9C%80%E9%AB%98%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.8.最高查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-%E5%B9%B3%E5%9D%87%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.9.平均查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-%E5%88%86%E7%BB%84%E6%9D%A1%E4%BB%B6%E5%92%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.10.分组条件和模糊查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-11-%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-text">6.11.范围查询两种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-12-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.12.多表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-13-%E5%AD%90%E6%9F%A5%E8%AF%A2%E5%8A%A0%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E5%88%86"><span class="nav-text">6.13.子查询加分组查询平均分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-14-year%E5%87%BD%E6%95%B0%E4%B8%8E%E5%B8%A6in%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.14.year函数与带in关键字的子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-15-%E5%A4%9A%E5%B1%82%E5%B5%8C%E5%A5%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.15.多层嵌套子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-16-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">6.16.多表查询</span></a></li></ol></li></ol>
 
     </div>
 </div>
+        </div>
+    
+</div>
 
-                    <div class="comment-container pjax"></div>
+
+
                 
 
             </div>
-
-            
-                <div class="home-sidebar-container">
-    <div class="sticky-container sticky">
-        
-        
-            
-                <div class="sidebar-links">
-                    <div class="site-info">
-                        <div class="site-name">Zero | Action</div>
-                        
-                            <div class="announcement">
-                                未经允许，不准转载
-                            </div>
-                        
-                    </div>
-                    
-                        
-                            
-                                <a class="links" href="/Blog/archives">
-                                    
-                                        <i class="fa-regular fa-archive icon-space"></i>
-                                    
-                                    <span class="link-name">Archives</span>
-                                </a>
-                            
-                        
-                            
-                                <a class="links" href="/Blog/tags">
-                                    
-                                        <i class="fa-regular fa-tags icon-space"></i>
-                                    
-                                    <span class="link-name">Tags</span>
-                                </a>
-                            
-                        
-                            
-                                <a class="links" href="/Blog/categories">
-                                    
-                                        <i class="fa-regular fa-folder icon-space"></i>
-                                    
-                                    <span class="link-name">Categories</span>
-                                </a>
-                            
-                        
-                    
-                </div>
-            
-            <div class="sidebar-content"  marginTop >
-                <div class="avatar flex justify-center">
-    <img src="https://pic.imgdb.cn/item/65bc6f36871b83018a506123.webp">
-</div>
-                <div class="author flex flex-col justify-center my-2.5 mx-0">
-    <div class="name">Zero</div>
-    
-        <div class="label">Lv3</div>
-    
-</div>
-                <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
-        <div class="label text-third-text-color text-sm">Tags</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
-        <div class="label text-third-text-color text-sm">Categories</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
-        <div class="label text-third-text-color text-sm">Posts</div>
-    </a>
-</div>
-            </div>
-        
-
-    </div>
-</div>
 
             
 
@@ -1431,6 +1046,27 @@ textures：贴图，定义表面像素颜色
     </div>
 
     
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
 
     <div class="right-side-tools-container">
         <div class="side-tools-container">
@@ -1502,7 +1138,6 @@ textures：贴图，定义表面像素颜色
         containers: ["#swup"],
     });
 </script>
-
 
 
 

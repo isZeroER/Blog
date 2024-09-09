@@ -32,7 +32,7 @@
 <meta property="og:description" content="数据存储框架 分为两种，网络存储和本地存储  1.本地存储 Unity中可以有两种方式，一种是CSV文件，一种是使用Unity自带  1.1.Unity自带 使用AssetMenu存储1234567891011121314151617&#x2F;&#x2F;这里使得可以右键创建文件[CreateAssetMenu(menuName &#x3D; &quot;ConfigTable&quot;, fileName &#x3D; &amp;quot">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-04-30T02:22:10.000Z">
-<meta property="article:modified_time" content="2024-04-30T03:38:39.424Z">
+<meta property="article:modified_time" content="2024-09-02T16:32:04.545Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -644,7 +644,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">19</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -698,8 +698,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-30 11:38:39</span>
-            <span class="mobile">2024-04-30 11:38:39</span>
+            <span class="desktop">2024-09-03 00:32:04</span>
+            <span class="mobile">2024-09-03 00:32:04</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -710,7 +710,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>160 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>205 Words</span>
         </span>
     
     
@@ -743,7 +743,16 @@
 <h3 id="1-1-Unity自带"><a href="#1-1-Unity自带" class="headerlink" title="1.1.Unity自带"></a>1.1.Unity自带</h3><ul>
 <li>使用AssetMenu存储<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里使得可以右键创建文件</span></span><br><span class="line">[<span class="meta">CreateAssetMenu(menuName = <span class="string">&quot;ConfigTable&quot;</span>, fileName = <span class="string">&quot;data&quot;</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PackageTable</span> : <span class="title">ScriptableObject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;BagConfig&gt; bagconfiga = <span class="keyword">new</span> List&lt;BagConfig&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里使得可以在检查器里面显示并且修改</span></span><br><span class="line">[<span class="meta">System.Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BagConfig</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> id;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> describ;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> level;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> imgPath;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 </ul>
-<h3 id="1-2-CSV文件"><a href="#1-2-CSV文件" class="headerlink" title="1.2.CSV文件"></a>1.2.CSV文件</h3><p>利用csv文件创建相关配置，然后使用代码进行获取</p>
+<h3 id="1-2-使用Json存储"><a href="#1-2-使用Json存储" class="headerlink" title="1.2.使用Json存储"></a>1.2.使用Json存储</h3><ul>
+<li>一共创建的结构</li>
+</ul>
+<ol>
+<li>GameData：用于存储所要存储的数据</li>
+<li>ISaveManager：保存和加载接口</li>
+<li>FileDataHandler：用于将数据进行保存和加载</li>
+<li>SaveManager：加载、保存的调用者</li>
+<li>SerializableDictionary：字典序列化工具，实现了ISerializationCallbackReceiver接口</li>
+</ol>
 
         </div>
 
@@ -758,7 +767,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-04-30 11:38:39
+                    :</strong> 2024-09-03 00:32:04
             </li>
         
         <li>
@@ -889,7 +898,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Unity中存储框架</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%A1%86%E6%9E%B6"><span class="nav-text">数据存储框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-text">1.本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Unity%E8%87%AA%E5%B8%A6"><span class="nav-text">1.1.Unity自带</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-CSV%E6%96%87%E4%BB%B6"><span class="nav-text">1.2.CSV文件</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%A1%86%E6%9E%B6"><span class="nav-text">数据存储框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-text">1.本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Unity%E8%87%AA%E5%B8%A6"><span class="nav-text">1.1.Unity自带</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E4%BD%BF%E7%94%A8Json%E5%AD%98%E5%82%A8"><span class="nav-text">1.2.使用Json存储</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
