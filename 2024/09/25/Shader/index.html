@@ -33,7 +33,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xn--gpu-gb4gy8by01d/">
 <meta property="article:published_time" content="2024-09-25T07:36:34.000Z">
-<meta property="article:modified_time" content="2024-10-02T18:53:54.531Z">
+<meta property="article:modified_time" content="2024-10-05T16:37:50.084Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -701,8 +701,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-10-03 02:53:54</span>
-            <span class="mobile">2024-10-03 02:53:54</span>
+            <span class="desktop">2024-10-06 00:37:50</span>
+            <span class="mobile">2024-10-06 00:37:50</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.2k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.7k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>20 Mins</span>
         </span>
     
     
@@ -903,10 +903,24 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
 <h3 id="2-3-4-遮罩纹理"><a href="#2-3-4-遮罩纹理" class="headerlink" title="2.3.4.遮罩纹理"></a>2.3.4.遮罩纹理</h3><ul>
 <li>通过得到遮罩纹理的纹素值，然后使用其中某个或者几个通道的值，与某种表面属性进行相乘。如果纹素为0，那么该属性就不会影响到我们的模型表面。从而达到更加精确（像素级别）控制模型表面的各种性质<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">v2f vert(a2v v)</span><br><span class="line">&#123;</span><br><span class="line">    v2f o;</span><br><span class="line">    o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">    o.uv.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;</span><br><span class="line">    TANGENT_SPACE_ROTATION;</span><br><span class="line">    o.lightDir = mul(rotation, ObjSpaceLightDir(v.vertex)).xyz;</span><br><span class="line">    o.viewDir = mul(rotation, ObjSpaceViewDir(v.vertex)).xyz;</span><br><span class="line"></span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fixed4 frag(v2f i) : SV_Target</span><br><span class="line">&#123;</span><br><span class="line">    fixed3 tangentLightDir = normalize(i.lightDir);</span><br><span class="line">    fixed3 tangentViewDir = normalize(i.viewDir);</span><br><span class="line">    </span><br><span class="line">    fixed3 tangentNormal = UnpackNormal(tex2D(_BumpTex, i.uv)) * _BumpScale;</span><br><span class="line">    tangentNormal.z = sqrt(1-saturate(dot(tangentNormal.xy, tangentNormal.xy)));</span><br><span class="line"></span><br><span class="line">    fixed3 albedo = tex2D(_MainTex, i.uv).rgb * _Color.rgb;</span><br><span class="line">	fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">	fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(tangentNormal, tangentLightDir));</span><br><span class="line">	fixed3 halfDir = normalize(tangentLightDir + tangentViewDir);</span><br><span class="line">	</span><br><span class="line">	fixed specularMask = tex2D(_SpecularMask, i.uv).r * _SpecularScale;</span><br><span class="line">    fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(max(0, dot(tangentNormal, halfDir)), _Gloss) * specularMask;</span><br><span class="line">    return fixed4(ambient + diffuse + specular, 1);</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure></div></li>
 </ul>
+<h2 id="2-4-透明效果"><a href="#2-4-透明效果" class="headerlink" title="2.4.透明效果"></a>2.4.透明效果</h2><h3 id="2-4-1-基础实现"><a href="#2-4-1-基础实现" class="headerlink" title="2.4.1.基础实现"></a>2.4.1.基础实现</h3><ul>
+<li>透明通道：开启透明混合后，在颜色值和深度值之外，还有一个透明度，1为完全不透明，0为完全透明</li>
+<li>在正常情况下，开启深度写入和深度缓存，可达到遮挡效果，</li>
+<li>透明效果实现的两种方法：</li>
+</ul>
+<ol>
+<li>透明度测试：如果透明效果大于阈值，就直接当作非透明物体处理；如果小于阈值，就当作透明物体直接完全透明。这种方法就是1和0的区别<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">v2f vert(a2f v)</span><br><span class="line">&#123;</span><br><span class="line">    v2f o;</span><br><span class="line">    o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">    o.worldNormal = UnityObjectToWorldNormal(v.vertex);</span><br><span class="line">    o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line">    // o.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;</span><br><span class="line">    o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fixed4 frag(v2f i) : SV_Target</span><br><span class="line">&#123;</span><br><span class="line">    fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">    fixed3 worldLightDir = UnityWorldSpaceLightDir(i.pos);</span><br><span class="line">    fixed4 color = tex2D(_MainTex, i.uv);</span><br><span class="line"></span><br><span class="line">    clip(color.a - _Cutoff); //用于深度测试</span><br><span class="line">    // if (color.a - _Cutoff &lt; 0)</span><br><span class="line">    //   discard;</span><br><span class="line"></span><br><span class="line">    fixed3 albedo = color.rgb * _Color.rgb;</span><br><span class="line">    fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">    fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(worldNormal, worldLightDir));</span><br><span class="line">    return fixed4(ambient + diffuse, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>透明度混合：需要关闭深度写入，会使用当前片元的透明度作为混合因子，与已经存储在颜色缓存中的颜色混合，得到新的颜色。<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">v2f vert(a2f v)</span><br><span class="line">&#123;</span><br><span class="line">    v2f o;</span><br><span class="line">    o.pos = UnityObjectToClipPos(v.vertex);</span><br><span class="line">    o.worldNormal = UnityObjectToWorldNormal(v.vertex);</span><br><span class="line">    o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;</span><br><span class="line">    o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);</span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fixed4 frag(v2f i) : SV_Target</span><br><span class="line">&#123;</span><br><span class="line">    fixed3 worldNormal = normalize(i.worldNormal);</span><br><span class="line">    fixed3 worldLightDir = UnityWorldSpaceLightDir(i.pos);</span><br><span class="line">    fixed4 color = tex2D(_MainTex, i.uv);</span><br><span class="line">    </span><br><span class="line">    fixed3 albedo = color.rgb * _Color.rgb;</span><br><span class="line">    fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;</span><br><span class="line">    fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(worldNormal, worldLightDir));</span><br><span class="line">    return fixed4(ambient + diffuse, color.a * _AlphaScale); //将color.a和我们设置的透明度相乘</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h3 id="2-4-2-进阶实现"><a href="#2-4-2-进阶实现" class="headerlink" title="2.4.2.进阶实现"></a>2.4.2.进阶实现</h3><ol>
+<li>开启深度写入的半透明效果：先使用一个Pass进行深度写入，然后再来一个Pass进行透明度混合,深度写入如下<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">    ZWrite On</span><br><span class="line">    ColorMask 0 //用于设置颜色通道的写掩码，设置为0意味着Pass不写入任何颜色通道</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
 <h1 id="一些CG内置函数"><a href="#一些CG内置函数" class="headerlink" title="一些CG内置函数"></a>一些CG内置函数</h1><ol>
 <li>saturate(x)<br>x不论是float，float2，float3，都会被截取在[0, 1]范围内</li>
 <li>reflect(i, n)<br>计算反射方向，其中i为入射方向，n为法线方向</li>
 <li>o.uv &#x3D; TRANSFORM_TEX(v.texcoord, Texture);<br>可以从局部坐标转换为空间坐标，并且将Texture贴到模型上</li>
+<li>tex2D(Texture, i.uv);<br>根据UV坐标的映射，获取每个点的纹素</li>
+<li>clip(color.a - _Cutoff);<br>用于深度测试，等同于if (color.a - _Cutoff &lt; 0) discard;</li>
 </ol>
 
         </div>
@@ -922,7 +936,7 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-10-03 02:53:54
+                    :</strong> 2024-10-06 00:37:50
             </li>
         
         <li>
@@ -981,17 +995,61 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
 
         
             <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
-                if (hexo-config('comment.enable') == true && hexo-config('comment.system') != "") {
-  if (hexo-config('comment.system') == "waline") {
-    @require "./waline.styl"
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
 
-  } else if (hexo-config('comment.system') == "gitalk") {
-    @require "./gitalk.styl"
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
 
-  } else if (hexo-config('comment.system') == "twikoo") {
-    @require "./twikoo.styl"
-  }
-}
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'e3424327562eddbe78f0',
+                    clientSecret: '51d38eea5f706ea8a8ccb68e5181bf690fcc43e1',
+                    repo: 'Gitalk',
+                    owner: 'isZeroER',
+                    admin: ['isZeroER'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://github.com/login/oauth/access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
             </div>
         
     </div>
@@ -1002,7 +1060,7 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Shader</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">1.基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">1.1.渲染流水线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-GPU%E4%B8%8ECPU%E9%80%9A%E4%BF%A1"><span class="nav-text">1.2.GPU与CPU通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-CPU%EF%BC%88%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.1.CPU（应用阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-GPU%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5%E5%92%8C%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.2. GPU流水线（几何阶段和光栅化阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-CPU%E4%B8%8EGPU%E5%B7%A5%E4%BD%9C"><span class="nav-text">1.2.3.CPU与GPU工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Unity-Shader"><span class="nav-text">1.3.Unity Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Unity%E4%B8%AD%E7%9A%84Shader"><span class="nav-text">1.3.1.Unity中的Shader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Unity-Shader%E7%9A%84ShaderLab"><span class="nav-text">1.3.2.Unity Shader的ShaderLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-MVP%E5%8F%98%E6%8D%A2"><span class="nav-text">1.4.MVP变换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%9D%E7%BA%A7%E7%AF%87"><span class="nav-text">2.初级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%AE%80%E5%8D%95Shader%E5%AD%A6%E4%B9%A0"><span class="nav-text">2.1.简单Shader学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-Shader%E7%BC%96%E5%86%99"><span class="nav-text">2.1.1.Shader编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-UnityShader%E7%9A%84%E6%95%B4%E6%B4%81"><span class="nav-text">2.1.4.UnityShader的整洁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Unity%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7"><span class="nav-text">2.2.Unity中的基础光照</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E5%85%89%E6%BA%90"><span class="nav-text">2.2.1.光源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E5%90%B8%E6%94%B6%E5%92%8C%E6%95%A3%E5%B0%84"><span class="nav-text">2.2.2.吸收和散射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E7%9D%80%E8%89%B2"><span class="nav-text">2.2.3.着色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-%E6%A0%87%E5%87%86%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.4.标准光照模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-UnityShader%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.5.UnityShader中实现光照模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%9F%BA%E7%A1%80%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.基础纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-%E5%8D%95%E5%BC%A0%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.1.单张纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84"><span class="nav-text">2.3.2.凹凸映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-%E6%B8%90%E5%8F%98%E7%BA%B9%E7%90%86%EF%BC%88Ramp-Texture%EF%BC%89"><span class="nav-text">2.3.3.渐变纹理（Ramp Texture）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-%E9%81%AE%E7%BD%A9%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.4.遮罩纹理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9BCG%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-text">一些CG内置函数</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">1.基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">1.1.渲染流水线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-GPU%E4%B8%8ECPU%E9%80%9A%E4%BF%A1"><span class="nav-text">1.2.GPU与CPU通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-CPU%EF%BC%88%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.1.CPU（应用阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-GPU%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5%E5%92%8C%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.2. GPU流水线（几何阶段和光栅化阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-CPU%E4%B8%8EGPU%E5%B7%A5%E4%BD%9C"><span class="nav-text">1.2.3.CPU与GPU工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Unity-Shader"><span class="nav-text">1.3.Unity Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Unity%E4%B8%AD%E7%9A%84Shader"><span class="nav-text">1.3.1.Unity中的Shader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Unity-Shader%E7%9A%84ShaderLab"><span class="nav-text">1.3.2.Unity Shader的ShaderLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-MVP%E5%8F%98%E6%8D%A2"><span class="nav-text">1.4.MVP变换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%9D%E7%BA%A7%E7%AF%87"><span class="nav-text">2.初级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%AE%80%E5%8D%95Shader%E5%AD%A6%E4%B9%A0"><span class="nav-text">2.1.简单Shader学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-Shader%E7%BC%96%E5%86%99"><span class="nav-text">2.1.1.Shader编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-UnityShader%E7%9A%84%E6%95%B4%E6%B4%81"><span class="nav-text">2.1.4.UnityShader的整洁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Unity%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7"><span class="nav-text">2.2.Unity中的基础光照</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E5%85%89%E6%BA%90"><span class="nav-text">2.2.1.光源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E5%90%B8%E6%94%B6%E5%92%8C%E6%95%A3%E5%B0%84"><span class="nav-text">2.2.2.吸收和散射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E7%9D%80%E8%89%B2"><span class="nav-text">2.2.3.着色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-%E6%A0%87%E5%87%86%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.4.标准光照模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-UnityShader%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.5.UnityShader中实现光照模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%9F%BA%E7%A1%80%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.基础纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-%E5%8D%95%E5%BC%A0%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.1.单张纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84"><span class="nav-text">2.3.2.凹凸映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-%E6%B8%90%E5%8F%98%E7%BA%B9%E7%90%86%EF%BC%88Ramp-Texture%EF%BC%89"><span class="nav-text">2.3.3.渐变纹理（Ramp Texture）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-%E9%81%AE%E7%BD%A9%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.4.遮罩纹理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C"><span class="nav-text">2.4.透明效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-%E5%9F%BA%E7%A1%80%E5%AE%9E%E7%8E%B0"><span class="nav-text">2.4.1.基础实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-%E8%BF%9B%E9%98%B6%E5%AE%9E%E7%8E%B0"><span class="nav-text">2.4.2.进阶实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9BCG%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-text">一些CG内置函数</span></a></li></ol>
 
     </div>
 </div>
