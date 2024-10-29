@@ -1444,7 +1444,14 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
 <li>官方解答：利用模拟法,先将数值对应罗马数字以哈希存储，然后将目标数与每一个数值对应<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> pair&lt;<span class="type">int</span>, string&gt; valueSymbols[] = &#123;</span><br><span class="line">    &#123;<span class="number">1000</span>, <span class="string">&quot;M&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">900</span>,  <span class="string">&quot;CM&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">500</span>,  <span class="string">&quot;D&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">400</span>,  <span class="string">&quot;CD&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">100</span>,  <span class="string">&quot;C&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">90</span>,   <span class="string">&quot;XC&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">50</span>,   <span class="string">&quot;L&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">40</span>,   <span class="string">&quot;XL&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">10</span>,   <span class="string">&quot;X&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">9</span>,    <span class="string">&quot;IX&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">5</span>,    <span class="string">&quot;V&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">4</span>,    <span class="string">&quot;IV&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">1</span>,    <span class="string">&quot;I&quot;</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">intToRoman</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        string roman;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;[value, symbol] : valueSymbols) &#123;</span><br><span class="line">            <span class="keyword">while</span> (num &gt;= value) &#123;</span><br><span class="line">                num -= value;</span><br><span class="line">                roman += symbol;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> roman;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div></li>
 </ul>
 <h1 id="算法核心框架"><a href="#算法核心框架" class="headerlink" title="算法核心框架"></a>算法核心框架</h1><h2 id="1-双指针"><a href="#1-双指针" class="headerlink" title="1.双指针"></a>1.双指针</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></div>
-<h2 id="2-滑动窗口"><a href="#2-滑动窗口" class="headerlink" title="2.滑动窗口"></a>2.滑动窗口</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int left = 0, right = 0;</span><br><span class="line"></span><br><span class="line">while (right &lt; nums.size()) &#123;</span><br><span class="line">    // 增大窗口</span><br><span class="line">    window.addLast(nums[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    while (window needs shrink) &#123;</span><br><span class="line">        // 缩小窗口</span><br><span class="line">        window.removeFirst(nums[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="2-滑动窗口"><a href="#2-滑动窗口" class="headerlink" title="2.滑动窗口"></a>2.滑动窗口</h2><ul>
+<li>实则是双指针维护一个中间段的窗口<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int left = 0, right = 0;</span><br><span class="line">//窗口结束条件</span><br><span class="line">while(right &lt; nums.size())</span><br><span class="line">&#123;</span><br><span class="line">	//右窗口移动</span><br><span class="line">	window[nums[right]]++;</span><br><span class="line">	right++；</span><br><span class="line"></span><br><span class="line">	//左窗口缩短</span><br><span class="line">	while(right - left &gt;= length)</span><br><span class="line">	&#123;</span><br><span class="line">		window[nums[left]]--;</span><br><span class="line">		left++;</span><br><span class="line">		//窗口缩小后需要进行的一些操作</span><br><span class="line">		.......</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+<li>重点要素：</li>
+</ul>
+<ol>
+<li>左右窗口增大&#x2F;缩小的条件</li>
+<li>对窗口数据的维护</li>
+</ol>
 <h2 id="3-二分法"><a href="#3-二分法" class="headerlink" title="3.二分法"></a>3.二分法</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">int binarySearch(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int left = 0, right = nums.size() - 1;</span><br><span class="line"></span><br><span class="line">    while (...) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (nums[mid] == target) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125; else if (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = ...</span><br><span class="line">        &#125; else if (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <h2 id="4-动态规划"><a href="#4-动态规划" class="headerlink" title="4.动态规划"></a>4.动态规划</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 自顶向下递归的动态规划</span><br><span class="line">def dp(状态1, 状态2, ...):</span><br><span class="line">    for 选择 in 所有可能的选择:</span><br><span class="line">        # 此时的状态已经因为做了选择而改变</span><br><span class="line">        result = 求最值(result, dp(状态1, 状态2, ...))</span><br><span class="line">    return result</span><br><span class="line"></span><br><span class="line"># 自底向上迭代的动态规划</span><br><span class="line"># 初始化 base case</span><br><span class="line">dp[0][0][...] = base case</span><br><span class="line"># 进行状态转移</span><br><span class="line">for 状态1 in 状态1的所有取值：</span><br><span class="line">    for 状态2 in 状态2的所有取值：</span><br><span class="line">        for ...</span><br><span class="line">            dp[状态1][状态2][...] = 求最值(选择1，选择2...)</span><br></pre></td></tr></table></figure></div>
 <ul>
@@ -2425,7 +2432,50 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
 <li>透明度测试的双面渲染：直接在Tags后面添加 Cull Off</li>
 <li>透明度混合的双面渲染：在两个Pass里面分别进行渲染剔除，按着一定顺序，在第一个Pass里面先渲染背面，也就是剔除前面，第二个里面渲染前面，也就是剔除背面</li>
 </ul>
-<h1 id="3-中级篇"><a href="#3-中级篇" class="headerlink" title="3.中级篇"></a>3.中级篇</h1><h2 id="3-1-更复杂的光照"><a href="#3-1-更复杂的光照" class="headerlink" title="3.1.更复杂的光照"></a>3.1.更复杂的光照</h2><h3 id="3-1-1-渲染路径"><a href="#3-1-1-渲染路径" class="headerlink" title="3.1.1.渲染路径"></a>3.1.1.渲染路径</h3><h1 id="一些CG内置函数"><a href="#一些CG内置函数" class="headerlink" title="一些CG内置函数"></a>一些CG内置函数</h1><ol>
+<h1 id="3-中级篇"><a href="#3-中级篇" class="headerlink" title="3.中级篇"></a>3.中级篇</h1><h2 id="3-1-更复杂的光照"><a href="#3-1-更复杂的光照" class="headerlink" title="3.1.更复杂的光照"></a>3.1.更复杂的光照</h2><h3 id="3-1-1-渲染路径"><a href="#3-1-1-渲染路径" class="headerlink" title="3.1.1.渲染路径"></a>3.1.1.渲染路径</h3><ul>
+<li>决定光照如何应用到Unity Shader中。也就是说，给每个Pass响应的渲染路径，Unity才知道要使用的光源和处理后的光照信息是哪些。</li>
+<li>三种渲染路径：</li>
+</ul>
+<ol>
+<li>前向渲染路径（Forward Rendering Path）</li>
+<li>延迟渲染路径（Deffered Rendering Path）（已替换为新的延迟渲染路径）</li>
+<li>顶点照明渲染路径（Vertex Lit Rendering Path）（已弃用）</li>
+</ol>
+<ul>
+<li><p>如果整个项目只使用一个渲染路径，那么Edit-&gt;Project Settings-&gt;Player-&gt;Other Settings-&gt;Rendering Path，在里面选择项目所需要的渲染路径；如果不同相机想要用不同的渲染路径，那么在相机里面可以选择Rendering Path</p>
+</li>
+<li><p>前向渲染路径：渲染该对象的渲染图元，然后进行两个缓冲区的计算，深度缓存判断一个片元是否可见，可见的话就将颜色缓冲的颜色值更新。如果场景里面有N个物体，每个物体都受到M个光照，那么就需要N * M 个Pass的计算<br>一个Pass不仅可以用来计算逐像素光照，还可以计算逐顶点等其他光照。<br>前向渲染路径有三种方式（选择取决于光的类型和渲染模式）：</p>
+</li>
+</ul>
+<ol>
+<li>逐顶点处理：最多四个光源</li>
+<li>逐像素处理：一定数目的光源，最亮的平行光、Important光源</li>
+<li>球谐函数处理（SH）：剩下的光源，渲染模式为Not Important的光源<br>前向渲染的两种Pass</li>
+<li>BasePass（只进行一次计算）：<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">//可实现的光照效果：光照纹理、环境光、自发光、阴影</span><br><span class="line">//进行的光照计算：一个逐像素的平行光、所有逐顶点和SH光源</span><br><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">	Tags&#123;&quot;LightMode&quot;=&quot;ForwardBase&quot;&#125;</span><br><span class="line">	#program multi_compile_fwbase</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>AdditionalPass：<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">//可实现的光照效果：默认情况下不支持阴影</span><br><span class="line">//但可以通过使用#program multi_compile_fwadd_fullshadows,来为点光灯和聚光灯添加阴影效果</span><br><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">	Tags&#123;&quot;LightMode&quot;=&quot;ForwardAdd&quot;&#125;</span><br><span class="line">	Blend One One</span><br><span class="line">	#program multi_compile_fwadd</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+前向渲染的问题：当场景包含大量光源时，会进行大量计算，多光源影响的区域就会相互重叠，导致需要对每一个物体进行多个Pass计算。</li>
+</ol>
+<ul>
+<li>顶点照明渲染路径：仅仅使用逐顶点的方法来计算光照，而不能使用逐像素的方法，硬件要求最低，运算性能最高</li>
+<li>延迟渲染路径：延迟渲染会使用额外的缓冲区，也就是G-Buffer（Geometry）,存储了我们关心的表面信息，如表面的法线、位置、用于光照计算的材质属性<br>延迟渲染路径的两个Pass：(与光源数量无关，只与屏幕空间大小有关)</li>
+</ul>
+<ol>
+<li>深度缓冲技术，将相关信息写入G-Buffer中<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Pass1</span><br><span class="line">&#123;</span><br><span class="line">	for(each primitive in this model)</span><br><span class="line">	&#123;</span><br><span class="line">		for(each fragment covered by this primitive)</span><br><span class="line">		&#123;</span><br><span class="line">			if(failed in depth test)</span><br><span class="line">				discard;</span><br><span class="line">			else</span><br><span class="line">				writeGBuffer(materialInfo, pos, normal);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>利用G缓冲区中的各个片元信息，进行真正的光照计算<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Pass2</span><br><span class="line">&#123;</span><br><span class="line">	for(each pixel in this screen)</span><br><span class="line">	&#123;</span><br><span class="line">		if(the pixel is valid)</span><br><span class="line">		&#123;</span><br><span class="line">			readGBuffer(pixel, materialInfo, pos, normal);</span><br><span class="line">			float4 color = Shading(materialInfo, pos, normal, lightDir, viewDir);</span><br><span class="line">			writeFrameBuffer(pixel, color);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+延迟渲染的缺点：</li>
+<li>不支持真正抗锯齿</li>
+<li>不能处理半透明物体</li>
+<li>对显卡有一定要求</li>
+</ol>
+<h3 id="3-1-2-Unity的光源类型"><a href="#3-1-2-Unity的光源类型" class="headerlink" title="3.1.2.Unity的光源类型"></a>3.1.2.Unity的光源类型</h3><ul>
+<li>不同光源类型</li>
+</ul>
+<ol>
+<li>平行光：无确定位置、方向恒定单一、颜色单一、无光照衰减</li>
+<li>点光源：有位置属性、方向属性（目标点位置减去点光源位置）、颜色单一、强度可调、有光照衰减（可以由函数定义）</li>
+<li>聚光灯：有位置属性、方向属性（同点光源）、颜色单一、强度可调、有光照衰减（函数定义较点光源更为复杂，加一次是否在椎体内的判断）</li>
+</ol>
+<h1 id="一些CG内置函数"><a href="#一些CG内置函数" class="headerlink" title="一些CG内置函数"></a>一些CG内置函数</h1><ol>
 <li>saturate(x)<br>x不论是float，float2，float3，都会被截取在[0, 1]范围内</li>
 <li>reflect(i, n)<br>计算反射方向，其中i为入射方向，n为法线方向</li>
 <li>o.uv &#x3D; TRANSFORM_TEX(v.texcoord, Texture);<br>可以从局部坐标转换为空间坐标，并且将Texture贴到模型上</li>

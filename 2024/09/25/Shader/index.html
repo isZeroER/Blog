@@ -33,7 +33,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xn--gpu-gb4gy8by01d/">
 <meta property="article:published_time" content="2024-09-25T07:36:34.000Z">
-<meta property="article:modified_time" content="2024-10-08T02:44:36.435Z">
+<meta property="article:modified_time" content="2024-10-18T04:44:15.104Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -701,8 +701,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-10-08 10:44:36</span>
-            <span class="mobile">2024-10-08 10:44:36</span>
+            <span class="desktop">2024-10-18 12:44:15</span>
+            <span class="mobile">2024-10-18 12:44:15</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>5.1k Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>6k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>21 Mins</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>25 Mins</span>
         </span>
     
     
@@ -927,7 +927,50 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
 <li>透明度测试的双面渲染：直接在Tags后面添加 Cull Off</li>
 <li>透明度混合的双面渲染：在两个Pass里面分别进行渲染剔除，按着一定顺序，在第一个Pass里面先渲染背面，也就是剔除前面，第二个里面渲染前面，也就是剔除背面</li>
 </ul>
-<h1 id="3-中级篇"><a href="#3-中级篇" class="headerlink" title="3.中级篇"></a>3.中级篇</h1><h2 id="3-1-更复杂的光照"><a href="#3-1-更复杂的光照" class="headerlink" title="3.1.更复杂的光照"></a>3.1.更复杂的光照</h2><h3 id="3-1-1-渲染路径"><a href="#3-1-1-渲染路径" class="headerlink" title="3.1.1.渲染路径"></a>3.1.1.渲染路径</h3><h1 id="一些CG内置函数"><a href="#一些CG内置函数" class="headerlink" title="一些CG内置函数"></a>一些CG内置函数</h1><ol>
+<h1 id="3-中级篇"><a href="#3-中级篇" class="headerlink" title="3.中级篇"></a>3.中级篇</h1><h2 id="3-1-更复杂的光照"><a href="#3-1-更复杂的光照" class="headerlink" title="3.1.更复杂的光照"></a>3.1.更复杂的光照</h2><h3 id="3-1-1-渲染路径"><a href="#3-1-1-渲染路径" class="headerlink" title="3.1.1.渲染路径"></a>3.1.1.渲染路径</h3><ul>
+<li>决定光照如何应用到Unity Shader中。也就是说，给每个Pass响应的渲染路径，Unity才知道要使用的光源和处理后的光照信息是哪些。</li>
+<li>三种渲染路径：</li>
+</ul>
+<ol>
+<li>前向渲染路径（Forward Rendering Path）</li>
+<li>延迟渲染路径（Deffered Rendering Path）（已替换为新的延迟渲染路径）</li>
+<li>顶点照明渲染路径（Vertex Lit Rendering Path）（已弃用）</li>
+</ol>
+<ul>
+<li><p>如果整个项目只使用一个渲染路径，那么Edit-&gt;Project Settings-&gt;Player-&gt;Other Settings-&gt;Rendering Path，在里面选择项目所需要的渲染路径；如果不同相机想要用不同的渲染路径，那么在相机里面可以选择Rendering Path</p>
+</li>
+<li><p>前向渲染路径：渲染该对象的渲染图元，然后进行两个缓冲区的计算，深度缓存判断一个片元是否可见，可见的话就将颜色缓冲的颜色值更新。如果场景里面有N个物体，每个物体都受到M个光照，那么就需要N * M 个Pass的计算<br>一个Pass不仅可以用来计算逐像素光照，还可以计算逐顶点等其他光照。<br>前向渲染路径有三种方式（选择取决于光的类型和渲染模式）：</p>
+</li>
+</ul>
+<ol>
+<li>逐顶点处理：最多四个光源</li>
+<li>逐像素处理：一定数目的光源，最亮的平行光、Important光源</li>
+<li>球谐函数处理（SH）：剩下的光源，渲染模式为Not Important的光源<br>前向渲染的两种Pass</li>
+<li>BasePass（只进行一次计算）：<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//可实现的光照效果：光照纹理、环境光、自发光、阴影</span><br><span class="line">//进行的光照计算：一个逐像素的平行光、所有逐顶点和SH光源</span><br><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">	Tags&#123;&quot;LightMode&quot;=&quot;ForwardBase&quot;&#125;</span><br><span class="line">	#program multi_compile_fwbase</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>AdditionalPass：<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//可实现的光照效果：默认情况下不支持阴影</span><br><span class="line">//但可以通过使用#program multi_compile_fwadd_fullshadows,来为点光灯和聚光灯添加阴影效果</span><br><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">	Tags&#123;&quot;LightMode&quot;=&quot;ForwardAdd&quot;&#125;</span><br><span class="line">	Blend One One</span><br><span class="line">	#program multi_compile_fwadd</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+前向渲染的问题：当场景包含大量光源时，会进行大量计算，多光源影响的区域就会相互重叠，导致需要对每一个物体进行多个Pass计算。</li>
+</ol>
+<ul>
+<li>顶点照明渲染路径：仅仅使用逐顶点的方法来计算光照，而不能使用逐像素的方法，硬件要求最低，运算性能最高</li>
+<li>延迟渲染路径：延迟渲染会使用额外的缓冲区，也就是G-Buffer（Geometry）,存储了我们关心的表面信息，如表面的法线、位置、用于光照计算的材质属性<br>延迟渲染路径的两个Pass：(与光源数量无关，只与屏幕空间大小有关)</li>
+</ul>
+<ol>
+<li>深度缓冲技术，将相关信息写入G-Buffer中<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Pass1</span><br><span class="line">&#123;</span><br><span class="line">	for(each primitive in this model)</span><br><span class="line">	&#123;</span><br><span class="line">		for(each fragment covered by this primitive)</span><br><span class="line">		&#123;</span><br><span class="line">			if(failed in depth test)</span><br><span class="line">				discard;</span><br><span class="line">			else</span><br><span class="line">				writeGBuffer(materialInfo, pos, normal);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>利用G缓冲区中的各个片元信息，进行真正的光照计算<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Pass2</span><br><span class="line">&#123;</span><br><span class="line">	for(each pixel in this screen)</span><br><span class="line">	&#123;</span><br><span class="line">		if(the pixel is valid)</span><br><span class="line">		&#123;</span><br><span class="line">			readGBuffer(pixel, materialInfo, pos, normal);</span><br><span class="line">			float4 color = Shading(materialInfo, pos, normal, lightDir, viewDir);</span><br><span class="line">			writeFrameBuffer(pixel, color);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+延迟渲染的缺点：</li>
+<li>不支持真正抗锯齿</li>
+<li>不能处理半透明物体</li>
+<li>对显卡有一定要求</li>
+</ol>
+<h3 id="3-1-2-Unity的光源类型"><a href="#3-1-2-Unity的光源类型" class="headerlink" title="3.1.2.Unity的光源类型"></a>3.1.2.Unity的光源类型</h3><ul>
+<li>不同光源类型</li>
+</ul>
+<ol>
+<li>平行光：无确定位置、方向恒定单一、颜色单一、无光照衰减</li>
+<li>点光源：有位置属性、方向属性（目标点位置减去点光源位置）、颜色单一、强度可调、有光照衰减（可以由函数定义）</li>
+<li>聚光灯：有位置属性、方向属性（同点光源）、颜色单一、强度可调、有光照衰减（函数定义较点光源更为复杂，加一次是否在椎体内的判断）</li>
+</ol>
+<h1 id="一些CG内置函数"><a href="#一些CG内置函数" class="headerlink" title="一些CG内置函数"></a>一些CG内置函数</h1><ol>
 <li>saturate(x)<br>x不论是float，float2，float3，都会被截取在[0, 1]范围内</li>
 <li>reflect(i, n)<br>计算反射方向，其中i为入射方向，n为法线方向</li>
 <li>o.uv &#x3D; TRANSFORM_TEX(v.texcoord, Texture);<br>可以从局部坐标转换为空间坐标，并且将Texture贴到模型上</li>
@@ -948,7 +991,7 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-10-08 10:44:36
+                    :</strong> 2024-10-18 12:44:15
             </li>
         
         <li>
@@ -1072,7 +1115,7 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Shader</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">1.基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">1.1.渲染流水线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-GPU%E4%B8%8ECPU%E9%80%9A%E4%BF%A1"><span class="nav-text">1.2.GPU与CPU通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-CPU%EF%BC%88%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.1.CPU（应用阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-GPU%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5%E5%92%8C%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.2. GPU流水线（几何阶段和光栅化阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-CPU%E4%B8%8EGPU%E5%B7%A5%E4%BD%9C"><span class="nav-text">1.2.3.CPU与GPU工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Unity-Shader"><span class="nav-text">1.3.Unity Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Unity%E4%B8%AD%E7%9A%84Shader"><span class="nav-text">1.3.1.Unity中的Shader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Unity-Shader%E7%9A%84ShaderLab"><span class="nav-text">1.3.2.Unity Shader的ShaderLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-MVP%E5%8F%98%E6%8D%A2"><span class="nav-text">1.4.MVP变换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%9D%E7%BA%A7%E7%AF%87"><span class="nav-text">2.初级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%AE%80%E5%8D%95Shader%E5%AD%A6%E4%B9%A0"><span class="nav-text">2.1.简单Shader学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-Shader%E7%BC%96%E5%86%99"><span class="nav-text">2.1.1.Shader编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-UnityShader%E7%9A%84%E6%95%B4%E6%B4%81"><span class="nav-text">2.1.4.UnityShader的整洁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Unity%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7"><span class="nav-text">2.2.Unity中的基础光照</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E5%85%89%E6%BA%90"><span class="nav-text">2.2.1.光源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E5%90%B8%E6%94%B6%E5%92%8C%E6%95%A3%E5%B0%84"><span class="nav-text">2.2.2.吸收和散射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E7%9D%80%E8%89%B2"><span class="nav-text">2.2.3.着色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-%E6%A0%87%E5%87%86%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.4.标准光照模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-UnityShader%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.5.UnityShader中实现光照模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%9F%BA%E7%A1%80%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.基础纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-%E5%8D%95%E5%BC%A0%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.1.单张纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84"><span class="nav-text">2.3.2.凹凸映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-%E6%B8%90%E5%8F%98%E7%BA%B9%E7%90%86%EF%BC%88Ramp-Texture%EF%BC%89"><span class="nav-text">2.3.3.渐变纹理（Ramp Texture）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-%E9%81%AE%E7%BD%A9%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.4.遮罩纹理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C"><span class="nav-text">2.4.透明效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-%E5%9F%BA%E7%A1%80%E5%AE%9E%E7%8E%B0"><span class="nav-text">2.4.1.基础实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-%E8%BF%9B%E9%98%B6%E5%AE%9E%E7%8E%B0"><span class="nav-text">2.4.2.进阶实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-ShadeLab%E7%9A%84%E6%B7%B7%E5%90%88%E5%91%BD%E4%BB%A4"><span class="nav-text">2.4.3.ShadeLab的混合命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-4-%E5%8F%8C%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%9A%84%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C"><span class="nav-text">2.4.4.双面渲染的透明效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B8%AD%E7%BA%A7%E7%AF%87"><span class="nav-text">3.中级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%9B%B4%E5%A4%8D%E6%9D%82%E7%9A%84%E5%85%89%E7%85%A7"><span class="nav-text">3.1.更复杂的光照</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84"><span class="nav-text">3.1.1.渲染路径</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9BCG%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-text">一些CG内置函数</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">1.基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">1.1.渲染流水线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-GPU%E4%B8%8ECPU%E9%80%9A%E4%BF%A1"><span class="nav-text">1.2.GPU与CPU通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-CPU%EF%BC%88%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.1.CPU（应用阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-GPU%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5%E5%92%8C%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-text">1.2.2. GPU流水线（几何阶段和光栅化阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-CPU%E4%B8%8EGPU%E5%B7%A5%E4%BD%9C"><span class="nav-text">1.2.3.CPU与GPU工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Unity-Shader"><span class="nav-text">1.3.Unity Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Unity%E4%B8%AD%E7%9A%84Shader"><span class="nav-text">1.3.1.Unity中的Shader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Unity-Shader%E7%9A%84ShaderLab"><span class="nav-text">1.3.2.Unity Shader的ShaderLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-MVP%E5%8F%98%E6%8D%A2"><span class="nav-text">1.4.MVP变换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%9D%E7%BA%A7%E7%AF%87"><span class="nav-text">2.初级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%AE%80%E5%8D%95Shader%E5%AD%A6%E4%B9%A0"><span class="nav-text">2.1.简单Shader学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-Shader%E7%BC%96%E5%86%99"><span class="nav-text">2.1.1.Shader编写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4-UnityShader%E7%9A%84%E6%95%B4%E6%B4%81"><span class="nav-text">2.1.4.UnityShader的整洁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Unity%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%A1%80%E5%85%89%E7%85%A7"><span class="nav-text">2.2.Unity中的基础光照</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E5%85%89%E6%BA%90"><span class="nav-text">2.2.1.光源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E5%90%B8%E6%94%B6%E5%92%8C%E6%95%A3%E5%B0%84"><span class="nav-text">2.2.2.吸收和散射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E7%9D%80%E8%89%B2"><span class="nav-text">2.2.3.着色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-%E6%A0%87%E5%87%86%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.4.标准光照模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-UnityShader%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.2.5.UnityShader中实现光照模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%9F%BA%E7%A1%80%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.基础纹理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-%E5%8D%95%E5%BC%A0%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.1.单张纹理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-%E5%87%B9%E5%87%B8%E6%98%A0%E5%B0%84"><span class="nav-text">2.3.2.凹凸映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-%E6%B8%90%E5%8F%98%E7%BA%B9%E7%90%86%EF%BC%88Ramp-Texture%EF%BC%89"><span class="nav-text">2.3.3.渐变纹理（Ramp Texture）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-%E9%81%AE%E7%BD%A9%E7%BA%B9%E7%90%86"><span class="nav-text">2.3.4.遮罩纹理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C"><span class="nav-text">2.4.透明效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-%E5%9F%BA%E7%A1%80%E5%AE%9E%E7%8E%B0"><span class="nav-text">2.4.1.基础实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-%E8%BF%9B%E9%98%B6%E5%AE%9E%E7%8E%B0"><span class="nav-text">2.4.2.进阶实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-3-ShadeLab%E7%9A%84%E6%B7%B7%E5%90%88%E5%91%BD%E4%BB%A4"><span class="nav-text">2.4.3.ShadeLab的混合命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-4-%E5%8F%8C%E9%9D%A2%E6%B8%B2%E6%9F%93%E7%9A%84%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C"><span class="nav-text">2.4.4.双面渲染的透明效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B8%AD%E7%BA%A7%E7%AF%87"><span class="nav-text">3.中级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%9B%B4%E5%A4%8D%E6%9D%82%E7%9A%84%E5%85%89%E7%85%A7"><span class="nav-text">3.1.更复杂的光照</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84"><span class="nav-text">3.1.1.渲染路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-Unity%E7%9A%84%E5%85%89%E6%BA%90%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.1.2.Unity的光源类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9BCG%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-text">一些CG内置函数</span></a></li></ol>
 
     </div>
 </div>
