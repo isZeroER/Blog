@@ -19,16 +19,20 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://iszeroer.github.io/Blog/"/>
+    <link rel="canonical" href="https://iszeroer.github.io/Blog/2024/10/31/ab资源管理/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Zero">
-<meta property="og:url" content="https://iszeroer.github.io/Blog/index.html">
+        <meta name="description" content="1.AssetBundle的构建 可以在Unity的Inspector里面对选中的资源进行AssetBundle，设置名称和后缀12345678910[MenuItem(&quot;Tools&#x2F;BuildAssetBundle&quot;)]static void BuildAB()&#123;    string output &#x3D; Application.streamingAssetsPath;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AB资源管理">
+<meta property="og:url" content="https://iszeroer.github.io/Blog/2024/10/31/AB%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Zero">
+<meta property="og:description" content="1.AssetBundle的构建 可以在Unity的Inspector里面对选中的资源进行AssetBundle，设置名称和后缀12345678910[MenuItem(&quot;Tools&#x2F;BuildAssetBundle&quot;)]static void BuildAB()&#123;    string output &#x3D; Application.streamingAssetsPath;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-31T14:20:06.000Z">
+<meta property="article:modified_time" content="2024-10-31T16:13:47.373Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -41,6 +45,8 @@
     <!--- Page Info-->
     
     <title>
+        
+            AB资源管理 -
         
         Zero | Action
     </title>
@@ -261,132 +267,6 @@
 <main class="page-container" id="swup">
 
     
-        
-    <style>
-        .home-banner-container {
-            background: none !important;
-        }
-        .home-article-item,
-        .sidebar-links,
-        .sidebar-content,
-        a.page-number,
-        a.extend,
-        .sidebar-links .links:hover,
-        .right-bottom-tools,
-        footer.footer {
-            background-color: var(--background-color-transparent-80) !important;
-        }
-        .right-bottom-tools:hover,
-        a.page-number:hover,
-        a.extend:hover {
-            background-color: var(--primary-color) !important;
-        }
-        .site-info,
-        .home-article-sticky-label {
-            background-color: var(--background-color-transparent-15) !important;
-        }
-        .home-article-sticky-label {
-            backdrop-filter: none !important;
-        }
-    </style>
-    <div class="home-banner-background transition-fade fixed top-0 left-0 w-screen h-screen scale-125 sm:scale-110 box-border will-change-transform bg-cover">
-        <img src="https://pic.imgdb.cn/item/65bcd0ed871b83018a8b6b33.jpg" alt="home-banner-background" class="w-full h-full object-cover dark:hidden">
-        <img src="https://pic.imgdb.cn/item/65bc6f37871b83018a50637e.webp" alt="home-banner-background" class="w-full h-full object-cover hidden dark:block">
-    </div>
-
-
-<div class="home-banner-container flex justify-center items-center transition-fade relative">
-    
-    <div class="content mt-8 flex flex-col justify-center items-center">
-        <div class="description flex flex-col justify-center items-center w-screen font-medium text-center"
-        
-        >
-            Zero
-            
-            
-                <p><i id="subtitle"></i></p>
-            
-        </div>
-        
-            <div class="absolute bottom-0.5 flex flex-row justify-between max-w-[1340px] items-center w-full px-8 sm:px-12">
-                <div class="p-3 bg-gray-300/50 dark:bg-gray-500/40 backdrop-blur-lg border border-white/20 dark:border-gray-500/30 group rounded-full cursor-pointer flex justify-center items-center aspect-square h-full shadow-redefine-flat hover:shadow-redefine-flat-hover transition-shadow" onclick="scrollToMain()" >
-                    <i class="fa-solid fa-arrow-down fa-fw fa-lg group-hover:translate-y-1 transition-transform"></i>
-                </div>
-                <div class="social-contacts px-6 py-3 bg-gray-300/50 dark:bg-gray-500/40 backdrop-blur-lg border border-white/20 dark:border-gray-500/30 shadow-redefine-flat rounded-full flex flex-row gap-3 items-center">
-                    
-                        
-                            
-                                <span class="social-contact-item github">
-                                    <a target="_blank" href="https://github.com/isZeroER">
-                                        <i class="fa-brands fa-fw fa-lg fa-github"></i>
-                                    </a>
-                                </span>
-                            
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                    
-                        
-                            
-                                <span class="social-contact-item email ">
-                                    <a href="mailto:1803208661@qq.com">
-                                        <i class="fa-solid fa-fw fa-at fa-lg"></i>
-                                    </a>
-                                </span>
-                            
-                        
-                    
-                    
-
-                        <div class="social-links-divider vertical-separator w-[1px] h-4 bg-third-text-color mx-0.5"></div>
-
-                        
-                            
-                                
-                                    <span class="social-contact-item-qr weixin cursor-pointer group">
-                                        <a target="_blank">
-                                            <i class="fa-brands fa-fw fa-lg fa-weixin"></i>
-                                            <div class="social-qr-container absolute h-auto bg-background-color-transparent-40 border border-white/20 dark:border-gray-500/30 overflow-hidden rounded-2xl bottom-0 mb-14 right-0 invisible group-hover:visible opacity-0 group-hover:opacity-100 translate-y-0.5 group-hover:translate-y-0 transition-all">
-                                                <img class="social-contacts-qr w-64"
-                                                     src="https://s2.loli.net/2024/03/12/Xth5EpL8fKUiRSF.jpg"/>
-                                            </div>
-                                        </a>
-                                    </span>
-                                
-                            
-                        
-                            
-                                
-                                    <span class="social-contact-item-qr alipay cursor-pointer group">
-                                        <a target="_blank">
-                                            <i class="fa-brands fa-fw fa-lg fa-alipay"></i>
-                                            <div class="social-qr-container absolute h-auto bg-background-color-transparent-40 border border-white/20 dark:border-gray-500/30 overflow-hidden rounded-2xl bottom-0 mb-14 right-0 invisible group-hover:visible opacity-0 group-hover:opacity-100 translate-y-0.5 group-hover:translate-y-0 transition-all">
-                                                <img class="social-contacts-qr w-64"
-                                                     src="https://s2.loli.net/2024/03/12/TEU2FW3OiRQznJC.jpg"/>
-                                            </div>
-                                        </a>
-                                    </span>
-                                
-                            
-                        
-                    
-                </div>
-            </div>
-        
-    </div>
-    <script>
-        const scrollToMain = ()=> {
-            console.log('scroll');
-            const target = document.querySelector('.main-content-container');
-            target.scrollIntoView({ behavior: 'smooth'});
-        }
-    </script>
-</div>
-    
 
     <div class="main-content-container">
 
@@ -394,13 +274,13 @@
         <div class="main-content-header">
             <header class="navbar-container">
 
-    <div class="navbar-content has-home-banner">
+    <div class="navbar-content">
         <div class="left">
             
             <a class="logo-title" href="/Blog/">
-                <h1>
+                
                 Zero | Action
-                </h1>
+                
             </a>
         </div>
 
@@ -414,7 +294,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/Blog/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
@@ -589,7 +469,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/Blog/"
                         >
                             <span>
@@ -669,7 +549,7 @@
 
                     <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
                         
-                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                              navbar-data-toggle="submenu-About"
                         >
                             <span>
@@ -718,7 +598,7 @@
 
                     <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
                         
-                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                              navbar-data-toggle="submenu-Links"
                         >
                             <span>
@@ -784,572 +664,264 @@
             <div class="main-content">
 
                 
-                    <div class="home-content-container">
-    <ul class="home-article-list">
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">AB资源管理</h1>
+                </div>
+            
+            </div>
+
         
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/10/31/AB%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/">
-                            AB资源管理
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://pic.imgdb.cn/item/65bc6f36871b83018a506123.webp">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zero</span>
                         
-                            1.AssetBundle的构建
-可以在Unity的Inspector里面对选中的资源进行AssetBundle，设置名称和后缀12345678910[MenuItem(&quot;Tools/BuildAssetBundle&quot;)]stat...
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
                         
                     </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Oct 31 2024 22:20:06 GMT+0800">
-                
-                    2024-10-31
-                
-            </span>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-10-31 22:20:06</span>
+        <span class="mobile">2024-10-31 22:20:06</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-01 00:13:47</span>
+            <span class="mobile">2024-11-01 00:13:47</span>
+            <span class="hover-info">Updated</span>
         </span>
-        
-        
-    </div>
+    
 
-    <a href="/Blog/2024/10/31/AB%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/">Read more<span class="seo-reader-text">AB资源管理</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>681 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/09/25/Shader/">
-                            Shader
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1.基础篇1.1.渲染流水线
-应用阶段（CPU执行）
-
-
-准备场景数据：摄像机位置、视锥体、场景中模型、使用的光源；粗粒度剔除：把不可见物剔除；设置渲染状态：模型所要使用到的纹理、材质、shader  
-应用阶段将渲染图元传递给几何阶段
-
-
-几何阶段...
-                        
                     </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Wed Sep 25 2024 15:36:34 GMT+0800">
-                
-                    2024-09-25
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/09/25/Shader/">Read more<span class="seo-reader-text">Shader</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
                 </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="1-AssetBundle的构建"><a href="#1-AssetBundle的构建" class="headerlink" title="1.AssetBundle的构建"></a>1.AssetBundle的构建</h1><ol>
+<li>可以在Unity的Inspector里面对选中的资源进行AssetBundle，设置名称和后缀<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Tools/BuildAssetBundle&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildAB</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">string</span> output = Application.streamingAssetsPath;</span><br><span class="line">    <span class="keyword">if</span> (!Directory.Exists(output))</span><br><span class="line">    &#123;</span><br><span class="line">        Directory.CreateDirectory(output);</span><br><span class="line">    &#125;</span><br><span class="line">    BuildPipeline.BuildAssetBundles(output, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>用代码选择特定文件打包<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildAB</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> output = Application.streamingAssetsPath;</span><br><span class="line">        <span class="keyword">if</span> (!Directory.Exists(output))</span><br><span class="line">        &#123;</span><br><span class="line">            Directory.CreateDirectory(output);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// BuildPipeline.BuildAssetBundles(output, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);</span></span><br><span class="line"></span><br><span class="line">        List&lt;AssetBundleBuild&gt; builds = <span class="keyword">new</span> List&lt;AssetBundleBuild&gt;();</span><br><span class="line">        AssetBundleBuild build = <span class="keyword">new</span> AssetBundleBuild();</span><br><span class="line">        build.assetBundleName = <span class="string">&quot;ui&quot;</span>;</span><br><span class="line">        build.assetBundleVariant = <span class="string">&quot;bg&quot;</span>;</span><br><span class="line">        build.assetNames = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">&quot;Assets/Resources/Prefabs/ABUI/BG.prefab&quot;</span> &#125;;</span><br><span class="line">        </span><br><span class="line">        builds.Add(build);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//指定路径、build数组、压缩方式以及打包对象</span></span><br><span class="line">        BuildPipeline.BuildAssetBundles(output, builds.ToArray(), BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<ul>
+<li>几种name</li>
+</ul>
+<ol>
+<li><p><strong>assetBundleName</strong>：</p>
+<ul>
+<li>这是 AssetBundle 的名称。它用于识别和加载特定的 AssetBundle。在构建 AssetBundle 时，你需要为每个 AssetBundle 指定一个唯一的名称。</li>
+</ul>
+</li>
+<li><p><strong>assetBundleVariant</strong>：</p>
+<ul>
+<li>这是 AssetBundle 的变体名称。变体用于表示同一资源的不同版本或配置。例如，你可以为不同平台（如 iOS 和 Android）创建不同的变体。通常情况下，这个字段可以留空。</li>
+</ul>
+</li>
+<li><p><strong>assetNames</strong>：</p>
+<ul>
+<li>这是一个字符串数组，包含属于该 AssetBundle 的所有资源的名称。这些名称通常是资源在项目中的路径（如 <code>Assets/Resources/MyAsset.prefab</code>）。当构建 AssetBundle 时，所有列出的资源会被包含在指定的 AssetBundle 中。</li>
+</ul>
+</li>
+<li><p><strong>addressableNames</strong>：</p>
+<ul>
+<li>这是一个字符串数组，包含用于通过 Addressables 系统加载资源的名称。Addressables 是 Unity 的一种资源管理系统，允许开发者更灵活地加载和卸载资源。这个字段可以用于替代传统的资源加载方式，提供更好的资源管理能力。</li>
+</ul>
+</li>
+</ol>
+<h1 id="2-AssetBundle的加载"><a href="#2-AssetBundle的加载" class="headerlink" title="2.AssetBundle的加载"></a>2.AssetBundle的加载</h1><ol>
+<li>可以采取UnityWebRequest的方式，通过http等协议加载</li>
+<li>可以先在服务器上下载，然后再本地进行加载<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AssetBundle assetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + <span class="string">&quot;/ui.bg&quot;</span>);</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<ul>
+<li>加载资源<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GameObject gameObject = assetBundle.LoadAsset&lt;GameObject&gt;(<span class="string">&quot;BG&quot;</span>);</span><br></pre></td></tr></table></figure></div></li>
+<li>加载场景<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AssetBundle assetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + <span class="string">&quot;/scene.main&quot;</span>);</span><br><span class="line">SceneManager.LoadScene(<span class="string">&quot;Main&quot;</span>);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h1 id="3-Asset-Bundle之间的依赖关系"><a href="#3-Asset-Bundle之间的依赖关系" class="headerlink" title="3.Asset Bundle之间的依赖关系"></a>3.Asset Bundle之间的依赖关系</h1><ul>
+<li>AssetBundle资源打包之后，除了当前资源之外，还有当前资源所依赖的资源</li>
+<li>如果依赖有冗余，那么可以将被多次依赖的资源单独进行资源打包，Unity会自动识别依赖关系并且处理</li>
+<li>加载之前，应该要加载依赖的Bundle<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取所有依赖关系</span></span><br><span class="line">AssetBundleManifest manifest = assetBundle.LoadAsset&lt;AssetBundleManifest&gt;(<span class="string">&quot;AssetBundleManifest&quot;</span>);</span><br><span class="line"><span class="comment">// 对所有依赖的资源进行加载</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> manifest.GetAllDependencies(<span class="string">&quot;ui&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    AssetBundle.LoadFromFile(Application.streamingAssetsPath + item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h1 id="4-AssetBundle的卸载"><a href="#4-AssetBundle的卸载" class="headerlink" title="4.AssetBundle的卸载"></a>4.AssetBundle的卸载</h1><ul>
+<li>有两种：一种true是将AB对象和加载的资源都删掉；false是将AB对象卸载，加载的资源没有卸载<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assetBundle.Unload(<span class="literal">true</span>/<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> AB资源管理</li>
+        <li><strong>Author:</strong> Zero</li>
+        <li><strong>Created at
+                :</strong> 2024-10-31 22:20:06</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-11-01 00:13:47
             </li>
         
-            <li class="home-article-item">
+        <li>
+            <strong>Link:</strong> https://iszeroer.github.io/Blog/2024/10/31/AB资源管理/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
 
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/09/07/MySql/">
-                            MySql
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1. 库操作1.1.登录和退出数据库user -uroot -p+password;exit;
-1.2.显示所有数据库show databases;
-1.3.选中一个数据库使用use database;
-1.4.创建数据库&#x2F;删除数据库cre...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Sep 07 2024 23:20:37 GMT+0800">
-                
-                    2024-09-07
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/09/07/MySql/">Read more<span class="seo-reader-text">MySql</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/07/30/Unity%E6%97%A0%E9%99%90%E5%9C%B0%E5%9B%BE%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C/">
-                            Unity无限地图制作与动态效果
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1.动态效果
-原理：将背景图片延迟于相机移动，多张图片多种延迟速度
-
-2.无限地图
-原理：获取地图宽度，如果相机相对位移大于这一个宽度，就把背景图片进行位移
-
-3.实现12345678910111213141516171819202122232425...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Jul 30 2024 20:52:16 GMT+0800">
-                
-                    2024-07-30
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/07/30/Unity%E6%97%A0%E9%99%90%E5%9C%B0%E5%9B%BE%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C/">Read more<span class="seo-reader-text">Unity无限地图制作与动态效果</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/07/29/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">
-                            有限状态机
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Jul 29 2024 18:56:42 GMT+0800">
-                
-                    2024-07-29
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/07/29/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/">Read more<span class="seo-reader-text">有限状态机</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/06/11/LeetCode/">
-                            LeetCode
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            LeetCode线上刷题 
-1.第一天1.1.两数之和
-题目描述：给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。你可以假设每种输入只会对应一个答案。...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Jun 11 2024 18:12:19 GMT+0800">
-                
-                    2024-06-11
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/06/11/LeetCode/">Read more<span class="seo-reader-text">LeetCode</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/06/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                            设计模式
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            0.学习资源菜鸟设计模式 
-1.创造型模式1.1.单例模式（Singleton Pattern）
-单例模式：是一种创造型设计模式，它确保一个类只有一个实例，并且提供了一个全局访问点来访问该实例
-特点：1.单例类只能有一个实例2.单例类必须自己创建自己...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Jun 11 2024 16:53:07 GMT+0800">
-                
-                    2024-06-11
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/06/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">Read more<span class="seo-reader-text">设计模式</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/06/08/Kali%E6%B8%97%E9%80%8F/">
-                            Kali渗透
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1.信息收集
-对于漏洞遗漏非常重要，信息收集越充分，漏洞就越少  
-信息收集内容1.域名2.IP3.端口4.CMS指纹5.通过搜索引擎收集信息（gogle dork）：可以使用一些语法进行引擎搜索6.网络空间测绘7.目录扫描
-
-1.1.网络空间测绘（...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Jun 08 2024 13:21:31 GMT+0800">
-                
-                    2024-06-08
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/Blog/2024/06/08/Kali%E6%B8%97%E9%80%8F/">Read more<span class="seo-reader-text">Kali渗透</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/06/06/Unity%E8%AE%BE%E7%BD%AE%E5%88%9A%E4%BD%93%E4%B8%8E%E7%89%B9%E5%AE%9A%E5%88%9A%E4%BD%93%E4%B8%8D%E5%8F%91%E7%94%9F%E7%A2%B0%E6%92%9E/">
-                            Unity设置刚体与特定刚体不发生碰撞
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            通过设置layer collision matrix，也就是碰撞矩阵
-首先创建一个特殊照顾的layer，这个layer里面的物体都是不想发生碰撞的物体，例如noCollider
-对玩家也设置一个layer，例如player
-然后进入project s...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Jun 06 2024 01:08:28 GMT+0800">
-                
-                    2024-06-06
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/Unity%E5%B0%8F%E6%8A%80%E5%B7%A7/">Unity小技巧</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/06/06/Unity%E8%AE%BE%E7%BD%AE%E5%88%9A%E4%BD%93%E4%B8%8E%E7%89%B9%E5%AE%9A%E5%88%9A%E4%BD%93%E4%B8%8D%E5%8F%91%E7%94%9F%E7%A2%B0%E6%92%9E/">Read more<span class="seo-reader-text">Unity设置刚体与特定刚体不发生碰撞</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/Blog/2024/05/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            数据结构
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            1.数据结构概论
-两种讨论方法：数学和逻辑模型（从抽象视图Abstract Data Types（ADT）认识），讨论实现
-对于ADT学习内容：1.逻辑视图2.为我们提供的操作3.操作的消耗4.使用编程语言进行相应实现
-
-2.链表（Linked Li...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon May 27 2024 15:59:58 GMT+0800">
-                
-                    2024-05-27
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/Blog/tags/study/">study</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/Blog/2024/05/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Read more<span class="seo-reader-text">数据结构</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
     </ul>
-
-    <div class="home-paginator px-7 py-5">
-        <div class="paginator">
-    <span class="page-number current">1</span><a class="page-number" href="/Blog/page/2/">2</a><a class="page-number" href="/Blog/page/3/">3</a><a class="extend next" rel="next" href="/Blog/page/2/"><i class="fa-regular fa-angle-right"></i></a>
 </div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/Blog/2024/09/25/Shader/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Shader</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'e3424327562eddbe78f0',
+                    clientSecret: '51d38eea5f706ea8a8ccb68e5181bf690fcc43e1',
+                    repo: 'Gitalk',
+                    owner: 'isZeroER',
+                    admin: ['isZeroER'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://github.com/login/oauth/access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">AB资源管理</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-AssetBundle%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-text">1.AssetBundle的构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-AssetBundle%E7%9A%84%E5%8A%A0%E8%BD%BD"><span class="nav-text">2.AssetBundle的加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Asset-Bundle%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="nav-text">3.Asset Bundle之间的依赖关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-AssetBundle%E7%9A%84%E5%8D%B8%E8%BD%BD"><span class="nav-text">4.AssetBundle的卸载</span></a></li></ol>
 
     </div>
 </div>
+        </div>
+    
+</div>
 
-                    <div class="comment-container pjax"></div>
+
+
                 
 
             </div>
-
-            
-                <div class="home-sidebar-container">
-    <div class="sticky-container sticky">
-        
-        
-            
-                <div class="sidebar-links">
-                    <div class="site-info">
-                        <div class="site-name">Zero | Action</div>
-                        
-                            <div class="announcement">
-                                未经允许，不准转载
-                            </div>
-                        
-                    </div>
-                    
-                        
-                            
-                                <a class="links" href="/Blog/archives">
-                                    
-                                        <i class="fa-regular fa-archive icon-space"></i>
-                                    
-                                    <span class="link-name">Archives</span>
-                                </a>
-                            
-                        
-                            
-                                <a class="links" href="/Blog/tags">
-                                    
-                                        <i class="fa-regular fa-tags icon-space"></i>
-                                    
-                                    <span class="link-name">Tags</span>
-                                </a>
-                            
-                        
-                            
-                                <a class="links" href="/Blog/categories">
-                                    
-                                        <i class="fa-regular fa-folder icon-space"></i>
-                                    
-                                    <span class="link-name">Categories</span>
-                                </a>
-                            
-                        
-                    
-                </div>
-            
-            <div class="sidebar-content"  marginTop >
-                <div class="avatar flex justify-center">
-    <img src="https://pic.imgdb.cn/item/65bc6f36871b83018a506123.webp">
-</div>
-                <div class="author flex flex-col justify-center my-2.5 mx-0">
-    <div class="name">Zero</div>
-    
-        <div class="label">Lv3</div>
-    
-</div>
-                <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
-        <div class="label text-third-text-color text-sm">Tags</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
-        <div class="label text-third-text-color text-sm">Categories</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/Blog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
-        <div class="label text-third-text-color text-sm">Posts</div>
-    </a>
-</div>
-            </div>
-        
-
-    </div>
-</div>
 
             
 
@@ -1430,6 +1002,27 @@
     </div>
 
     
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
 
     <div class="right-side-tools-container">
         <div class="side-tools-container">
@@ -1501,7 +1094,6 @@
         containers: ["#swup"],
     });
 </script>
-
 
 
 

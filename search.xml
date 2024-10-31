@@ -2487,4 +2487,54 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
         <tag>study</tag>
       </tags>
   </entry>
+  <entry>
+    <title>AB资源管理</title>
+    <url>/Blog/2024/10/31/AB%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="1-AssetBundle的构建"><a href="#1-AssetBundle的构建" class="headerlink" title="1.AssetBundle的构建"></a>1.AssetBundle的构建</h1><ol>
+<li>可以在Unity的Inspector里面对选中的资源进行AssetBundle，设置名称和后缀<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MenuItem(<span class="string">&quot;Tools/BuildAssetBundle&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildAB</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">string</span> output = Application.streamingAssetsPath;</span><br><span class="line">    <span class="keyword">if</span> (!Directory.Exists(output))</span><br><span class="line">    &#123;</span><br><span class="line">        Directory.CreateDirectory(output);</span><br><span class="line">    &#125;</span><br><span class="line">    BuildPipeline.BuildAssetBundles(output, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>用代码选择特定文件打包<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BuildAB</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> output = Application.streamingAssetsPath;</span><br><span class="line">        <span class="keyword">if</span> (!Directory.Exists(output))</span><br><span class="line">        &#123;</span><br><span class="line">            Directory.CreateDirectory(output);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// BuildPipeline.BuildAssetBundles(output, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);</span></span><br><span class="line"></span><br><span class="line">        List&lt;AssetBundleBuild&gt; builds = <span class="keyword">new</span> List&lt;AssetBundleBuild&gt;();</span><br><span class="line">        AssetBundleBuild build = <span class="keyword">new</span> AssetBundleBuild();</span><br><span class="line">        build.assetBundleName = <span class="string">&quot;ui&quot;</span>;</span><br><span class="line">        build.assetBundleVariant = <span class="string">&quot;bg&quot;</span>;</span><br><span class="line">        build.assetNames = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">&quot;Assets/Resources/Prefabs/ABUI/BG.prefab&quot;</span> &#125;;</span><br><span class="line">        </span><br><span class="line">        builds.Add(build);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//指定路径、build数组、压缩方式以及打包对象</span></span><br><span class="line">        BuildPipeline.BuildAssetBundles(output, builds.ToArray(), BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<ul>
+<li>几种name</li>
+</ul>
+<ol>
+<li><p><strong>assetBundleName</strong>：</p>
+<ul>
+<li>这是 AssetBundle 的名称。它用于识别和加载特定的 AssetBundle。在构建 AssetBundle 时，你需要为每个 AssetBundle 指定一个唯一的名称。</li>
+</ul>
+</li>
+<li><p><strong>assetBundleVariant</strong>：</p>
+<ul>
+<li>这是 AssetBundle 的变体名称。变体用于表示同一资源的不同版本或配置。例如，你可以为不同平台（如 iOS 和 Android）创建不同的变体。通常情况下，这个字段可以留空。</li>
+</ul>
+</li>
+<li><p><strong>assetNames</strong>：</p>
+<ul>
+<li>这是一个字符串数组，包含属于该 AssetBundle 的所有资源的名称。这些名称通常是资源在项目中的路径（如 <code>Assets/Resources/MyAsset.prefab</code>）。当构建 AssetBundle 时，所有列出的资源会被包含在指定的 AssetBundle 中。</li>
+</ul>
+</li>
+<li><p><strong>addressableNames</strong>：</p>
+<ul>
+<li>这是一个字符串数组，包含用于通过 Addressables 系统加载资源的名称。Addressables 是 Unity 的一种资源管理系统，允许开发者更灵活地加载和卸载资源。这个字段可以用于替代传统的资源加载方式，提供更好的资源管理能力。</li>
+</ul>
+</li>
+</ol>
+<h1 id="2-AssetBundle的加载"><a href="#2-AssetBundle的加载" class="headerlink" title="2.AssetBundle的加载"></a>2.AssetBundle的加载</h1><ol>
+<li>可以采取UnityWebRequest的方式，通过http等协议加载</li>
+<li>可以先在服务器上下载，然后再本地进行加载<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">AssetBundle assetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + <span class="string">&quot;/ui.bg&quot;</span>);</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<ul>
+<li>加载资源<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">GameObject gameObject = assetBundle.LoadAsset&lt;GameObject&gt;(<span class="string">&quot;BG&quot;</span>);</span><br></pre></td></tr></table></figure></div></li>
+<li>加载场景<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">AssetBundle assetBundle = AssetBundle.LoadFromFile(Application.streamingAssetsPath + <span class="string">&quot;/scene.main&quot;</span>);</span><br><span class="line">SceneManager.LoadScene(<span class="string">&quot;Main&quot;</span>);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h1 id="3-Asset-Bundle之间的依赖关系"><a href="#3-Asset-Bundle之间的依赖关系" class="headerlink" title="3.Asset Bundle之间的依赖关系"></a>3.Asset Bundle之间的依赖关系</h1><ul>
+<li>AssetBundle资源打包之后，除了当前资源之外，还有当前资源所依赖的资源</li>
+<li>如果依赖有冗余，那么可以将被多次依赖的资源单独进行资源打包，Unity会自动识别依赖关系并且处理</li>
+<li>加载之前，应该要加载依赖的Bundle<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取所有依赖关系</span></span><br><span class="line">AssetBundleManifest manifest = assetBundle.LoadAsset&lt;AssetBundleManifest&gt;(<span class="string">&quot;AssetBundleManifest&quot;</span>);</span><br><span class="line"><span class="comment">// 对所有依赖的资源进行加载</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> manifest.GetAllDependencies(<span class="string">&quot;ui&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    AssetBundle.LoadFromFile(Application.streamingAssetsPath + item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h1 id="4-AssetBundle的卸载"><a href="#4-AssetBundle的卸载" class="headerlink" title="4.AssetBundle的卸载"></a>4.AssetBundle的卸载</h1><ul>
+<li>有两种：一种true是将AB对象和加载的资源都删掉；false是将AB对象卸载，加载的资源没有卸载<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">assetBundle.Unload(<span class="literal">true</span>/<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+]]></content>
+  </entry>
 </search>
