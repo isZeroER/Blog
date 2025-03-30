@@ -2535,6 +2535,7 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
 <h1 id="4-AssetBundle的卸载"><a href="#4-AssetBundle的卸载" class="headerlink" title="4.AssetBundle的卸载"></a>4.AssetBundle的卸载</h1><ul>
 <li>有两种：一种true是将AB对象和加载的资源都删掉；false是将AB对象卸载，加载的资源没有卸载<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line">assetBundle.Unload(<span class="literal">true</span>/<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></div></li>
 </ul>
+<h1 id="5-Lua热更新"><a href="#5-Lua热更新" class="headerlink" title="5.Lua热更新"></a>5.Lua热更新</h1><p>…..TODO</p>
 ]]></content>
   </entry>
 </search>
