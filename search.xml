@@ -508,6 +508,9 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 </ul>
 <h2 id="3-界面配置关系"><a href="#3-界面配置关系" class="headerlink" title="3.界面配置关系"></a>3.界面配置关系</h2><p>Unity中可以使用两种方式，一种是Excel导入，一种是使用Unity自带的</p>
 ]]></content>
+      <tags>
+        <tag>Unity框架</tag>
+      </tags>
   </entry>
   <entry>
     <title>Unity中存储框架</title>
@@ -536,6 +539,9 @@ const_cast：用于从表达式中删除const或volatile修饰符<br>reinterpret
 <li>IFormatter formatter &#x3D; new BinaryFormatter();</li>
 </ol>
 ]]></content>
+      <tags>
+        <tag>Unity框架</tag>
+      </tags>
   </entry>
   <entry>
     <title>UnityStudy</title>
@@ -2634,7 +2640,7 @@ Pass<br>  {<br>      CGPROGRAM<br>      #pragma vertex vert<br>      #pragma fra
 </ul>
 ]]></content>
       <tags>
-        <tag>study</tag>
+        <tag>Unity框架</tag>
       </tags>
   </entry>
 </search>
