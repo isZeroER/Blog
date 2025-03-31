@@ -2083,7 +2083,52 @@ SendMessage的内部执行（反射机制，本质上是同步调用）：<br>1.
   <entry>
     <title>有限状态机</title>
     <url>/Blog/2024/07/29/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="一、有限状态机的核心概念"><a href="#一、有限状态机的核心概念" class="headerlink" title="一、有限状态机的核心概念"></a>一、有限状态机的核心概念</h1><ol>
+<li>状态（State）：表示对象在某一时刻的行为模式（如站立、移动、攻击）。每个状态需要实现三个核心生命周期方法：</li>
+</ol>
+<ul>
+<li>Enter：状态初始化逻辑（播放动画、重置计时器等）</li>
+<li>Update：每帧执行的逻辑（如检测输入、切换条件）</li>
+<li>Exit：状态退出前的清理逻辑（如停止动画）</li>
+</ul>
+<ol start="2">
+<li>状态转移（Transition）</li>
+</ol>
+<ul>
+<li>通过条件触发状态切换，避免硬编码</li>
+</ul>
+<ol start="3">
+<li>状态机（State Machine）：管理状态切换与更新的控制器</li>
+</ol>
+<ul>
+<li>状态字典（以枚举或类型为键值存储状态实例）</li>
+<li>当前状态引用及切换逻辑</li>
+</ul>
+<h1 id="二、应用场景"><a href="#二、应用场景" class="headerlink" title="二、应用场景"></a>二、应用场景</h1><ol>
+<li>角色控制<br>管理玩家移动、攻击、跳跃等</li>
+<li>敌人AI<br>实现巡逻、追击、攻击等状态逻辑，提升AI行为的可预测性</li>
+<li>动画控制<br>通过Animator Controller与脚本状态协同，动态切换动画片段</li>
+</ol>
+<h1 id="三、代码实现"><a href="#三、代码实现" class="headerlink" title="三、代码实现"></a>三、代码实现</h1><ol>
+<li>定义状态接口与基类<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IState</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Enter</span>()</span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Exit</span>()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">StateBase</span> : <span class="title">IState</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">protected</span> StateMachine stateMachine;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">StateBase</span>(<span class="params">StateMachin sm</span>)</span> =&gt; stateMachin = sm;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Enter</span>()</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Update</span>()</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Exit</span>()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>实现具体状态类<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">IdleState</span> : <span class="title">StateBase</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">IdleState</span>(<span class="params">StateMachine machine</span>) : <span class="title">base</span>(<span class="params">machine</span>)</span> &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Enter</span>()</span> =&gt; Debug.Log(<span class="string">&quot;进入待机状态&quot;</span>);</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Update</span>()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKey(KeyCode.W)) </span><br><span class="line">            stateMachine.ChangeState&lt;WalkState&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Exit</span>()</span> =&gt; Debug.Log(<span class="string">&quot;退出待机状态&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+<li>构建状态机控制器<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">StateMachine</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;Type, IState&gt; _states = <span class="keyword">new</span>();</span><br><span class="line">    <span class="keyword">private</span> IState _currentState;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddState</span>&lt;<span class="title">T</span>&gt;(<span class="params">T state</span>) <span class="keyword">where</span> T : IState</span> </span><br><span class="line">        =&gt; _states.Add(<span class="keyword">typeof</span>(T), state);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChangeState</span>&lt;<span class="title">T</span>&gt;()</span> &#123;</span><br><span class="line">        _currentState?.Exit();</span><br><span class="line">        _currentState = _states[<span class="keyword">typeof</span>(T)];</span><br><span class="line">        _currentState.Enter();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>()</span> =&gt; _currentState?.Update();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h1 id="四、高级优化与拓展"><a href="#四、高级优化与拓展" class="headerlink" title="四、高级优化与拓展"></a>四、高级优化与拓展</h1><ol>
+<li>参数化状态：通过注入参数（如移动速度、攻击力）实现状态行为的动态调整，增强灵活性</li>
+<li>分层状态机（HSM）：嵌套子状态机处理复杂逻辑，例如在AttackState里面细分NormalAttack与SkillState子状态</li>
+<li>状态可视化工具：使用UnityEditor扩展或者第三方插件实现状态的可视化编辑与调试</li>
+<li>事件驱动状态转移：结合UnityEvent或者委托（delegate）解耦状态转移条件，例如：<div class="highlight-container" data-rel="C#"><figure class="iseeu highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AttackState</span> : <span class="title">StateBase</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> UnityEvent OnAttackFinished;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Enter</span>()</span> =&gt; StartCoroutine(AttackRoutine());</span><br><span class="line">    <span class="function">IEnumerator <span class="title">AttackRoutine</span>()</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">1f</span></span>)</span>;</span><br><span class="line">        OnAttackFinished?.Invoke(); <span class="comment">// 触发状态切换</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h1 id="五、性能与注意事项"><a href="#五、性能与注意事项" class="headerlink" title="五、性能与注意事项"></a>五、性能与注意事项</h1><ol>
+<li>避免频繁状态切换：频繁调用Enter&#x2F;Exit可能引发性能问题，可通过状态缓存或者异步过度优化</li>
+<li>单元测试：为每个状态编写单元测试，验证转移条件与边界情况</li>
+<li>与行为树结合：对于超复杂AI逻辑（如Boss战），可搭配行为树（Behavior Tree）实现更灵活的决策</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Unity框架</tag>
+      </tags>
   </entry>
   <entry>
     <title>Unity无限地图制作与动态效果</title>
